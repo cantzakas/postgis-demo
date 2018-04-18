@@ -20,3 +20,5 @@ Read [About PostGIS](POSTGIS.md) page for information on PostGIS Extension for G
 Follow the step-by-step instructions available at [GIS-loader file](GIS-loader.md) page, on how to load GIS data into Pivotal Greenplum database.
 ## About the data used in this demo
 Read [About the data](ABOUTDATA.md) page for information on number of records and table attrinutes for the datasets used in this demo.
+### Simple SQL exercises
+[Simple SQL](SIMPLE-SQL.md)
