@@ -41,3 +41,16 @@ Also remember the tables we have available:
 | nyc_streets | name, type, geom |
 | nyc_subway_stations | name, geom |
 | nyc_neighborhoods | name, boroname, geom |
+
+## Exercises
+- **“What is the area of the ‘West Village’ neighborhood?”**
+```sql
+SELECT ST_Area(geom)
+FROM nyc_neighborhoods
+WHERE name = 'West Village';
+```
+
+| population |
+| :---    |
+| 1385108 |
+| (1 row) |
