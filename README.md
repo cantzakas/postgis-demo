@@ -79,5 +79,5 @@ The Greenplum Database PostGIS extension does not support the following features
 For information about Greenplum Database PostGIS support, see PostGIS Extension Support and Limitations.
 
 ## Loading GIS (Vector) Data into Pivotal Greenplum Database
-To load GIS data into Pivotal Greenplum database, check the step-by-step instructions at [ESRI-Shapefile-Loader](ESRI-Shapefile-Loader.md).
+To load GIS data into Pivotal Greenplum database, check the step-by-step instructions available at [GIS-loader file](GIS-loader.md).
 
