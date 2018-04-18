@@ -8,7 +8,7 @@ Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) 
 - Data
   - This workshop uses a [data bundle](http://files.boundlessgeo.com/workshopmaterials/postgis-workshop-201401.zip). 
 
-## Diclaimer
+## Disclaimer
 All the data in the package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
 ## Greenplum Database
@@ -77,3 +77,7 @@ The Greenplum Database PostGIS extension does not support the following features
 - PostGIS long transaction support
 - Geometry and geography type modifier
 For information about Greenplum Database PostGIS support, see PostGIS Extension Support and Limitations.
+
+## Loading GIS (Vector) Data into Pivotal Greenplum Database
+To load GIS data into Pivotal Greenplum database, check the step-by-step instructions at [ESRI-Shapefile-Loader](ESRI-Shapefile-Loader.md).
+
