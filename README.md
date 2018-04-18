@@ -11,9 +11,11 @@ Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) 
 ## Disclaimer
 All the data in the package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
+# Demo instructions
 ## Greenplum Database
-### About Greenplum Database
+Read [Welcome to Pivotal Greenplum Database](GPDB.md) page for information on Greenplum Database.
 ## Greenplum PostGIS Extension
+Read [About PostGIS](POSTGIS.md) page for information on PostGIS Extension for Greenplum.
 ## Loading GIS (Vector) Data into Pivotal Greenplum Database
-To load GIS data into Pivotal Greenplum database, check the step-by-step instructions available at [GIS-loader file](GIS-loader.md).
+Follow the step-by-step instructions available at [GIS-loader file](GIS-loader.md) page, on how to load GIS data into Pivotal Greenplum database.
 
