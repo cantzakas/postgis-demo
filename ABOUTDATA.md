@@ -6,8 +6,6 @@ The following describes the number of records and table attributes for each of o
 ## nyc_census_blocks
 A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
 
-Number of records: 36592
-
 | Field | Description |
 | :---- | :--- |
 | blkid | A 15-digit code that uniquely identifies every census block. Eg: 360050001009000 |
@@ -20,12 +18,12 @@ Number of records: 36592
 | boroname | Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens |
 | geom | Polygon boundary of the block |
 
+Number of records: 36592
+
 **Note:** To get census data into GIS, you need to join two pieces of information: the actual data (text), and the boundary files (spatial). There are many options for getting the data, including downloading data and boundaries from the Census Bureau’s [American FactFinder](http://factfinder.census.gov/).
 
 ## nyc_neighborhoods
 New York has a rich history of neighborhood names and extent. Neighborhoods are social constructs that do not follow lines laid down by the government. For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and Cobble Hill were once collectively known as “South Brooklyn.” And now, depending on which real estate agent you talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red Hook!
-
-Number of records: 129
 
 | Field | Description |
 | :---- | :--- |
@@ -33,10 +31,11 @@ Number of records: 129
 | boroname | Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens |
 | geom | Polygon boundary of the neighborhood |
 
+
+Number of records: 129
+
 ## nyc_streets
 The street centerlines form the transportation network of the city. These streets have been flagged with types in order to distinguish between such thoroughfares as back alleys, arterial streets, freeways, and smaller streets. Desirable areas to live might be on residential streets rather than next to a freeway.
-
-Number of records: 19091
 
 | Field | Description |
 | :---- | :--- |
@@ -45,10 +44,10 @@ Number of records: 19091
 | type | Road type (primary, secondary, residential, motorway) |
 | geom | Linear centerline of the street |
 
+Number of records: 19091
+
 ## nyc_subway_stations
 The subway stations link the upper world where people live to the invisible network of subways beneath. As portals to the public transportation system, station locations help determine how easy it is for different people to enter the subway system.
-
-Number of records: 491
 
 | Field | Description |
 | :---- | :--- |
@@ -58,6 +57,8 @@ Number of records: 491
 | transfers | Lines you can transfer to via this station |
 | express | Stations where express trains stop, “express” = yes, “” = no |
 | geom | Point location of the station |
+
+Number of records: 491
 
 ## nyc_census_sociodata
 There is a rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract. Census blocks combine to form census tracts (and block groups). We have collected some social-economic at a census tract level to answer some of these more interesting questions about New York City.
