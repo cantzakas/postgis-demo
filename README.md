@@ -22,3 +22,5 @@ Follow the step-by-step instructions available at [GIS-loader file](GIS-loader.m
 Read [About the data](ABOUTDATA.md) page for information on number of records and table attrinutes for the datasets used in this demo.
 ### Simple SQL exercises
 [Simple SQL](SIMPLE-SQL.md)
+### Geometry (PostGIS) SQL exercises
+[Geo/PostGIS SQL](GEO-POSTGIS-SQL.md)
