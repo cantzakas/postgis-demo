@@ -92,3 +92,6 @@ GROUP BY
     <td colspan="2">5 rows</td>
   </tr>
 </table>
+
+## Next module
+[Geometry (PostGIS) SQL exercises](https://github.com/cantzakas/postgis-demo/blob/master/GEO-POSTGIS-SQL.md)
