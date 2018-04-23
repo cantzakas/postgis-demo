@@ -64,12 +64,31 @@ FROM
 GROUP BY 
   boroname;
 ```
-
-| boroname | white_pct |
-| :---    | :--- |
-| Queens | 39.72207739459101 |
-| Brooklyn | 42.80117379326865 |
-| Manhattan	| 57.44930394804628 |
-| Staten Island	| 72.8942034860154 |
-| The Bronx	| 27.903744689944755 |
-| (5 rows) |
+<table>
+  <tr>
+    <th>boroname</td>
+    <th>white_pct</td>
+  <tr>
+    <td>Queens</td>
+    <td>39.72207739459101</td>
+  </tr>
+  <tr>
+    <td>Brooklyn</td>
+    <td>42.80117379326865</td>
+  </tr>
+  <tr>
+    <td>Manhattan</td>
+    <td>57.44930394804628</td>
+  </tr>
+  <tr>
+    <td>Staten Island</td>
+    <td>72.8942034860154</td>
+  </tr>
+  <tr>
+    <td>The Bronx</td>
+    <td>27.903744689944755</td>
+  </tr>
+  <tr>
+    <td colspan="2">5 rows</td>
+  </tr>
+</table>
