@@ -1,4 +1,4 @@
-# Loading GIS (Vector) Data 
+# How to load GIS (Vector) Data into Postgres/Greenplum
 
 ## Loading Data Using SQL
 If you can convert your data to a text representation, then using formatted SQL might be the easiest way to get your data into PostGIS. As with Oracle and other SQL databases, data can be bulk loaded by piping a large text file full of SQL "INSERT" statements into the SQL terminal monitor. 
