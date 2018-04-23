@@ -36,7 +36,7 @@ FROM
 
 | population |
 | :---    |
-| 8175032 |
+| 8,175,032.00 |
 | (1 row) |
 
 - **“What is the population of the Bronx?”**
@@ -51,7 +51,7 @@ WHERE
 
 | population |
 | :---    |
-| 1385108 |
+| 1,385,108.00 |
 | (1 row) |
 
 - **“For each borough, what percentage of the population is white?”**
@@ -65,7 +65,11 @@ GROUP BY
   boroname;
 ```
 
-| population |
-| :---    |
-| 1385108 |
-| (1 row) |
+| boroname | white_pct |
+| :---    | :--- |
+| Queens | 39.72207739459101 |
+| Brooklyn | 42.80117379326865 |
+| Manhattan	| 57.44930394804628 |
+| Staten Island	| 72.8942034860154 |
+| The Bronx	| 27.903744689944755 |
+| (5 rows) |
