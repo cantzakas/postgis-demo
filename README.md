@@ -18,13 +18,13 @@ Read [Welcome to Pivotal Greenplum Database](GPDB.md) page for information on Gr
 Read [About PostGIS](POSTGIS.md) page for information on PostGIS Extension for Greenplum.
 ### Geometries
 Read [Geometries](GEOMETRIES.md) page for background information and better understanding on how a real world object is represented using PostGIS & SQL.
-### Loading GIS (Vector) Data into Pivotal Greenplum Database
-Follow the step-by-step instructions available at [GIS-loader file](GIS-loader.md) page, on how to load GIS data into Pivotal Greenplum database.
-### About the data used in this demo
-Read [About the data](ABOUTDATA.md) page for information on number of records and table attrinutes for the datasets used in this demo.
+### How to Load GIS (Vector) Data
+Find generic information on how to load GIS data into a Pivotal Greenplum database [here](HOWTO-LOAD-GIS-DATA.md) page.
+### About the Demo Dataset
+Read [About the demo dataset](ABOUTDATA.md) page for information on number of records and table attrinutes for the datasets used in this demo.
+### Loading the Demo Data into a Pivotal Greenplum Database
+Follow the detailed instructions available [here](LOAD-DEMOGIS-INTO-GPDB.md), on how to load this demo GIS dataset into a Pivotal Greenplum database.
 
 ## Modules/Exercises included in this demo
-### Simple SQL exercises
-[Simple SQL](SIMPLE-SQL.md)
-### Geometry (PostGIS) SQL exercises
-[Geo/PostGIS SQL](GEO-POSTGIS-SQL.md)
+- [**Simple SQL exercises**](SIMPLE-SQL.md)
+- [**Geo/PostGIS SQL**](GEO-POSTGIS-SQL.md)
