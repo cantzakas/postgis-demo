@@ -64,5 +64,5 @@ psql -d <database-name> -f <sql-file>
 A conversion and upload can be done all in one step using UNIX pipes:
 
 ```sql
-shp2pgsql <shape-file> <schema-name>.<table-name> | psql -d <daatabase-namem>
+shp2pgsql <shape-file> <schema-name>.<table-name> | psql -d <database-name>
 ```
