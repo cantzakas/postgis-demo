@@ -6,7 +6,7 @@ The following paragraphs describe the table attributes for each of our datasets 
 ## Ordnance Survey Open Data
 
 ### Code-Point® Open
-Code-Point Open gives you a precise geographic location for each postcode unit in Great Britain. Postcodes, also know as postal codes in the United Kingdom, are alphanumeric; the structure of a postcode is a one or two-letter postcode area code named after a local city, town or area of London, one or two digits signifying a district in that region, a space, and then an arbitrary code of one number and two letters. 
+Code-Point® Open gives you a precise geographic location for each postcode unit in Great Britain. Postcodes, also know as postal codes in the United Kingdom, are alphanumeric; the structure of a postcode is a one or two-letter postcode area code named after a local city, town or area of London, one or two digits signifying a district in that region, a space, and then an arbitrary code of one number and two letters. 
 
 | Field | Description |
 | :---- | :--- |
@@ -26,6 +26,20 @@ Code-Point Open gives you a precise geographic location for each postcode unit i
 | Number of records | 1701025 |
 | Data type | Point Data |
 | Supply format | CSV |
+
+Code-Point® Open also provides the reference information:
+- [Area codes](cpo-area-codes.md)
+- [County codes](cpo-county-codes.md)
+- [District codes](cpo-district-codes.md)
+- [District Ward codes](cpo-district-ward-codes.md)
+- [London Borough codes](cpo-lon-borough-codes.md)
+- [London Borough Ward codes](cpo-lon-borough-ward-codes.md)
+- [Metropolitan District codes](cpo-met-district-codes.md)
+- [Metropolitan District Ward codes](cpo-met-district-ward-codes.md)
+- [Unitary Authority codes](cpo-uni-auth-codes.md)
+- [Unitary Authority Electoral Division codes](cpo-uni-auth-electoral-codes.md)
+- [Unitary Authority Ward codes](cpo-uni-auth-ward-codes.md)
+- [NHS codes](nhs-codes.md)
 
 ### London Wards
 A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
