@@ -56,9 +56,9 @@ The key features of Greenspace Open are:
 - Freely available online as an Open Data download and as a layer in the OS Maps consumer web service
 
 Open Greenspace comprises two feature types, while each feature type has associated attribution:
-- GreenspaceSite; A polygon defining the extent of green spaces such as parks and sports facilities that are likely to be open
+- ***GreenspaceSite***. A polygon defining the extent of green spaces such as parks and sports facilities that are likely to be open
 for use by members of the public. These extents are generalised.
-- AccessPoint; A point feature denoting where access to a site is located, and what kind of access is permitted at that
+- ***AccessPoint***. A point feature denoting where access to a site is located, and what kind of access is permitted at that
 location.
 
 | Field | Description |
@@ -71,20 +71,15 @@ location.
 | **borough** |  |
 | **poly_id** |  |
 
-Number of records: 
-
-## Full UK Postcode Latitude Longitude
-
-### ukpostcodes.zip (CSV format, 33MB zipped, 96MB unzipped)
-Postal codes used in the United Kingdom are known as postcodes. They are alphanumeric and were adopted nationally between 11 October 1959 and 1974, having been devised by the GPO (Royal Mail). The structure of a postcode is a one or two-letter postcode area code named after a local city, town or area of London, one or two digits signifying a district in that region, a space, and then an arbitrary code of one number and two letters. 
-
-For example, the postcode of the University of Roehampton in London is SW15 5PU, where SW stands for south-west London. The postcode of GCHQ is GL51 0EX, where GL signifies the postal area of Gloucester. The postal town refers to a wide area and does not relate to a specific town, county or region. GL51 is one of the postcodes for the town of Cheltenham (in Gloucestershire) which is where GCHQ is located.
-
-| Field | Description |
+| File metadata | |
 | :---- | :--- |
-| **id** | An integer that matches a unique postcode. _Eg: 1, 2, 3, etc._ |
-| **postcode** | The postal codes used in the United Kingdom; designates an area with a number of addresses or a single major delivery point. _Eg. AB10, EC1V 9NR, E2 8HR, etc._|
-| **latitude** | The geographic coordinate that specifies the north–south position of a point on the Earth's surface for the UK postcode. _Eg. 53.536191000000000, 51.525169000000000, etc._ |
-| **longitude** | The geographic coordinate that specifies the east-west position of a point on the Earth's surface for the UK postcode. _Eg. -0.090486166347876, -0.075045341739029, etc._ |
+| Resolution | 1-m accuracy for the central position of the postcode unit |
+| Coordinates | National Grid |
+| Coverage | Great Britain (England, Scotland, Wales) |
+| Data type | Point Data |
+| Supply formats | CSV |
+| Update cycle | Quarterly, in February, May, August and November |
+| Number of records (May 2018) | 1701025 |
 
-Number of records: 1762398
+https://www.ordnancesurvey.co.uk/docs/product-guides/os-open-greenspace-product-guide.pdf
+https://www.ordnancesurvey.co.uk/docs/user-guides/os-open-greenspace-getting-started-guide.pdf
