@@ -6,13 +6,7 @@ The following paragraphs describe the table attributes for each of our datasets 
 ## Ordnance Survey Open Data
 
 ### Code-Point® Open
-Code-Point Open gives you a precise geographic location for each postcode unit in Great Britain. 
-
-Postal codes used in the United Kingdom are known as postcodes. They are alphanumeric and were adopted nationally between 11 October 1959 and 1974, having been devised by the GPO (Royal Mail). The structure of a postcode is a one or two-letter postcode area code named after a local city, town or area of London, one or two digits signifying a district in that region, a space, and then an arbitrary code of one number and two letters. 
-
-Data type: Point Data. 
-
-Supply format: CSV.
+Code-Point Open gives you a precise geographic location for each postcode unit in Great Britain. Postcodes, also know as postal codes in the United Kingdom, are alphanumeric; the structure of a postcode is a one or two-letter postcode area code named after a local city, town or area of London, one or two digits signifying a district in that region, a space, and then an arbitrary code of one number and two letters. 
 
 | Field | Description |
 | :---- | :--- |
@@ -27,7 +21,11 @@ Supply format: CSV.
 | **dc** | Admin district code |
 | **wc** | Admin ward code |
 
-Number of records: 1701025 records
+| File metadata | |
+| :---- | :--- |
+| Number of records | 1701025 |
+| Data type | Point Data |
+| Supply format | CSV |
 
 ### London Wards
 A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
