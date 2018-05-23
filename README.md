@@ -5,9 +5,9 @@ Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) 
 As of 25 May 2018, this demo has been updated vs. the [Boundless](http://boundlessgeo.com/) demo; now, the demo utilizes and presents data available and for the area of Greater London, UK.
 
 ## Bill of Materials
-- Software (available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
-  - Greenplum Database Sandbox OVA for VMWare (version 5.8.0)
-  - PostGIS 2.1.5+pivotal.1 for RHEL 6 extension package
+- Software
+  - Greenplum Database Sandbox OVA for VMWare (available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
+  - PostGIS 2.1.5+pivotal.1 for RHEL 6 extension package (also available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 - Data
   - [Ordnance Survey Open Data](https://www.ordnancesurvey.co.uk/opendatadownload/products.html):
     - [Code-Point® Open](https://www.ordnancesurvey.co.uk/business-and-government/products/code-point-open.html); Code-Point Open gives you a precise geographic location for each postcode unit in Great Britain. Data type: Point Data. Supply format: CSV.
