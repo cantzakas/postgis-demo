@@ -1,8 +1,5 @@
 # postgis-demo
-Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org), build upon the work people at [Boundless](http://boundlessgeo.com/) have done, check their workshop material at https://github.com/boundlessgeo/workshops.
-
-### Update ###
-As of 25 May 2018, this demo has been updated vs. the [Boundless](http://boundlessgeo.com/) demo; now, the demo utilizes and presents data available and for the area of Greater London, UK.
+Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org). The original demo was build upon the [work](https://github.com/boundlessgeo/workshops) people at [Boundless](http://boundlessgeo.com/) have done in the past, yet as of 25 May 2018, it has been updated and extended to utilize and present data available and for the area of Greater London, UK.
 
 ## Bill of Materials
 - Software
