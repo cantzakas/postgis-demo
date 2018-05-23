@@ -10,16 +10,16 @@ Code-Point® Open gives you a precise geographic location for each postcode unit
 
 | Field | Description |
 | :---- | :--- |
-| **pc** | Postcode |
+| **pc** | Postcode unit |
 | **pq** | Postitional quality indicator |
 | **ea** | Eastings |
 | **no** | Northings |
 | **cy** | Country code |
-| **rh** | NHS regional HA code |
-| **lh** | NHS HA code |
-| **cc** | Admin county code |
-| **dc** | Admin district code |
-| **wc** | Admin ward code |
+| **rh** | NHS regional health authority  code |
+| **lh** | NHS health authority  code |
+| **cc** | Administrative county code |
+| **dc** | Administrative district code |
+| **wc** | Administrative ward code |
 
 | File metadata | |
 | :---- | :--- |
@@ -45,8 +45,21 @@ Code-Point® Open also provides the reference information:
 - [Unitary Authority Ward codes](cpo-uni-auth-ward-codes.md)
 - [NHS codes](nhs-codes.md)
 
-### London Wards
-A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
+### OS Open Greenspace
+OS Open Greenspace depicts the location and extent of spaces such as parks and sports facilities that are likely to be accessible to the public. Where appropriate, it also includes access points to show how people get into these sites. Its primary purpose is to enable members of the public to find and access green spaces near them for exercise and recreation.
+
+The key features of Greenspace Open are:
+- Comprehensive coverage of publicly accessible green spaces
+- Polygons of the greenspace extents
+- Access points to depict place and type of access to the site
+- Four attributes for site name to allow multiple official and/or local names to be available in the product
+- Freely available online as an Open Data download and as a layer in the OS Maps consumer web service
+
+Open Greenspace comprises two feature types, while each feature type has associated attribution:
+- GreenspaceSite; A polygon defining the extent of green spaces such as parks and sports facilities that are likely to be open
+for use by members of the public. These extents are generalised.
+- AccessPoint; A point feature denoting where access to a site is located, and what kind of access is permitted at that
+location.
 
 | Field | Description |
 | :---- | :--- |
