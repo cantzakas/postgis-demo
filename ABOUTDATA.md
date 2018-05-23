@@ -3,26 +3,38 @@ The data for this workshop is four shapefiles for New York City, and one attribu
 
 The following describes the number of records and table attributes for each of our datasets. These attribute values and relationships are fundamental to our future analysis.
 
-## statistical-gis-boundaris-london
+## statistical-gis-boundaries-london
+The Zip folder contains a range of key GIS boundary files for ESRI and Map Info covering Greater London.
 
-### 
+### London Boroughs
 A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
 
 | Field | Description |
 | :---- | :--- |
-| blkid | A 15-digit code that uniquely identifies every census block. Eg: 360050001009000 |
-| popn_total | Total number of people in the census block |
-| popn_white | Number of people self-identifying as “White” in the block |
-| popn_black | Number of people self-identifying as “Black” in the block |
-| popn_nativ | Number of people self-identifying as “Native American” in the block |
-| popn_asian | Number of people self-identifying as “Asian” in the block |
-| popn_other | Number of people self-identifying with other categories in the block |
-| boroname | Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens |
-| geom | Polygon boundary of the block |
+| **name** |  |
+| **gss_code** |  |
+| **hectares** |  |
+| **nonld_area** |  |
+| **ons_inner** |  |
+| **sub_2009** |  |
+| **sub_2006** |  |
 
-Number of records: 36592
+Number of records: 
 
-**Note:** To get census data into GIS, you need to join two pieces of information: the actual data (text), and the boundary files (spatial). There are many options for getting the data, including downloading data and boundaries from the Census Bureau’s [American FactFinder](http://factfinder.census.gov/).
+### London Wards
+A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
+
+| Field | Description |
+| :---- | :--- |
+| **name** |  |
+| **gss_code** |  |
+| **hectares** |  |
+| **nonld_area** |  |
+| **lb_gss_cd** |  |
+| **borough** |  |
+| **poly_id** |  |
+
+Number of records: 
 
 ## Full UK Postcode Latitude Longitude
 
