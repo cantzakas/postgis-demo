@@ -23,9 +23,13 @@ Code-Point® Open gives you a precise geographic location for each postcode unit
 
 | File metadata | |
 | :---- | :--- |
-| Number of records | 1701025 |
+| Resolution | 1-m accuracy for the central position of the postcode unit |
+| Coordinates | National Grid |
+| Coverage | Great Britain (England, Scotland, Wales) |
 | Data type | Point Data |
-| Supply format | CSV |
+| Supply formats | CSV |
+| Update cycle | Quarterly, in February, May, August and November |
+| Number of records (May 2018) | 1701025 |
 
 Code-Point® Open also provides the reference information:
 - [Area codes](cpo-area-codes.md)
