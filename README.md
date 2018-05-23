@@ -9,18 +9,17 @@ As of 25 May 2018, this demo has been updated vs. the [Boundless](http://boundle
   - Greenplum Database Sandbox OVA for VMWare (version 5.8.0)
   - PostGIS 2.1.5+pivotal.1 for RHEL 6 extension package
 - Data
-  - [Statistical GIS Boundary Files for London](https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london); contains a range of key GIS boundary files for ESRI and Map Info covering Greater London and includes information on:
-    - Output Area (OA) 2011,
-    - Lower Super Output Area (LSOA) 2004 and 2011,
-    - Middle Super Output Area (MSOA) 2004 and 2011,
-    - London Wards, 
-    - London Boroughs
-  - [Full UK Postcode Latitude Longitude](https://www.freemaptools.com/download-uk-postcode-lat-lng.htm).
+  - [Ordnance Survey Open Data](https://www.ordnancesurvey.co.uk/opendatadownload/products.html):
+    - [Code-Point® Open](https://www.ordnancesurvey.co.uk/business-and-government/products/code-point-open.html); Code-Point Open gives you a precise geographic location for each postcode unit in Great Britain. Data type: Point Data. Supply format: CSV.
+    - [Boundary-Line™](https://www.ordnancesurvey.co.uk/business-and-government/products/boundary-line.html); Boundary-Line maps every administrative boundary in Great Britain, down to the level of council wards. Data type: Vector. Supply format: ESRI© Shape, MapInfo© Tab.
+    - [OS Open Greenspace](https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-greenspace.html); OS Open Greenspace contains the location and extent of spaces such as parks and sports facilities that are likely to be accessible to the public. Data type: Vector. Supply format: GML 3, ESRI© Shape.
+    - [OS Open Names](https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-names.html); OS Open Names is a comprehensive dataset of place names, roads numbers and postcodes for Great Britain.
+    - [OS Open Roads](https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-roads.html); OS Open Roads gives you a high-level view of the British road network, from motorways to country lanes.
+    - [OS Open Rivers](https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-rivers.html); OS Open Rivers gives you a high-level view of the British river network, showing how all the different watercourses join up.
   - [TfL's free Transport Data Service](https://tfl.gov.uk/info-for/open-data-users/) information:
 
 ## Disclaimer
-- [Statistical GIS Boundary Files for London](https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london) 'contains National Statistics data © Crown copyright and database right [2015]' and 'contains Ordnance Survey data © Crown copyright and database right [2015]'.
-- [Full UK Postcode Latitude Longitude](https://www.freemaptools.com/download-uk-postcode-lat-lng.htm) 'contains Ordnance Survey data © Crown copyright and database right 2017', 'contains Royal Mail data © Royal Mail copyright and database right 2017' and 'contains National Statistics data © Crown copyright and database right 2017'.
+- Use of Ordnance Survey data is subject to terms at www.ordnancesurvey.co.uk/opendata/licence. Contains Ordnance Survey data © Crown copyright and database right 2018. Contains Royal Mail data © Royal Mail copyright and database right 2018. Contains National Statistics data © Crown copyright and database right 2018.
 - [TfL's free Transport Data Service](https://tfl.gov.uk/info-for/open-data-users/) is 'Powered by TfL Open Data' and 'contains OS data © Crown copyright and database rights 2016'.
 - All the software in the package is open source, and freely redistributable. 
 - This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
