@@ -6,8 +6,11 @@ The following paragraphs describe the table attributes for each of our datasets 
 ## Ordnance Survey Open Data
 
 ### Code-Point® Open
+
+#### Background
 Code-Point® Open gives you a precise geographic location for each postcode unit in Great Britain. Postcodes, also know as postal codes in the United Kingdom, are alphanumeric; the structure of a postcode is a one or two-letter postcode area code named after a local city, town or area of London, one or two digits signifying a district in that region, a space, and then an arbitrary code of one number and two letters. 
 
+#### Fields
 | Field | Description |
 | :---- | :--- |
 | **pc** | Postcode unit |
@@ -21,7 +24,8 @@ Code-Point® Open gives you a precise geographic location for each postcode unit
 | **dc** | Administrative district code |
 | **wc** | Administrative ward code |
 
-| File metadata | |
+#### File metadata
+| | |
 | :---- | :--- |
 | Resolution | 1-m accuracy for the central position of the postcode unit |
 | Coordinates | National Grid |
@@ -31,6 +35,7 @@ Code-Point® Open gives you a precise geographic location for each postcode unit
 | Update cycle | Quarterly, in February, May, August and November |
 | Number of records (May 2018) | 1701025 |
 
+#### Additional Information
 Code-Point® Open also provides the reference information:
 - [Area codes](cpo-area-codes.md)
 - [County codes](cpo-county-codes.md)
@@ -46,6 +51,8 @@ Code-Point® Open also provides the reference information:
 - [NHS codes](nhs-codes.md)
 
 ### OS Open Greenspace
+
+#### Background
 OS Open Greenspace depicts the location and extent of spaces such as parks and sports facilities that are likely to be accessible to the public. Where appropriate, it also includes access points to show how people get into these sites. Its primary purpose is to enable members of the public to find and access green spaces near them for exercise and recreation.
 
 The key features of Greenspace Open are:
@@ -61,6 +68,7 @@ for use by members of the public. These extents are generalised.
 - ***AccessPoint***. A point feature denoting where access to a site is located, and what kind of access is permitted at that
 location.
 
+#### Fields
 | Field | Description |
 | :---- | :--- |
 | **name** |  |
@@ -71,7 +79,8 @@ location.
 | **borough** |  |
 | **poly_id** |  |
 
-| File metadata | |
+#### File metadata
+| | |
 | :---- | :--- |
 | Resolution | 1-m accuracy for the central position of the postcode unit |
 | Coordinates | National Grid |
@@ -81,5 +90,6 @@ location.
 | Update cycle | Quarterly, in February, May, August and November |
 | Number of records (May 2018) | 1701025 |
 
+#### Additional Information
 https://www.ordnancesurvey.co.uk/docs/product-guides/os-open-greenspace-product-guide.pdf
 https://www.ordnancesurvey.co.uk/docs/user-guides/os-open-greenspace-getting-started-guide.pdf
