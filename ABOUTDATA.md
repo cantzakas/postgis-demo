@@ -10,7 +10,7 @@ The following paragraphs describe the table attributes for each of our datasets 
 #### Background
 Code-Point® Open gives you a precise geographic location for each postcode unit in Great Britain. Postcodes, also know as postal codes in the United Kingdom, are alphanumeric; the structure of a postcode is a one or two-letter postcode area code named after a local city, town or area of London, one or two digits signifying a district in that region, a space, and then an arbitrary code of one number and two letters. 
 
-#### Fields
+#### Field attributes
 | Field | Description |
 | :---- | :--- |
 | **pc** | Postcode unit |
@@ -25,10 +25,10 @@ Code-Point® Open gives you a precise geographic location for each postcode unit
 | **wc** | Administrative ward code |
 
 #### File metadata
-| | |
-| :---- | :--- |
+| Metadata | Value |
+| :------- | :---- |
 | Resolution | 1-m accuracy for the central position of the postcode unit |
-| Coordinates | National Grid |
+| Coordinates |  British National Grid (BNG) |
 | Coverage | Great Britain (England, Scotland, Wales) |
 | Data type | Point Data |
 | Supply formats | CSV |
@@ -62,34 +62,41 @@ The key features of Greenspace Open are:
 - Four attributes for site name to allow multiple official and/or local names to be available in the product
 - Freely available online as an Open Data download and as a layer in the OS Maps consumer web service
 
-Open Greenspace comprises two feature types, while each feature type has associated attribution:
-- ***GreenspaceSite***. A polygon defining the extent of green spaces such as parks and sports facilities that are likely to be open
+#### Field attributes
+OS Open Greenspace comprises two feature types, while each feature type has associated attribution:
+- GreenspaceSite; a polygon defining the extent of green spaces such as parks and sports facilities that are likely to be open
 for use by members of the public. These extents are generalised.
-- ***AccessPoint***. A point feature denoting where access to a site is located, and what kind of access is permitted at that
+- AccessPoint; a point feature denoting where access to a site is located, and what kind of access is permitted at that
 location.
 
-#### Fields
-| Field | Description |
-| :---- | :--- |
-| **name** |  |
-| **gss_code** |  |
-| **hectares** |  |
-| **nonld_area** |  |
-| **lb_gss_cd** |  |
-| **borough** |  |
-| **poly_id** |  |
+| Feature Type | Field | Description |
+| :----------- | :---- | :---------- |
+| Greenspace Sites | ID | The unique identifier of the site. The ID is generated each release and will change between versions of the product. |
+| Greenspace Sites | Function | The function of the greenspace site. Functions are determined from a specific greenspace list, and only those sites which fall within this list have been included in this product. |
+| Greenspace Sites | Distinctive Name | The name of the site. There is space within the product for up to four Distinctive Name attributes to be populated, if a site is known locally by more than one name. |
+| Access Points | ID | The unique identifier of the access point |
+| Access Points | Access Type | The type of access whcih is permitted at the particular point. |
+| Access Points | Reference to Greenspace Site | The unique identifier of the Greenspace site to which the access point relates. | 
+
+**Distinctive Name attribution** 
+Where a site is known locally by more than one name, the product has been formatted to allow this to be populated in successive name attr butes. For many greenspaces, this will rely on information from local experts, who have been encouraged to populate the information to Ord ance Survey where relevant. These names are expected to be useful in gathering more information about a site, such as its opening times or  wnership information. Names will be populated in the product where they can be sourced from relevant existing data holdings during produc  creation. As a result, a limited number of records will contain distinctive name attribution in the first release. The population of this attribute will improve over time.
+
+**Nested Sites**
+Where more than one function can be identified within a greenspace, nesting is used. This means that where sites overlap, or where a whole site is contained within a larger site, they are published as separate polygons that overlap one another. For example, in the picture below the whole park is captured as one site, including the play areas. The play areas also have their own greenspace site captured separately and these sites overlap the park. Where nested sites are of the same function attribute, these sites will not be shown as separate but will be merged into a single site, to avoid duplicating the greenspace function on these sites.
 
 #### File metadata
-| | |
-| :---- | :--- |
-| Resolution | 1-m accuracy for the central position of the postcode unit |
-| Coordinates | National Grid |
+| Metadata | Value |
+| :--- | :--- |
+| Coordinates | British National Grid (BNG) |
 | Coverage | Great Britain (England, Scotland, Wales) |
-| Data type | Point Data |
-| Supply formats | CSV |
-| Update cycle | Quarterly, in February, May, August and November |
-| Number of records (May 2018) | 1701025 |
+| Data structure | Polygons and points |
+| Supply formats | GML, Esri Shape file |
+| Update cycle | every 6 months |
+| Number of records (April 2018) | GreenspaceSite 140763, AccessPoint 263853 |
 
 #### Additional Information
-https://www.ordnancesurvey.co.uk/docs/product-guides/os-open-greenspace-product-guide.pdf
-https://www.ordnancesurvey.co.uk/docs/user-guides/os-open-greenspace-getting-started-guide.pdf
+- [Release notes version 1.0, April 2018](https://www.ordnancesurvey.co.uk/docs/release-notes/os-open-greenspace-release-note-apr-2018.pdf)
+- [OS Open Greenspace Getting Started Guide](https://www.ordnancesurvey.co.uk/docs/user-guides/os-open-greenspace-getting-started-guide.pdf)
+- [OS Open Greenspace Product Guide](https://www.ordnancesurvey.co.uk/docs/product-guides/os-open-greenspace-product-guide.pdf)
+- [OS Open Greenspace Technical Specification](https://www.ordnancesurvey.co.uk/docs/technical-specifications/os-open-greenspace-technical-specification.pdf)
+- [Ordnance Survey stylesheets for Greenspace premium and open products](https://github.com/OrdnanceSurvey/OS-Open-Greenspace-stylesheets)
