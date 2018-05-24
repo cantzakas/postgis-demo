@@ -79,9 +79,11 @@ location.
 | Access Points | Reference to Greenspace Site | The unique identifier of the Greenspace site to which the access point relates. | 
 
 **Distinctive Name attribution** 
+
 Where a site is known locally by more than one name, the product has been formatted to allow this to be populated in successive name attr butes. For many greenspaces, this will rely on information from local experts, who have been encouraged to populate the information to Ord ance Survey where relevant. These names are expected to be useful in gathering more information about a site, such as its opening times or  wnership information. Names will be populated in the product where they can be sourced from relevant existing data holdings during produc  creation. As a result, a limited number of records will contain distinctive name attribution in the first release. The population of this attribute will improve over time.
 
 **Nested Sites**
+
 Where more than one function can be identified within a greenspace, nesting is used. This means that where sites overlap, or where a whole site is contained within a larger site, they are published as separate polygons that overlap one another. For example, in the picture below the whole park is captured as one site, including the play areas. The play areas also have their own greenspace site captured separately and these sites overlap the park. Where nested sites are of the same function attribute, these sites will not be shown as separate but will be merged into a single site, to avoid duplicating the greenspace function on these sites.
 
 #### File metadata
