@@ -6,7 +6,11 @@ The following pages give a quick background on the data each set holds, describe
 # Datasets
 - Ordnance Survey Open Data
   - [Code-Point® Open](data/cpo.md)
+  - [Boundary-Line](data/boundary-line.md)
+  - [OS Open Names](data/oso-names.md)
+  - [OS Open Roads](data/oso-roads.md)
   - [OS Open Greenspace](data/oso-greenspace.md)
+  - [OS Open Rivers](data/oso-rivers.md)
 
 
 
