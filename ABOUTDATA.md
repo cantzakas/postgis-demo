@@ -13,16 +13,16 @@ Code-Point® Open gives you a precise geographic location for each postcode unit
 #### Field attributes
 | Field | Description |
 | :---- | :--- |
-| **pc** | Postcode unit |
-| **pq** | Postitional quality indicator |
-| **ea** | Eastings |
-| **no** | Northings |
-| **cy** | Country code |
-| **rh** | NHS regional health authority  code |
-| **lh** | NHS health authority  code |
-| **cc** | Administrative county code |
-| **dc** | Administrative district code |
-| **wc** | Administrative ward code |
+| pc | Postcode unit |
+| pq | Postitional quality indicator |
+| ea | Eastings |
+| no | Northings |
+| cy | Country code |
+| rh | NHS regional health authority  code |
+| lh | NHS health authority  code |
+| cc | Administrative county code |
+| dc | Administrative district code |
+| wc | Administrative ward code |
 
 #### File metadata
 | Metadata | Value |
