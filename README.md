@@ -6,36 +6,10 @@ Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) 
 - Greenplum Database Sandbox OVA for VMWare (available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 - PostGIS 2.1.5+pivotal.1 for RHEL 6 extension package (also available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 ### Data
-#### London (updated dataset from Pivotal Software)
-- [Ordnance Survey Open Data](https://www.ordnancesurvey.co.uk/opendatadownload/products.html):
-  - [Code-Point® Open](https://www.ordnancesurvey.co.uk/business-and-government/products/code-point-open.html); Code-Point Open gives you a precise geographic location for each postcode unit in Great Britain. Data type: Point Data. Supply format: CSV.
-  - [Boundary-Line™](https://www.ordnancesurvey.co.uk/business-and-government/products/boundary-line.html); Boundary-Line maps every administrative boundary in Great Britain, down to the level of council wards. Data type: Vector. Supply format: ESRI© Shape, MapInfo© Tab.
-  - [OS Open Greenspace](https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-greenspace.html); OS Open Greenspace contains the location and extent of spaces such as parks and sports facilities that are likely to be accessible to the public. Data type: Vector. Supply format: GML 3, ESRI© Shape.
-  - [OS Open Names](https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-names.html); OS Open Names is a comprehensive dataset of place names, roads numbers and postcodes for Great Britain.
-  - [OS Open Roads](https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-roads.html); OS Open Roads gives you a high-level view of the British road network, from motorways to country lanes.
-  - [OS Open Rivers](https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-rivers.html); OS Open Rivers gives you a high-level view of the British river network, showing how all the different watercourses join up.
-- [TfL's free Transport Data Service](https://tfl.gov.uk/info-for/open-data-users/) information:
-#### NYC (original dataset from Boundless)
-The data for this workshop is four shapefiles for New York City, and one attribute table of sociodemographic variables. We’ve loaded our shapefiles as PostGIS tables and will add sociodemographic data later in the workshop. 
-The following describes the number of records and table attributes for each of our datasets. These attribute values and relationships are fundamental to our future analysis.
-- nyc\_census\_blocks
-
-A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
-
-| attribute | description |
-| :-------- | :---------- |
-| blkid     | A 15-digit code that uniquely identifies every census block. Eg: 360050001009000 |
-| popn_total | Total number of people in the census block |
-| popn_white | Number of people self-identifying as “White” in the block |
-| popn_black | Number of people self-identifying as “Black” in the block |
-| popn_nativ | Number of people self-identifying as “Native American” in the block |
-| popn_asian | Number of people self-identifying as “Asian” in the block |
-| popn_other | Number of people self-identifying with other categories in the block |
-| boroname | Name of the New York borough. Manhattan, The Bronx, Brooklyn, Staten Island, Queens |
-| geom | Polygon boundary of the block |
-
-Number of records: 36592
-
+Two separate datasets are used throughout this demo:
+- London databases (updated dataset for Pivotal Software demo)
+- NYC sharefiles (original dataset for Boundless demo)
+Detailed information for each dataset are available [here](ABOUTDATA.md)
 
 ## Disclaimer
 - Use of Ordnance Survey data is subject to terms at www.ordnancesurvey.co.uk/opendata/licence. Contains Ordnance Survey data © Crown copyright and database right 2018. Contains Royal Mail data © Royal Mail copyright and database right 2018. Contains National Statistics data © Crown copyright and database right 2018.
