@@ -1,3 +1,6 @@
+# nyc\_census\_blocks
+A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
+
 | attribute | description |
 | :-------- | :---------- |
 | blkid     | A 15-digit code that uniquely identifies every census block. Eg: 360050001009000 |
@@ -11,3 +14,5 @@
 | geom | Polygon boundary of the block |
 
 Number of records: 36592
+
+![Black population as a percentage of Total Population](http://workshops.boundlessgeo.com/postgis-intro/_images/nyc_census_blocks.png)
