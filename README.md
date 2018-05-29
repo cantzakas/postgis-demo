@@ -19,7 +19,9 @@ Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) 
 The data for this workshop is four shapefiles for New York City, and one attribute table of sociodemographic variables. We’ve loaded our shapefiles as PostGIS tables and will add sociodemographic data later in the workshop. 
 The following describes the number of records and table attributes for each of our datasets. These attribute values and relationships are fundamental to our future analysis.
 - nyc\_census\_blocks
+
 A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
+
 | attribute | description |
 | :-------- | :---------- |
 | blkid     | A 15-digit code that uniquely identifies every census block. Eg: 360050001009000 |
