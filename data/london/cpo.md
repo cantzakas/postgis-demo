@@ -1,4 +1,4 @@
-# Code-Point® Open
+## Ordnance Survey Open Data, Code-Point® Open
 
 ### Background
 Code-Point® Open gives you a precise geographic location for each postcode unit in Great Britain. Postcodes, also know as postal codes in the United Kingdom, are alphanumeric; the structure of a postcode is a one or two-letter postcode area code named after a local city, town or area of London, one or two digits signifying a district in that region, a space, and then an arbitrary code of one number and two letters. 
