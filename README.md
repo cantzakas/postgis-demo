@@ -10,7 +10,7 @@ Two separate datasets are used throughout this demo:
 - London databases (updated dataset for Pivotal Software demo)
 - NYC sharefiles (original dataset for Boundless demo)
 
-Detailed information for each dataset are available [here](ABOUTDATA.md)
+Detailed information for each dataset are available [here](ABOUTDATA.md).
 
 ## Disclaimer
 - Use of Ordnance Survey data is subject to terms at www.ordnancesurvey.co.uk/opendata/licence. Contains Ordnance Survey data © Crown copyright and database right 2018. Contains Royal Mail data © Royal Mail copyright and database right 2018. Contains National Statistics data © Crown copyright and database right 2018.
