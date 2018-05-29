@@ -1,11 +1,9 @@
-# Ordnance Survey Open Data
+# Ordnance Survey Open Data - Code-Point® Open
 
-## Code-Point® Open
-
-### Background
+## Background
 Code-Point® Open gives you a precise geographic location for each postcode unit in Great Britain. Postcodes, also know as postal codes in the United Kingdom, are alphanumeric; the structure of a postcode is a one or two-letter postcode area code named after a local city, town or area of London, one or two digits signifying a district in that region, a space, and then an arbitrary code of one number and two letters. 
 
-### Field attributes
+## Field attributes
 | Field | Description |
 | :---- | :--- |
 | pc | Postcode unit |
@@ -19,7 +17,7 @@ Code-Point® Open gives you a precise geographic location for each postcode unit
 | dc | Administrative district code |
 | wc | Administrative ward code |
 
-### File metadata
+## File metadata
 | Metadata | Value |
 | :------- | :---- |
 | Resolution | 1-m accuracy for the central position of the postcode unit |
@@ -30,7 +28,7 @@ Code-Point® Open gives you a precise geographic location for each postcode unit
 | Update cycle | Quarterly, in February, May, August and November |
 | Number of records (May 2018) | 1701025 |
 
-### Additional Information
+## Additional Information
 Code-Point® Open also provides the reference information:
 - [Area codes](data/cpo-area-codes.md)
 - [County codes](data/cpo-county-codes.md)
@@ -45,4 +43,6 @@ Code-Point® Open also provides the reference information:
 - [Unitary Authority Ward codes](data/cpo-uni-auth-ward-codes.md)
 - [NHS codes](data/nhs-codes.md)
 
-**Next**: [Ordnance Survey Open Data, Boundary-Line™](data/boundary-line.md)
+| Previous: | Next: |
+| :-------- | :---- |
+| **Previous**: | **Next**: [Ordnance Survey Open Data, Boundary-Line™](data/boundary-line.md) |
