@@ -15,4 +15,7 @@ A census block is the smallest geography for which census data is reported. All 
 
 Number of records: 36592
 
-![Black population as a percentage of Total Population](http://workshops.boundlessgeo.com/postgis-intro/_images/nyc_census_blocks.png) Black population as a percentage of Total Population
+![Black population as a percentage of Total Population](http://workshops.boundlessgeo.com/postgis-intro/_images/nyc_census_blocks.png) 
+`
+Black population as a percentage of Total Population
+`
