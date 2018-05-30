@@ -1,10 +1,9 @@
-# Loading the NYC Demo Data into a Pivotal Greenplum Database
+# Loading the NYC Geospatial Data
 
 ## Getting Started
-This workshop uses a [data bundle](http://files.boundlessgeo.com/workshopmaterials/postgis-workshop-201401.zip). Download it and extract to a convenient location. Inside the data bundle, you will find
-**data/**
-a directory containing the shapefiles we will be loading.
+This workshop uses a [data bundle](http://files.boundlessgeo.com/workshopmaterials/postgis-workshop-201401.zip). Download it and extract to a convenient location. Inside the data bundle, you will find **data/**, a directory containing the shapefiles we will be loading. 
 
+All the data in this package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
 ## Loading Data Using SQL
 To load the demo dataset for this demo, we will use the _shp2pgsql_ utility, which was described on the previous [page](/HOWTO-LOAD-GIS-DATA.md)
@@ -14,7 +13,7 @@ The demo dataset contains GIS/Geospatial information for 5 different entities:
 - nyc_neighborhoods,
 - nyc_streets,
 - nyc\_subway\_stations, and
-- nyc_census_sociodata
+- nyc\_census\_sociodata
 
 For first 4 of the above, _nyc\_census\_blocks, nyc\_neighborhoods, nyc\_streets, nyc\_subway\_stations_, we will use the _shp2pgsql_ utility, to create a table in the Greenplum Database, prepare the ``INSERT`` statements which would load the data into this table and finally create an index on the geometry column of each table, as shown here:
 
@@ -41,7 +40,7 @@ psql -d nyc -U gpadmin -f nyc_subway_stations.sql
 
 ```
 
-
+To load nyc\_census\_sociodata data, use the [nyc_census_sociodata.sql](/load/nyc_census_sociodata.sql) file provided.
 
 ***Note***
 
