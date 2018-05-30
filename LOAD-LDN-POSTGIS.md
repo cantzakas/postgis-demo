@@ -21,8 +21,8 @@ FORMAT 'CSV' (DELIMITER AS ',' QUOTE AS '"');
 ``` 
 To confirm the correct number of files and entries have been loaded, one can run the following script:
 ```sql
-SELECT postcode\_2[1] postcode\_file, COUNT(*) postcode\_file\_entry\_count
-FROM (SELECT regexp\_matches(pc\_, '([A-Za-z]{1,2})(?:\d+.*)') AS POSTCODE\_2 FROM LDN\_CODE\_POINT_OPEN) A
+SELECT postcode_2[1] AS postcode_file, COUNT(*) AS postcode_file_entry_count
+FROM (SELECT regexp_matches(pc_, '([A-Za-z]{1,2})(?:\d+.*)') AS POSTCODE_2 FROM LDN_CODE_POINT_OPEN) A
 GROUP BY 1
 ORDER BY 1 ASC;
 ```
