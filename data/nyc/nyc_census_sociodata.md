@@ -26,7 +26,7 @@ There is a rich collection of social-economic data collected during the census p
 | edu\_college\_dipl | Number of people with college diploma and no further education |
 | edu\_graduate\_dipl | Number of people with graduate school diploma |
 
-### | File metadata
+### File metadata
 | Metadata | Value |
 | :------- | :---- |
 | Number of records | |
