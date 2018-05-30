@@ -32,18 +32,18 @@ Code-Point® Open gives you a precise geographic location for each postcode unit
 Additional information on Code-Point® Open can be found on the [website](https://www.ordnancesurvey.co.uk/business-and-government/products/code-point-open.html).
 
 Code-Point® Open also provides the reference information:
-- [Area codes](data/cpo-area-codes.md)
-- [County codes](data/cpo-county-codes.md)
-- [District codes](data/cpo-district-codes.md)
-- [District Ward codes](data/cpo-district-ward-codes.md)
-- [London Borough codes](data/cpo-lon-borough-codes.md)
-- [London Borough Ward codes](data/cpo-lon-borough-ward-codes.md)
-- [Metropolitan District codes](data/cpo-met-district-codes.md)
-- [Metropolitan District Ward codes](data/cpo-met-district-ward-codes.md)
-- [Unitary Authority codes](data/cpo-uni-auth-codes.md)
-- [Unitary Authority Electoral Division codes](data/cpo-uni-auth-electoral-codes.md)
-- [Unitary Authority Ward codes](data/cpo-uni-auth-ward-codes.md)
-- [NHS codes](data/nhs-codes.md)
+- [Area codes](data/london/cpo-area-codes.md)
+- [County codes](data/london/cpo-county-codes.md)
+- [District codes](data/london/cpo-district-codes.md)
+- [District Ward codes](data/london/cpo-district-ward-codes.md)
+- [London Borough codes](data/london/cpo-lon-borough-codes.md)
+- [London Borough Ward codes](data/london/cpo-lon-borough-ward-codes.md)
+- [Metropolitan District codes](data/london/cpo-met-district-codes.md)
+- [Metropolitan District Ward codes](data/london/cpo-met-district-ward-codes.md)
+- [Unitary Authority codes](data/london/cpo-uni-auth-codes.md)
+- [Unitary Authority Electoral Division codes](data/london/cpo-uni-auth-electoral-codes.md)
+- [Unitary Authority Ward codes](data/london/cpo-uni-auth-ward-codes.md)
+- [NHS codes](data/london/nhs-codes.md)
 
 | Previous: | Next: |
 | :-------- | :---- |
