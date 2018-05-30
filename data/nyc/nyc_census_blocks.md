@@ -10,7 +10,7 @@ A census block is the smallest geography for which census data is reported. All 
 ### Field attributes
 | Field | Description |
 | :-------- | :---------- |
-| blkid     | A 15-digit code that uniquely identifies every census block. Eg: 360050001009000 |
+| blkid | A 15-digit code that uniquely identifies every census block. Eg: 360050001009000 |
 | popn_total | Total number of people in the census block |
 | popn_white | Number of people self-identifying as “White” in the block |
 | popn_black | Number of people self-identifying as “Black” in the block |
