@@ -3,7 +3,7 @@
 ### Background
 There is a rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract. Census blocks combine to form census tracts (and block groups). We have collected some social-economic at a census tract level to answer some of these more interesting questions about New York City.
 
-`Note: The nyc_census_sociodata is a data table. We will need to connect it to Census geographies before conducting any spatial analysis.`
+```Note: The nyc_census_sociodata is a data table. We will need to connect it to Census geographies before conducting any spatial analysis.```
 
 ### Field attributes
 | Field | Description |
