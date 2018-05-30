@@ -30,7 +30,7 @@ Find generic information on how to load GIS data into a Pivotal Greenplum databa
 ### About the Demo Dataset
 Read [About the demo dataset](ABOUTDATA.md) page for information on number of records and table attrinutes for the datasets used in this demo.
 ### Loading the Demo Data into a Pivotal Greenplum Database
-Follow the detailed instructions available [here](LOAD-DEMOGIS-INTO-GPDB.md), on how to load this demo GIS dataset into a Pivotal Greenplum database.
+Follow the detailed instructions available [here](LOAD-GIS-DATASETS-INTO-GPDB.md), on how to load the demo GIS datasets into a Pivotal Greenplum database.
 
 ## Modules/Exercises included in this demo
 - [**Simple SQL exercises**](SIMPLE-SQL.md)
