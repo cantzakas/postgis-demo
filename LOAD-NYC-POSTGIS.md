@@ -1,4 +1,10 @@
-# Loading the Demo Data into a Pivotal Greenplum Database
+# Loading the NYC Demo Data into a Pivotal Greenplum Database
+
+## Getting Started
+This workshop uses a [data bundle](http://files.boundlessgeo.com/workshopmaterials/postgis-workshop-201401.zip). Download it and extract to a convenient location. Inside the data bundle, you will find
+**data/**
+a directory containing the shapefiles we will be loading.
+
 
 ## Loading Data Using SQL
 To load the demo dataset for this demo, we will use the _shp2pgsql_ utility, which was described on the previous [page](/HOWTO-LOAD-GIS-DATA.md)
@@ -34,6 +40,8 @@ psql -d nyc -U gpadmin -f nyc_streets.sql
 psql -d nyc -U gpadmin -f nyc_subway_stations.sql
 
 ```
+
+
 
 ***Note***
 
