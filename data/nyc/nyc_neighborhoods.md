@@ -2,6 +2,7 @@
 
 ### Background
 New York has a rich history of neighborhood names and extent. Neighborhoods are social constructs that do not follow lines laid down by the government. For example, the Brooklyn neighborhoods of Carroll Gardens, Red Hook, and Cobble Hill were once collectively known as “South Brooklyn.” And now, depending on which real estate agent you talk to, the same four blocks in the-neighborhood-formerly-known-as-Red-Hook can be referred to as Columbia Heights, Carroll Gardens West, or Red Hook!
+
 | ![The neighborhoods of New York City](http://workshops.boundlessgeo.com/postgis-intro/_images/nyc_neighborhoods.png) |
 | :------- |
 | The neighborhoods of New York City |
