@@ -15,4 +15,4 @@
 
 | Previous: | Up: | Next: |
 | :-------- | :-- | :---- |
-| [Ordnance Survey Open Data, Code-Point® Open, County Codes](data/london/data/cpo-county-codes.md) | [Ordnance Survey Open Data, Code-Point® Open](/data/london/cpo.md) | [Ordnance Survey Open Data, Code-Point® Open, District Ward Codes](data/london/data/cpo-district-ward-codes.md) |
+| [Ordnance Survey Open Data, Code-Point® Open, County Codes](cpo-county-codes.md) | [Ordnance Survey Open Data, Code-Point® Open](cpo.md) | [Ordnance Survey Open Data, Code-Point® Open, District Ward Codes](cpo-district-ward-codes.md) |
