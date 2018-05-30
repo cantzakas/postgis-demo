@@ -3,25 +3,23 @@
 ## Loading Data Using SQL
 To load the demo dataset for this demo, we will use the _shp2pgsql_ utility, which was described on the previous [page](/HOWTO-LOAD-GIS-DATA.md)
 
-The demo dataset contains GIS/Geospatial information for 4 different entities:
-- nyc_census_blocks
-- nyc_homicides
-- nyc_neighborhoods
-- nyc_streets, and
-- nyc_stations
+The demo dataset contains GIS/Geospatial information for 5 different entities:
+- nyc_census_blocks,
+- nyc_neighborhoods,
+- nyc_streets,
+- nyc\_subway\_stations, and
+- nyc_census_sociodata
 
-For all the above, we will use the _shp2pgsql_ utility, to create a table in the Greenplum Database, prepare the ``INSERT`` statements which would load the data into this table and finally create an index on the geometry column of each table, as shown here:
+For first 4 of the above, _nyc\_census\_blocks, nyc\_neighborhoods, nyc\_streets, nyc\_subway\_stations_, we will use the _shp2pgsql_ utility, to create a table in the Greenplum Database, prepare the ``INSERT`` statements which would load the data into this table and finally create an index on the geometry column of each table, as shown here:
 
 ```shell
 shp2pgsql -c -D -s 26918 -i -I nyc_census_blocks.shp public.nyc_census_blocks > nyc_census_blocks.sql
-
-shp2pgsql -c -D -s 26918 -i -I nyc_homicides.shp public.nyc_homicides > nyc_homicides.sql
 
 shp2pgsql -c -D -s 26918 -i -I nyc_neighborhoods.shp public.nyc_neighborhoods > nyc_neighborhoods.sql
 
 shp2pgsql -c -D -s 26918 -i -I nyc_streets.shp public.nyc_streets > nyc_streets.sql
 
-shp2pgsql -c -D -s 26918 -i -I nyc_stations.shp public.nyc_stations > nyc_stations.sql
+shp2pgsql -c -D -s 26918 -i -I nyc_subway_stations.shp public.nyc_subway_stations > nyc_subway_stations.sql
 
 ```
 
@@ -29,13 +27,11 @@ Then using the _psql_ utility, we execute each of the above ``sql`` files agains
 ```shell
 psql -d nyc -U gpadmin -f nyc_census_blocks.sql
 
-psql -d nyc -U gpadmin -f nyc_homicides.sql
-
 psql -d nyc -U gpadmin -f nyc_neighborhoods.sql
 
 psql -d nyc -U gpadmin -f nyc_streets.sql
 
-psql -d nyc -U gpadmin -f nyc_stations.sql
+psql -d nyc -U gpadmin -f nyc_subway_stations.sql
 
 ```
 
