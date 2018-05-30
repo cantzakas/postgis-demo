@@ -23,4 +23,4 @@ New York has a rich history of neighborhood names and extent. Neighborhoods are 
 
 | Previous: | Next: |
 | :-------- | :---- |
-| [nyc_census_blocks](nyc_census_blocks.md) | [nyc_streets](nyc_streets.md) |
+| [nyc_census_blocks](/data/nyc/nyc_census_blocks.md) | [nyc_streets](/data/nyc/nyc_streets.md) |

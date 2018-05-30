@@ -24,4 +24,4 @@ The street centerlines form the transportation network of the city. These street
 
 | Previous: | Next: |
 | :-------- | :---- |
-| [nyc_neighborhoods](nyc_neighborhoods.md) | [nyc_subway_stations](nyc_subway_stations.md) |
+| [nyc_neighborhoods](/data/nyc/nyc_neighborhoods.md) | [nyc_subway_stations](/data/nyc/nyc_subway_stations.md) |

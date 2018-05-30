@@ -29,6 +29,6 @@ A census block is the smallest geography for which census data is reported. All 
 
 | Previous: | Next: |
 | :-------- | :---- |
-| [About the data used on this demo](ABOUTDATA.md) | [nyc_neighborhoods](data/nyc/nyc_neighborhoods.md) |
+| [About the data used on this demo](/ABOUTDATA.md) | [nyc_neighborhoods](/data/nyc/nyc_neighborhoods.md) |
 
 

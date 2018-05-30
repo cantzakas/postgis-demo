@@ -36,4 +36,4 @@ There is a rich collection of social-economic data collected during the census p
 
 | Previous: | Up: |
 | :-------- | :---- |
-| [nyc_streets](nyc_streets.md) | [About the data used on this demo](ABOUTDATA.md) |
+| [nyc_streets](/data/nyc/nyc_streets.md) | [About the data used on this demo](/ABOUTDATA.md) |

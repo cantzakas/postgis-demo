@@ -26,4 +26,4 @@ The subway stations link the upper world where people live to the invisible netw
 
 | Previous: | Next: |
 | :-------- | :---- |
-| [nyc_streets](nyc_streets.md) | [nyc_census_sociodata](nyc_census_sociodata.md) |
+| [nyc_streets](/data/nyc/nyc_streets.md) | [nyc_census_sociodata](/data/nyc/nyc_census_sociodata.md) |
