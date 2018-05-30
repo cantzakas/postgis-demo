@@ -40,7 +40,7 @@ ORDER BY 1 ASC;
 | BR | 6882 |
 | ... | |
 
-- Postcode information available via Code-Point® Open also come with a set of related reference information, i.e. , area, county, district codes, etc. These arrive originaly in a .xlsx (Microsoft Excel) file yet for ease of loading, the appropriate scripts for loading are available [here]().
+- Related reference information, i.e. , area, county, district codes, etc. arrive along with Code-Point® Open data, originaly in a .xlsx (Microsoft Excel) file. For ease of loading, the appropriate scripts are available [here]().
 ## Boundary-Line™
 ## OS Open Greenspace
 ## OS Open Names
