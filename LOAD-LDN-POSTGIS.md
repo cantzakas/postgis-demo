@@ -38,16 +38,6 @@ ORDER BY 1 ASC;
 | BL | 10317 |
 | BN | 22041 |
 | BR | 6882 |
-| BS | 26647 |
-| CA | 12531 |
-| CB | 10345 |
-| CF | 23237 |
-| CH | 18720 |
-| CM | 17666 |
-| CO | 13034 |
-| CR | 8008 |
-| CT | 14752 |
-| CV | 20019 |
 | ... | |
 
 - Postcode information available via Code-Point® Open also come with a set of related reference information, i.e. , area, county, district codes, etc. These arrive originaly in a .xlsx (Microsoft Excel) file yet for ease of loading, the appropriate scripts for loading are available [here]().
