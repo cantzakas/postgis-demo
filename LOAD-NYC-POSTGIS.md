@@ -40,7 +40,7 @@ psql -d nyc -U gpadmin -f nyc_subway_stations.sql
 
 ```
 
-To load nyc\_census\_sociodata data, use the [nyc_census_sociodata.sql](/load/nyc_census_sociodata.sql) file provided.
+To load nyc\_census\_sociodata data, use the [nyc_census_sociodata.sql](/load/nyc/nyc_census_sociodata.sql) file provided.
 
 ***Note***
 
