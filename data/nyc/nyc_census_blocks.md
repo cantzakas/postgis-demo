@@ -2,6 +2,7 @@
 
 ### Background
 A census block is the smallest geography for which census data is reported. All higher level census geographies (block groups, tracts, metro areas, counties, etc) can be built from unions of census blocks. We have attached some demographic data to our collection of blocks.
+
 | ![Black population as a percentage of Total Population](http://workshops.boundlessgeo.com/postgis-intro/_images/nyc_census_blocks.png) |
 | :------- |
 | Black population as a percentage of Total Population |
