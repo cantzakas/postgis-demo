@@ -22,6 +22,37 @@ Boundary-Line™ contains all the current (operative) administrative and elector
 | Scottish and Welsh names | Yes (where available) |
 | Update cycle | Six monthly – May and October |
 
+### File Structure and Attributes
+Boundary-Line™ data arrive as a set of ESRI® Shapefiles. The Shapefile format defines the geometry and attributes of geographically-referenced features in as many as five files with specific file extensions that should be stored in the same project workspace. They are:
+- .shp – the file that stores the feature geometry.
+- .shx – the file that stores the index of the feature geometry.
+- .dbf – the dBASE file that stores the attribute information of features. When a Shapefile is added as a theme to a view, this file is displayed as a feature table.
+- .sbn and .sbx – the files that store the spatial index of the features. These two files will only exist if you perform theme-on-theme selection, spatial joins, or create an index on a theme's SHAPE field.
+- .prj – the file that stores the projection information.
+
+| Shapefile table structures ||||
+| :--- | :--- | :--- | :--- |
+| Regions || Polylines ||
+| Title | Type | Title | Type |
+| FID*  |Object ID | FID* | Object ID |
+
+SHAPE* Geometry SHAPE* Geometry
+NAME Text CODE Text
+AREA_CODE Text DESCRIPTO Text
+DESCRIPTO Text FILE_NAME Text
+FILE_NAME Text NUMBER Double
+NUMBER Double LINK_ID Double
+NUMBER0 Double
+POLYGON_ID Double
+UNIT_ID Double
+CODE Text
+HECTARES Double
+AREA Double
+TYPE_CODE Text
+DESCRIPT0 Text
+TYPE_COD0 Text
+DESCRIPT1 Text
+
 ### Additional Information
 Additional information on Ordnance Survey Open Data, Boundary-Line™ can be found on the their [website](https://www.ordnancesurvey.co.uk/business-and-government/products/boundary-line.html).
 
