@@ -50,7 +50,8 @@ Boundary-Line™ data arrive as a set of ESRI® Shapefiles. The Shapefile format
 | DESCRIPT0 | Text      |           |           |
 | TYPE_COD0 | Text      |           |           |
 | DESCRIPT1 | Text      |           |           |
-_NOTE: \*these fields are not in the data as they are virtual columns created by ArcGIS when accessing the table contents. The FID column uniquely identifies each object stored in the table. The SHAPE column provides information about the feature geometry. _
+
+_Note: \*these fields are not in the data as they are virtual columns created by ArcGIS when accessing the table contents. The FID column uniquely identifies each object stored in the table. The SHAPE column provides information about the feature geometry. _
 ### Additional Information
 Additional information on Ordnance Survey Open Data, Boundary-Line™ can be found on the their [website](https://www.ordnancesurvey.co.uk/business-and-government/products/boundary-line.html).
 
