@@ -29,7 +29,7 @@ Boundary-Line™ data arrive as a set of ESRI® Shapefiles. The Shapefile format
 - .sbn and .sbx – the files that store the spatial index of the features. These two files will only exist if you perform theme-on-theme selection, spatial joins, or create an index on a theme's SHAPE field.
 - .prj – the file that stores the projection information.
 
-| <td colspan=4>Shapefile table structures</td> ||||
+| <td colspan=4>Shapefile table structures</td> |||
 | :--- | :--- | :--- | :--- |
 | <td colspan=2>**Regions** | <td colspan=2>**Polylines** |
 | **Title** | **Type** | Title | Type |
