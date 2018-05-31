@@ -23,7 +23,7 @@ Boundary-Line™ contains all the current (operative) administrative and elector
 | Update cycle | Six monthly – May and October |
 
 ### Additional Information
-Additional information on Ordnance Survey Open Data, Boundary-Line™ can be found on the [Boundary-Line™ website](https://www.ordnancesurvey.co.uk/business-and-government/products/boundary-line.html).
+Additional information on Ordnance Survey Open Data, Boundary-Line™ can be found on the their [website](https://www.ordnancesurvey.co.uk/business-and-government/products/boundary-line.html).
 
 Ordnance Survey Open Data, Boundary-Line™ also provides the reference information:
 - [OS OpenData getting started guide](https://www.ordnancesurvey.co.uk/docs/user-guides/os-opendata-getting-started-guides.pdf)
@@ -31,4 +31,4 @@ Ordnance Survey Open Data, Boundary-Line™ also provides the reference informat
 
 | Previous: | Up: | Next: |
 | :-------- | :-- | :---- |
-| [Ordnance Survey Open Data, Boundary-Line™](boundary-line.md) | [About the data used on this demo](../../ABOUTDATA.md) | [Ordnance Survey Open Data, OS Opean Names](oso-names.md) |
+| [Ordnance Survey Open Data, Code-Point® Open](cpo.md) | [About the data used on this demo](../../ABOUTDATA.md) | [Ordnance Survey Open Data, OS Opean Names](oso-names.md) |
