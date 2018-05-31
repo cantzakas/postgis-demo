@@ -29,50 +29,28 @@ Boundary-Line™ data arrive as a set of ESRI® Shapefiles. The Shapefile format
 - .sbn and .sbx – the files that store the spatial index of the features. These two files will only exist if you perform theme-on-theme selection, spatial joins, or create an index on a theme's SHAPE field.
 - .prj – the file that stores the projection information.
 
-<table>
-	<th>
-		<td colspan=4>Shapefile table structures</td>
-	</th>
-	<tr>
-		<td colspan=2><b>Regions</b></td>
-		<td colspan=2><b>Polylines</b></td>
-	</tr>
-	<tr>
-		<td><b>Title</b></td>
-		<td><b>Type</b></td>
-		<td><b>Title</b></td>
-		<td><b>Type</b></td>
-	</tr>
-	<tr>
-		<td>FID*</td>
-		<td>Object ID</td>
-		<td>FID*</td>
-		<td>Object ID</td>
-	</tr>
-	<tr>
-		<td>SHAPE*</td>
-		<td>Geometry</td>
-		<td>SHAPE*</td>
-		<td>Geometry</td>
-	</tr>
-</table>
-
-NAME Text CODE Text
-AREA_CODE Text DESCRIPTO Text
-DESCRIPTO Text FILE_NAME Text
-FILE_NAME Text NUMBER Double
-NUMBER Double LINK_ID Double
-NUMBER0 Double
-POLYGON_ID Double
-UNIT_ID Double
-CODE Text
-HECTARES Double
-AREA Double
-TYPE_CODE Text
-DESCRIPT0 Text
-TYPE_COD0 Text
-DESCRIPT1 Text
-
+#### Shapefile table structures
+| Regions   |           | Polylines |           |
+| :-------- | :-------- | :-------- | :-------- |
+| **Title** | **Type**  | **Title** | **Type**  |
+| FID\*     | Object ID | FID\*     | Object ID |
+| SHAPE\*   | Geometry  | SHAPE\*   | Geometry  |
+| NAME      | Text      | CODE      | Text      |
+| AREA\_CODE| Text      | DESCRIPTO | Text      |
+| DESCRIPTO | Text      | FILE\_NAME| Text      |
+| FILE\_NAME| Text      | NUMBER    | Double    |
+| NUMBER    | Double    | LINK\_ID  | Double    |
+| NUMBER0   | Double    |           |           |
+| POLYGON\_ID | Double  |           |           |
+| UNIT\_ID  | Double    |           |           |
+| CODE      | Text      |           |           |
+| HECTARES  | Double    |           |           |
+| AREA      | Double    |           |           |
+| TYPE\_CODE| Text      |           |           |
+| DESCRIPT0 | Text      |           |           |
+| TYPE_COD0 | Text      |           |           |
+| DESCRIPT1 | Text      |           |           |
+_NOTE: \*these fields are not in the data as they are virtual columns created by ArcGIS when accessing the table contents. The FID column uniquely identifies each object stored in the table. The SHAPE column provides information about the feature geometry. _
 ### Additional Information
 Additional information on Ordnance Survey Open Data, Boundary-Line™ can be found on the their [website](https://www.ordnancesurvey.co.uk/business-and-government/products/boundary-line.html).
 
