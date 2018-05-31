@@ -14,8 +14,7 @@ Boundary-Line™ contains all the current (operative) administrative and elector
 ### File metadata
 | Metadata | Value |
 | :------- | :---- |
-| Scale    | Print: 1:10 000 scale recommended |
-|          | Screen: 1:5000 – 1:8000 |
+| Scale    | Print: 1:10 000 scale recommended <br/> Screen: 1:5000 – 1:8000|
 | Coordinates | National Grid |
 | Coverage | Great Britain (England, Scotland and Wales) |
 | Supply formats | ESRI® Shapefile |
