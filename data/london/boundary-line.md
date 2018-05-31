@@ -34,26 +34,28 @@ Boundary-Line™ data arrive as a set of ESRI® Shapefiles. The Shapefile format
 		<td colspan=4>Shapefile table structures</td>
 	</th>
 	<tr>
-		<td colspan=2>**Regions**</td>
-		<td colspan=2>**Polylines**</td>
+		<td colspan=2><b>Regions</b></td>
+		<td colspan=2><b>Polylines</b></td>
 	</tr>
 	<tr>
-		<td>**Title**</td>
-		<td>**Type**</td>
-		<td>**Title**</td>
-		<td>**Type**</td>
+		<td><b>Title</b></td>
+		<td><b>Type</b></td>
+		<td><b>Title</b></td>
+		<td><b>Type</b></td>
 	</tr>
 	<tr>
-		<td>FID\*</td>
+		<td>FID*</td>
 		<td>Object ID</td>
-		<td>FID\*</td>
+		<td>FID*</td>
 		<td>Object ID</td>
+	</tr>
+	<tr>
+		<td>SHAPE*</td>
+		<td>Geometry</td>
+		<td>SHAPE*</td>
+		<td>Geometry</td>
 	</tr>
 </table>
-
-| **Title** | **Type** | Title | Type |
-| FID*  | Object ID | FID* | Object ID |
-| SHAPE* | Geometry | SHAPE* | Geometry |
 
 NAME Text CODE Text
 AREA_CODE Text DESCRIPTO Text
