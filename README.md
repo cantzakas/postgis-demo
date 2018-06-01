@@ -6,9 +6,9 @@ Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) 
 - Greenplum Database Sandbox OVA for VMWare (available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 - PostGIS 2.1.5+pivotal.1 for RHEL 6 extension package (also available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 ### Data
-Two separate datasets are used throughout this demo, the original Boundless demo dataset for New York City (shapefiles) and the new dataset from Ordnance Survey Open Data and TfL free Transport Data Service for London.
+Two separate datasets are used throughout this demo, the original [Boundless demo](https://github.com/boundlessgeo/workshops) dataset for New York City (shapefiles) and the new dataset from Ordnance Survey Open Data and TfL free Transport Data Service for London.
 
-Detailed information for each dataset are available [here](ABOUTDATA.md).
+Detailed information for each dataset is available [here](ABOUTDATA.md).
 
 ## Disclaimer
 - Use of Ordnance Survey data is subject to terms at www.ordnancesurvey.co.uk/opendata/licence. Contains Ordnance Survey data © Crown copyright and database right 2018. Contains Royal Mail data © Royal Mail copyright and database right 2018. Contains National Statistics data © Crown copyright and database right 2018.
