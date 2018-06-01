@@ -1,5 +1,5 @@
 # About the data used on this demo
-The following pages give a quick background on the data each set holds, describe their attributes, give metadata information (i.e. number of records, update cycle, etc) and finallym provide additional URL links for further reading.
+The following pages give a quick background on the data each set holds, describe their attributes, give metadata information (i.e. number of records, update cycle, etc) and finally provide additional URL links for further reading.
 
 ## Datasets
 ### London (updated dataset)
@@ -10,7 +10,7 @@ The following pages give a quick background on the data each set holds, describe
   - [OS Open Roads](data/london/oso-roads.md) gives you a high-level view of the British road network, from motorways to country lanes. Data type: . Supply Format: .
   - [OS Open Greenspace](data/london/oso-greenspace.md) contains the location and extent of spaces such as parks and sports facilities that are likely to be accessible to the public. Data type: Vector. Supply format: GML 3, ESRI© Shape.
   - [OS Open Rivers](data/london/oso-rivers.md) gives you a high-level view of the British river network, showing how all the different watercourses join up. Data type: . Supply Format: .
-- TfL's free Transport Data Service:
+- TfL free Transport Data Service:
 ### NYC (original dataset)
 - [nyc\_census\_blocks](data/nyc/nyc_census_blocks.md); a census block is the smallest geography for which census data is reported. Data Type: Polygon Data and additional structured  information. Supply Format: Shapefile.
 - [nyc\_neighborhoods](data/nyc/nyc_neighborhoods.md): neighborhoods are social constructs that do not follow lines laid down by the government. Data Type: Polygon Data and additional structured information. Supply Format: Shapefile.
