@@ -16,4 +16,4 @@ For high-level overview of the Greenplum Database system architecture and furthe
 
 | Previous: | Up: | Next: |
 | :--- | :--- | :--- |
-| [Instructions & Background Info](README.md#instructions--background-info) | [PostGIS Demo](README.md) | [Greenplum PostGIS Extension](POSTGIS.MD) |
+| [Instructions & Background Info](README.md#instructions--background-info) | [PostGIS Demo Start](README.md) | [Greenplum PostGIS Extension](POSTGIS.md) |
