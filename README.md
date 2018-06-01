@@ -1,5 +1,5 @@
 # postgis-demo
-Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org). The original demo was build upon the [work](https://github.com/boundlessgeo/workshops) people at [Boundless](http://boundlessgeo.com/) have done in the past, yet as of 25 May 2018, it has been updated and extended to utilize and present data available and for the area of Greater London, UK.
+Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org). The original demo was build upon the [work](https://github.com/boundlessgeo/workshops) our friends at [Boundless](http://boundlessgeo.com/) have done in the past, yet as of 25 May 2018, it has been updated and extended to utilize and present data available and for the area of Greater London, UK.
 
 ## Bill of Materials
 ### Software
@@ -8,13 +8,13 @@ Demo material to showcase use of PostGIS on top of [Pivotal](http://pivotal.io) 
 ### Data
 Two separate datasets are used throughout this demo:
 - London databases (updated dataset for Pivotal Software demo)
-- NYC sharefiles (original dataset for Boundless demo)
+- NYC shapefiles (original dataset for Boundless demo)
 
 Detailed information for each dataset are available [here](ABOUTDATA.md).
 
 ## Disclaimer
 - Use of Ordnance Survey data is subject to terms at www.ordnancesurvey.co.uk/opendata/licence. Contains Ordnance Survey data © Crown copyright and database right 2018. Contains Royal Mail data © Royal Mail copyright and database right 2018. Contains National Statistics data © Crown copyright and database right 2018.
-- [TfL's free Transport Data Service](https://tfl.gov.uk/info-for/open-data-users/) is 'Powered by TfL Open Data' and 'contains OS data © Crown copyright and database rights 2016'.
+- [TfL free Transport Data Service](https://tfl.gov.uk/info-for/open-data-users/) is 'Powered by TfL Open Data' and 'contains OS data © Crown copyright and database rights 2016'.
 - All the software in the package is open source, and freely redistributable. 
 - This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
@@ -28,7 +28,7 @@ Read [Geometries](GEOMETRIES.md) page for background information and better unde
 ### How to Load GIS (Vector) Data
 Find generic information on how to load GIS data into a Pivotal Greenplum database [here](HOWTO-LOAD-GIS-DATA.md) page.
 ### About the Demo Dataset
-Read [About the demo dataset](ABOUTDATA.md) page for information on number of records and table attrinutes for the datasets used in this demo.
+Read [About the demo dataset](ABOUTDATA.md) page for information on number of records and table attributes for the datasets used in this demo.
 ### Loading the Demo Data into a Pivotal Greenplum Database
 Follow the detailed instructions available [here](LOAD-GIS-DATASETS-INTO-GPDB.md), on how to load the demo GIS datasets into a Pivotal Greenplum database.
 
