@@ -43,7 +43,7 @@ For information about PostGIS, see http://postgis.refractions.net/
 For information about GDAL, see http://www.gdal.org.
 
 #### PostGIS Extension package for Greenplum
-The Greenplum Database PostGIS extension package is available from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb). You can install the package using the Greenplum Package Manager (gppkg). For details, see ***gppkg*** in the Greenplum Database Utility Guide.
+The Greenplum Database PostGIS extension package is available from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb). You can install the package using the Greenplum Package Manager (gppkg). For details, see [***gppkg***](https://gpdb.docs.pivotal.io/latest/utility_guide/admin_utilities/gppkg.html) in the Greenplum Database Utility Guide.
 
 Greenplum Database supports the PostGIS extension with these component versions.
 - PostGIS 2.1.5
