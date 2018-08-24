@@ -147,6 +147,7 @@ Read the next section for better understanding and background information on how
 - [Introduction](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#introduction)
 - [Metadata Tables](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#metadata-tables)
 - [Representing Real World Objects with PostGIS](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#representing-real-world-objects-with-postgis)
+- [Supported PostGIS Geometry Types](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#supported-postgis-geometry-types)
 - [Geometry Input and Output](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometry-input-and-output)
 - [Casting from Text](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#casting-from-text)
 
@@ -358,7 +359,7 @@ SELECT name, ST_Area(geom)
 | :--------- |
 | The polygon with a hole has an area that is the area of the outer shell (a 10x10 square) minus the area of the hole (a 1x1 square). |
 
-##### Collections
+##### Collection
 There are four collection types, which group multiple simple geometries into sets.
 
 - **MultiPoint**, a collection of points
