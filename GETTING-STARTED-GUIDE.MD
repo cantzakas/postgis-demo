@@ -144,11 +144,11 @@ SELECT AddGeometryColumn('public', 'geometries', 'geom', 0, 'LINESTRING', 2);
 
 ### Geometries
 Read the next section for better understanding and background information on how a real world objects are represented using PostGIS & SQL.
-- [Introduction]
-- [Metadata Tables]
-- [Representing Real World Objects with PostGIS]
-- [Geometry Input and Output]
-- [Casting from Text]
+- [Introduction](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#introduction)
+- [Metadata Tables](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#metadata-tables)
+- [Representing Real World Objects with PostGIS](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#representing-real-world-objects-with-postgis)
+- [Geometry Input and Output](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometry-input-and-output)
+- [Casting from Text](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#casting-from-text)
 
 #### Introduction
 Let's start by looking at some simple examples. Within the SQL editing environment of your preference, i.e [pgAdmin](https://www.pgadmin.org/), once again select a database/schema in which PostGIS extension has been enableq and open the SQL query editing tool/panel. Paste the following example SQL code into the SQL Editor window (removing any text that may be there by default) and execute:
