@@ -226,6 +226,13 @@ SELECT name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom)
 | Collection      | ST_GeometryCollection |        2 |       0 |
 | Linestring      | ST_LineString         |        2 |       0 |
 
+- [Point](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#points)
+- [Polygon](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#polygon)
+- [PolygonWithHole](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#polygonwithhole)
+- [Collection](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#collection)
+- [Linestring](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#linestring)
+
+
 ##### Points
 ![Image of PostGIS Points - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/points.png)
 
@@ -383,12 +390,12 @@ Some of the specific spatial functions for working with collections are:
 
 #### Geometry Input and Output
 Within the database, geometries are stored on disk in a format only used by the PostGIS program. In order for external programs to insert and retrieve useful geometries, they need to be converted into a format that other applications can understand. Fortunately, PostGIS supports emitting and consuming geometries in a large number of formats:
-- [Well-known text (WKT)]
-- [Well-known binary (WKB)]
-- [Geographic Mark-up Language (GML)]
-- [Keyhole Mark-up Language (KML)]
-- [GeoJSON]
-- [Scalable Vector Graphics (SVG)]
+- [Well-known text (WKT)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#well-known-text-wkt)
+- [Well-known binary (WKB)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#well-known-binary-wkb)
+- [Geographic Mark-up Language (GML)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geographic-mark-up-language-gml)
+- [Keyhole Mark-up Language (KML)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#keyhole-mark-up-language-kml)
+- [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geojson)
+- [Scalable Vector Graphics (SVG)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#scalable-vector-graphics-svg)
 
 ##### Well-known text (WKT)
 - **ST_GeomFromText(text, srid)** returns geometry
