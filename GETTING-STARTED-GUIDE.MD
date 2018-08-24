@@ -523,8 +523,8 @@ It’s very common to use the casting notation when working with WKT, as well as
 
 ### How to Load GIS (Vector) Data
 
-- [Loading Data Using SQL]()
-- [shp2pgsql (ESRI Shapefile Loader)]()
+- [Loading Data Using SQL](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-data-using-sql)
+- [shp2pgsql (ESRI Shapefile Loader)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader)
 
 #### Loading Data Using SQL
 If converting your input data to a text representation is an option then using formatted SQL might be the easiest way to get the dataset into PostGIS. As with Oracle and other SQL databases, data can be bulk loaded by piping a large text file full of SQL "INSERT" statements into the SQL terminal monitor. 
