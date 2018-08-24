@@ -77,10 +77,10 @@ SELECT short_name, long_name FROM ST_GDALDrivers();
 ```
 
 ##### Greenplum Database PostGIS Extension Support & Limitations
-- [Supported PostGIS Data Types](https://github.com/cantzakas/postgis-demo/new/master#supported-postgis-data-types)
-- [Supported PostGIS Index](https://github.com/cantzakas/postgis-demo/new/master#supported-postgis-index)
-- [Supported PostGIS Raster Data Types](https://github.com/cantzakas/postgis-demo/new/master#supported-postgis-raster-data-types)
-- [PostGIS Extension Limitations](https://github.com/cantzakas/postgis-demo/new/master#postgis-extension-limitations)
+- [Supported PostGIS Data Types](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#supported-postgis-data-types)
+- [Supported PostGIS Index](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#supported-postgis-index)
+- [Supported PostGIS Raster Data Types](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MDsupported-postgis-raster-data-types)
+- [PostGIS Extension Limitations](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension-limitations)
 
 The Greenplum Database PostGIS extension does not support the following features:
 - Topology
