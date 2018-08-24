@@ -593,18 +593,19 @@ A conversion and upload can be done all in one step using UNIX pipes:
 shp2pgsql <shape-file> <schema-name>.<table-name> | psql -d <database-name>
 ```
 
-### About the Demo Dataset
+### About the Demo Datasets
 
 - [NYC](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#nyc)
 - [London](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#london)
 
-#### NYC
+#### NYC Dataset
 - [nyc\_census\_blocks](data/nyc/nyc_census_blocks.md); a census block is the smallest geography for which census data is reported. Data Type: Polygon Data and additional structured  information. Supply Format: Shapefile.
 - [nyc\_neighborhoods](data/nyc/nyc_neighborhoods.md): neighborhoods are social constructs that do not follow lines laid down by the government. Data Type: Polygon Data and additional structured information. Supply Format: Shapefile.
 - [nyc\_streets](data\nyc\nyc_streets.md): The street centerlines form the transportation network of the city. Data Type: Polygon Data and additional structured (numeric) information. Supply Format: Shapefile.
 - [nyc\_subway\_stations](data/nyc/nyc_subway_stations.md): information for the public transportation system of NYC. Data Type: Polygon Data and additional structured information. Supply Format: Shapefile.
 - [nyc\_census\_sociodata](data/nyc/nyc_census_sociodata.md): rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract. Data Type: Structured information. Supply Format: CSV.
-#### London
+
+#### London DataSet
 - Ordnance Survey Open Data:
   - [Code-Point® Open](data/london/cpo.md) gives you a precise geographic location for each postcode unit in Great Britain. Data type: Point Data. Supply Format: CSV. 
   - [Boundary-Line™](data/london/boundary-line.md) maps every administrative boundary in Great Britain, down to the level of council wards. Data type: Vector. Supply Format: ESRI© Shape, MapInfo© Tab.
@@ -614,8 +615,65 @@ shp2pgsql <shape-file> <schema-name>.<table-name> | psql -d <database-name>
   - [OS Open Rivers](data/london/oso-rivers.md) gives you a high-level view of the British river network, showing how all the different watercourses join up. Data type: . Supply Format: .
 - TfL free Transport Data Service:
 
-### Loading the Demo Dataset into Greenplum
-Follow the detailed instructions available [here](LOAD-GIS-DATASETS-INTO-GPDB.md), on how to load the demo GIS datasets into a Pivotal Greenplum database.
+### Loading the Demo Datasets into Greenplum
+
+#### Loading the NYC Dataset
+This guide is using this [data bundle](http://files.boundlessgeo.com/workshopmaterials/postgis-workshop-201401.zip), download it and extract to a convenient location. Inside the data bundle, you will find **data/**, a directory containing the shapefiles we will be loading. 
+
+All the data in this package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
+
+To load the demo dataset for this demo, we will use the _shp2pgsql_ utility, which was described [previously](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader).
+
+The demo dataset contains GIS/Geospatial information for 5 different entities:
+- nyc_census_blocks,
+- nyc_neighborhoods,
+- nyc_streets,
+- nyc\_subway\_stations, and
+- nyc\_census\_sociodata
+
+For first 4 of the above, _nyc\_census\_blocks, nyc\_neighborhoods, nyc\_streets, nyc\_subway\_stations_, we will use the _shp2pgsql_ utility, to create a table in the Greenplum Database, prepare the ``INSERT`` statements which would load the data into this table and finally create an index on the geometry column of each table, as shown here:
+
+```shell
+shp2pgsql -c -D -s 26918 -i -I nyc_census_blocks.shp public.nyc_census_blocks > nyc_census_blocks.sql
+
+shp2pgsql -c -D -s 26918 -i -I nyc_neighborhoods.shp public.nyc_neighborhoods > nyc_neighborhoods.sql
+
+shp2pgsql -c -D -s 26918 -i -I nyc_streets.shp public.nyc_streets > nyc_streets.sql
+
+shp2pgsql -c -D -s 26918 -i -I nyc_subway_stations.shp public.nyc_subway_stations > nyc_subway_stations.sql
+
+```
+
+Then using the _psql_ utility, we execute each of the above ``sql`` files against the database, as shown here:
+```shell
+psql -d nyc -U gpadmin -f nyc_census_blocks.sql
+
+psql -d nyc -U gpadmin -f nyc_neighborhoods.sql
+
+psql -d nyc -U gpadmin -f nyc_streets.sql
+
+psql -d nyc -U gpadmin -f nyc_subway_stations.sql
+
+```
+
+To load nyc\_census\_sociodata data, use the [nyc_census_sociodata.sql](/load/nyc/nyc_census_sociodata.sql) file provided.
+
+***Note***
+When using either ``-D`` (use the PostgreSQL "dump" format for the output data) or ``-I`` (create a GiST index on the geometry column) flag, ``shp2pgslq`` utility is instructed to create an index on the geometry column defined on the target database table by issuing SQL statements of the
+
+```sql
+CREATE INDEX ON "<schema_name>"."<table_name>" 
+	USING GIST ("<column_name>");
+``` 
+
+format. Such SQL statements throw a syntac error when executed againsts a Greenplum Database which only supports creation of named indexes. To work-around this issue, it is suggested that manual edit the ``sql`` files produced and use a unique name for each index, i.e.
+
+```sql
+CREATE INDEX "<schema_name>"."<index_name>" ON "<schema_name>"."<table_name>" 
+	USING GIST ("<column_name>");
+```
+
+<-----------------------------------------
 
 ## Modules/Exercises included in this demo
 - [**Simple SQL exercises**](SIMPLE-SQL.md)
