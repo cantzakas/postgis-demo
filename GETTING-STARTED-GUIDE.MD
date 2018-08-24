@@ -226,7 +226,17 @@ SELECT name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom)
 | Collection      | ST_GeometryCollection |        2 |       0 |
 | Linestring      | ST_LineString         |        2 |       0 |
 
-##### Points
+#### Supported PostGIS Geometry Types
+- [Point](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#point)
+- [Linestring](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#linestring)
+- [Polygon](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#polygon), PolygonWithHole
+- [Collection](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#collection)
+  - MultiPoint
+  - MultiLineString
+  - MultiPolygon
+  - GeometryCollection
+
+##### Point
 ![Image of PostGIS Points - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/points.png)
 
 A spatial point represents a single location on the Earth. This point is represented by a single coordinate (including either 2-, 3- or 4-dimensions). Points are used to represent objects when the exact details, such as shape and size, are not important at the target scale. For example, cities on a map of the world can be described as points, while a map of a single state might represent cities as polygons.
@@ -260,7 +270,7 @@ SELECT name, ST_AsText(geom)
   LIMIT 1;
 ```
 
-##### Linestrings
+##### Linestring
 ![Image of PostGIS Linestrings - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/lines.png)
 
 A linestring is a path between locations. It takes the form of an ordered series of two or more points. Roads and rivers are typically represented as linestrings. A linestring is said to be closed if it starts and ends on the same point. It is said to be simple if it does not cross or touch itself (except at its endpoints if it is closed). A linestring can be both closed and simple.
@@ -297,7 +307,7 @@ SELECT ST_Length(geom)
 | :----------------|
 | 3.41421356237309 |
 
-##### Polygons
+##### Polygon
 ![Image of PostGIS Polygons - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/polygons.png)
 
 A polygon is a representation of an area. The outer boundary of the polygon is represented by a ring. This ring is a linestring that is both closed and simple as defined above. Holes within the polygon are also represented by rings.
