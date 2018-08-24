@@ -673,8 +673,6 @@ CREATE INDEX "<schema_name>"."<index_name>" ON "<schema_name>"."<table_name>"
 	USING GIST ("<column_name>");
 ```
 
-<-----------------------------------------
-
 ## Modules/Exercises included in this demo
 - [**Simple SQL exercises**](SIMPLE-SQL.md)
 - [**Geo/PostGIS SQL**](GEO-POSTGIS-SQL.md)
