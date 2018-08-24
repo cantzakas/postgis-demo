@@ -25,15 +25,15 @@ Detailed information for each dataset is available [here](ABOUTDATA.md).
 
 ## Instructions & Background Info
 - [Greenplum Database](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum-database)
-- [PostGIS Extension for Greenplum Database](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension-for-greenplum-database)
+- [PostGIS Extension](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension)
 - [Geometries](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometries)
 - [How to Load GIS (Vector) Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#how-to-load-gis-vector-data)
 - [About the Demo Dataset](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-dataset)
-- [Loading the Demo Data into a Pivotal Greenplum Database](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-data-into-a-pivotal-greenplum-database)
+- [Loading the Demo Dataset into Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-dataset-into-greenplum)
 
 ### Greenplum Database
 Read [Welcome to Pivotal Greenplum Database](GPDB.md) page for information on Greenplum Database.
-### PostGIS Extension for Greenplum Database
+### PostGIS Extension
 - [About PostGIS](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-postgis)
 - [PostGIS Extension package for Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension-package-for-greenplum)
 - [Enabling PostGIS Support](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#enabling-postgis-support)
@@ -148,7 +148,7 @@ Read [Geometries](GEOMETRIES.md) page for background information and better unde
 Find generic information on how to load GIS data into a Pivotal Greenplum database [here](HOWTO-LOAD-GIS-DATA.md) page.
 ### About the Demo Dataset
 Read [About the demo dataset](ABOUTDATA.md) page for information on number of records and table attributes for the datasets used in this demo.
-### Loading the Demo Data into a Pivotal Greenplum Database
+### Loading the Demo Dataset into Greenplum
 Follow the detailed instructions available [here](LOAD-GIS-DATASETS-INTO-GPDB.md), on how to load the demo GIS datasets into a Pivotal Greenplum database.
 
 ## Modules/Exercises included in this demo
