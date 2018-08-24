@@ -28,8 +28,8 @@ Detailed information for each dataset is available [here](ABOUTDATA.md).
 - [PostGIS Extension](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension)
 - [Geometries](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometries)
 - [How to Load GIS (Vector) Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#how-to-load-gis-vector-data)
-- [About the Demo Dataset](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-dataset)
-- [Loading the Demo Dataset into Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-dataset-into-greenplum)
+- [About the Demo Datasets](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-datasets)
+- [Loading the Demo Datasets into Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-datasets-into-greenplum)
 
 ### Greenplum Database
 Read [Welcome to Pivotal Greenplum Database](GPDB.md) page for information on Greenplum Database.
@@ -595,8 +595,8 @@ shp2pgsql <shape-file> <schema-name>.<table-name> | psql -d <database-name>
 
 ### About the Demo Datasets
 
-- [NYC](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#nyc)
-- [London](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#london)
+- [NYC](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#nyc-dataset)
+- [London](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#london-dataset)
 
 #### NYC Dataset
 - [nyc\_census\_blocks](data/nyc/nyc_census_blocks.md); a census block is the smallest geography for which census data is reported. Data Type: Polygon Data and additional structured  information. Supply Format: Shapefile.
