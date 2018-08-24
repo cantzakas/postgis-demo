@@ -30,7 +30,7 @@ For information about PostGIS, see http://postgis.refractions.net/
 
 For information about GDAL, see http://www.gdal.org.
 
-##### Greenplum PostGIS Extension
+#### Greenplum PostGIS Extension
 The Greenplum Database PostGIS extension package is available from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb). You can install the package using the Greenplum Package Manager (gppkg). For details, see ***gppkg*** in the Greenplum Database Utility Guide.
 
 Greenplum Database supports the PostGIS extension with these component versions.
@@ -41,7 +41,7 @@ Greenplum Database supports the PostGIS extension with these component versions.
 - Json 0.12
 - Expat 2.1.0
 
-##### Enabling PostGIS Support
+#### Enabling PostGIS Support
 The Greenplum Database PostGIS extension contains the postgis_manager.sh script that installs or removes both the PostGIS and PostGIS Raster features in a database. After the PostGIS extension package is installed, the script is in $GPHOME/share/postgresql/contrib/postgis-2.1/. The postgis_manager.sh script runs SQL scripts that install or remove PostGIS and PostGIS Raster from a database.
 
 Run the postgis_manager.sh script specifying the database and with the install option to install PostGIS and PostGIS Raster. This example installs PostGIS and PostGIS Raster objects in the database mydatabase.
@@ -76,7 +76,7 @@ After you have updated the greenplum_path.sh file on all hosts, and have restart
 SELECT short_name, long_name FROM ST_GDALDrivers();
 ```
 
-##### Greenplum Database PostGIS Extension Support & Limitations
+#### Greenplum Database PostGIS Extension Support & Limitations
 - [Supported PostGIS Data Types](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#supported-postgis-data-types)
 - [Supported PostGIS Index](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#supported-postgis-index)
 - [Supported PostGIS Raster Data Types](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MDsupported-postgis-raster-data-types)
@@ -86,14 +86,14 @@ The Greenplum Database PostGIS extension does not support the following features
 - Topology
 - Some Raster Functions
 
-###### Supported PostGIS Data Types
+##### Supported PostGIS Data Types
 Greenplum Database PostGIS extension supports these PostGIS data types:
 - box2d
 - box3d
 - geometry
 - geography
 
-###### Supported PostGIS Raster Data Types
+##### Supported PostGIS Raster Data Types
 Greenplum Database PostGIS supports these PostGIS Raster data types:
 - geomval
 - addbandarg
@@ -103,10 +103,10 @@ Greenplum Database PostGIS supports these PostGIS Raster data types:
 - summarystats
 - unionarg
 
-###### Supported PostGIS Index
+##### Supported PostGIS Index
 Greenplum Database PostGIS extension supports the GiST (Generalized Search Tree) index.
 
-###### PostGIS Extension Limitations
+##### PostGIS Extension Limitations
 This section lists the Greenplum Database PostGIS extension limitations for user-defined functions (UDFs), data types, and aggregates.
 - Data types and functions related to PostGIS topology functionality, such as TopoGeometry, are not supported by Greenplum Database.
 - Functions that perform ANALYZE operations for user-defined data types are not supported. For example, the ST_Estimated_Extent function is not supported. The function requires table column statistics for user defined data types that are not available with Greenplum Database.
