@@ -226,13 +226,6 @@ SELECT name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom)
 | Collection      | ST_GeometryCollection |        2 |       0 |
 | Linestring      | ST_LineString         |        2 |       0 |
 
-- [Point](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#points)
-- [Polygon](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#polygon)
-- [PolygonWithHole](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#polygonwithhole)
-- [Collection](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#collection)
-- [Linestring](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#linestring)
-
-
 ##### Points
 ![Image of PostGIS Points - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/points.png)
 
