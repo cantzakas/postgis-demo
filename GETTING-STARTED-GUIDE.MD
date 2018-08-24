@@ -1,4 +1,4 @@
-# PostGIS for Pivotal Greenplum Database Getting Started Guide
+# Getting Started Guide, PostGIS for Pivotal Greenplum Database 
 ## Purpose
 The purpose of this Getting Started Guide is to showcase the use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org). This guide has been build mostly upon the [work](https://github.com/boundlessgeo/workshops) our friends at [Boundless](http://boundlessgeo.com/) have done in the past, and has been extended to utilize and present data available and for the area of Greater London, UK.
 
