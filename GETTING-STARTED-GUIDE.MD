@@ -18,9 +18,21 @@ Detailed information for each dataset is available [here](ABOUTDATA.md).
 - This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
 ## Instructions & Background Info
+- [Greenplum Database](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum-database)
+- [PostGIS Extension for Greenplum Database](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension-for-greenplum-database)
+- [Geometries](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometries)
+- [How to Load GIS (Vector) Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#how-to-load-gis-(vector)-data)
+- [About the Demo Dataset](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-dataset)
+- [Loading the Demo Data into a Pivotal Greenplum Database](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-data-into-a-pivotal-greenplum-database)
+
 ### Greenplum Database
 Read [Welcome to Pivotal Greenplum Database](GPDB.md) page for information on Greenplum Database.
-### Greenplum PostGIS Extension
+### PostGIS Extension for Greenplum Database
+- [About PostGIS](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-postgis)
+- [PostGIS Extension package for Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension-package-for-greenplum)
+- [Enabling PostGIS Support](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#enabling-postgis-support)
+- [Greenplum Database PostGIS Extension Support & Limitations](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum-database-postgis-extension-support-)
+
 #### About PostGIS
 PostGIS is a spatial database extension for PostgreSQL that allows GIS (Geographic Information Systems) objects to be stored in the database. The Greenplum Database PostGIS extension includes support for GiST-based R-Tree spatial indexes and functions for analysis and processing of GIS objects.
 
@@ -30,7 +42,7 @@ For information about PostGIS, see http://postgis.refractions.net/
 
 For information about GDAL, see http://www.gdal.org.
 
-#### Greenplum PostGIS Extension
+#### PostGIS Extension package for Greenplum
 The Greenplum Database PostGIS extension package is available from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb). You can install the package using the Greenplum Package Manager (gppkg). For details, see ***gppkg*** in the Greenplum Database Utility Guide.
 
 Greenplum Database supports the PostGIS extension with these component versions.
