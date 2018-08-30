@@ -24,9 +24,9 @@
   - [About the Demo Datasets](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-datasets)
   - [Loading the Demo Datasets into Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-datasets-into-greenplum)
 - [Exercises](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#modulesexercises-included-in-this-demo)
-  - [Greenplum & PostGIS Basics](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#)
-  - [Spatial Geometries & Relationships](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#)
-  - [Spatial Joins](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#)
+  - [Greenplum & PostGIS Basics](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum--postgis-basics)
+  - [Spatial Geometries & Relationships](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#spatial-geometries--relationships)
+  - [Spatial Joins](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#spatial-joins)
 
 ## Purpose
 The purpose of this Getting Started Guide is to showcase the use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org). This guide has been build mostly upon the [work](https://github.com/boundlessgeo/workshops) our friends at [Boundless](http://boundlessgeo.com/) have done in the past, and has been extended to utilize and present data available and for the area of Greater London, UK.
@@ -701,9 +701,9 @@ CREATE INDEX "<schema_name>"."<index_name>" ON "<schema_name>"."<table_name>"
 ```
 
 ## Modules/Exercises included in this demo
-- [Greenplum & PostGIS Basics](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#)
-- [Spatial Geometries & Relationships](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#)
-- [Spatial Joins](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#)
+- [Greenplum & PostGIS Basics](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum--postgis-basics)
+- [Spatial Geometries & Relationships](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#spatial-geometries--relationships)
+- [Spatial Joins](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#spatial-joins)
 
 ### Greenplum & PostGIS Basics
 
