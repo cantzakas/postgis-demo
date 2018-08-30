@@ -195,7 +195,7 @@ SELECT name, ST_AsText(geom)
   FROM geometries;
 ```
 
-The above example CREATEs a table (_geometries_) then INSERTs five geometries: a point, a line, a polygon, a polygon with a hole, and a collection. Finally, the inserted rows are SELECTed and displayed in the Output pane.
+The above example `CREATEs` a table (_geometries_) then `INSERTs` five geometries: a point, a line, a polygon, a polygon with a hole, and a collection. Finally, the inserted rows are `SELECTed` and displayed in the Output pane.
 
 | name           | st_astext                                                     |
 | :---           | :------------------------------------------------------------ |
@@ -237,9 +237,9 @@ The Simple Features for SQL (SFSQL) specification, the original guiding standard
 
 Our example table contains a mixture of different geometry types. We can collect general information about each object using functions that read the geometry metadata.
 
-- **ST_GeometryType(geometry)** returns the type of the geometry
-- **ST_NDims(geometry)** returns the number of dimensions of the geometry
-- **ST_SRID(geometry)** returns the spatial reference identifier number of the geometry
+- **`ST_GeometryType(geometry)`** returns the type of the geometry
+- **`ST_NDims(geometry)`** returns the number of dimensions of the geometry
+- **`ST_SRID(geometry)`** returns the spatial reference identifier number of the geometry
 
 ```sql
 SELECT name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom)
@@ -280,8 +280,8 @@ SELECT ST_AsText(geom)
 | POINT(0 0) |
 
 Some of the specific spatial functions for working with points are:
-- **ST_X(geometry)** returns the X ordinate
-- **ST_Y(geometry)** returns the Y ordinate
+- **`ST_X(geometry)`** returns the X ordinate
+- **`ST_Y(geometry)`** returns the Y ordinate
 So, we can read the ordinates from a point like this:
 
 ```sql
@@ -290,7 +290,7 @@ SELECT ST_X(geom), ST_Y(geom)
   WHERE name = 'Point';
 ```
 
-In the dataset provided for this demo, The New York City subway stations (_nyc_subway_stations_) table is a data set represented as points. The following SQL query will return the geometry associated with one point (in the ST_AsText column).
+In the dataset provided for this demo, The New York City subway stations (_nyc_subway_stations_) table is a data set represented as points. The following SQL query will return the geometry associated with one point (in the `ST_AsText` column).
 
 ```sql
 SELECT name, ST_AsText(geom)
@@ -305,7 +305,7 @@ A linestring is a path between locations. It takes the form of an ordered series
 
 The street network for New York (_nyc_streets_) dataset contains details such as name, and type. A single real world street may consist of many linestrings, each representing a segment of road with different attributes.
 
-The following SQL query will return the geometry associated with one linestring (in the _ST_AsText_ column).
+The following SQL query will return the geometry associated with one linestring (in the `ST_AsText` column).
 
 ```sql
 SELECT ST_AsText(geom)
@@ -318,10 +318,10 @@ SELECT ST_AsText(geom)
 | LINESTRING(0 0, 1 1, 2 1, 2 2) |
 
 Some of the specific spatial functions for working with linestrings are:
-- **ST_Length(geometry)** returns the length of the linestring
-- **ST_StartPoint(geometry)** returns the first coordinate as a point
-- **ST_EndPoint(geometry)** returns the last coordinate as a point
-- **ST_NPoints(geometry)** returns the number of coordinates in the linestring
+- **`ST_Length(geometry)`** returns the length of the linestring
+- **`ST_StartPoint(geometry)`** returns the first coordinate as a point
+- **`ST_EndPoint(geometry)`** returns the last coordinate as a point
+- **`ST_NPoints(geometry)`** returns the number of coordinates in the linestring
 
 So, the length of our linestring is:
 
@@ -342,7 +342,7 @@ A polygon is a representation of an area. The outer boundary of the polygon is r
 
 Polygons are used to represent objects whose size and shape are important. City limits, parks, building footprints or bodies of water are all commonly represented as polygons when the scale is sufficiently high to see their area. Roads and rivers can sometimes be represented as polygons.
 
-The following SQL query will return the geometry associated with one linestring (in the ST_AsText column).
+The following SQL query will return the geometry associated with one linestring (in the `ST_AsText` column).
 
 ```sql
 SELECT ST_AsText(geom)
@@ -352,7 +352,7 @@ SELECT ST_AsText(geom)
 
 | ***Note*** |
 | :--------- |
-| Rather than using an ``=`` sign in our WHERE clause, we are using the ``LIKE`` operator to carry out a string matching operation. You may be used to the ``*`` symbol as a “glob” for pattern matching, but in SQL the ``%`` symbol is used, along with the ``LIKE`` operator to tell the system to do globbing. |
+| Rather than using an ``=`` sign in our ``WHERE`` clause, we are using the ``LIKE`` operator to carry out a string matching operation. You may be used to the ``*`` symbol as a “glob” for pattern matching, but in SQL the ``%`` symbol is used, along with the ``LIKE`` operator to tell the system to do globbing. |
 
 | st_astext                                                        |
 | :----------------------------------------------------------------|
@@ -364,11 +364,11 @@ The first polygon has only one ring. The second one has an interior “hole”. 
 ![Image of PostGIS Polygons - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/polygons1.png)
 
 Some of the specific spatial functions for working with polygons are:
-- **ST_Area(geometry)** returns the area of the polygons
-- **ST_NRings(geometry)** returns the number of rings (usually 1, more of there are holes)
-- **ST_ExteriorRing(geometry)** returns the outer ring as a linestring
-- **ST_InteriorRingN(geometry,n)** returns a specified interior ring as a linestring
-- **ST_Perimeter(geometry)** returns the length of all the rings
+- **`ST_Area(geometry)`** returns the area of the polygons
+- **`ST_NRings(geometry)`** returns the number of rings (usually 1, more of there are holes)
+- **`ST_ExteriorRing(geometry)`** returns the outer ring as a linestring
+- **`ST_InteriorRingN(geometry,n)`** returns a specified interior ring as a linestring
+- **`ST_Perimeter(geometry)`** returns the length of all the rings
 
 We can calculate the area of our polygons using the area function:
 
@@ -389,10 +389,10 @@ SELECT name, ST_Area(geom)
 ##### Collection
 There are four collection types, which group multiple simple geometries into sets.
 
-- **MultiPoint**, a collection of points
-- **MultiLineString**, a collection of linestrings
-- **MultiPolygon**, a collection of polygons
-- **GeometryCollection**, a heterogeneous collection of any geometry (including other collections)
+- **`MultiPoint`**, a collection of points
+- **`MultiLineString`**, a collection of linestrings
+- **`MultiPolygon`**, a collection of polygons
+- **`GeometryCollection`**, a heterogeneous collection of any geometry (including other collections)
 
 Collections are another concept that shows up in GIS software more than in generic graphics software. They are useful for directly modeling real world objects as spatial objects. For example, how to model a lot that is split by a right-of-way? As a MultiPolygon, with a part on either side of the right-of-way.
 
@@ -414,10 +414,10 @@ SELECT name, ST_AsText(geom)
 
 Some of the specific spatial functions for working with collections are:
 
-- **ST_NumGeometries(geometry)** returns the number of parts in the collection
-- **ST_GeometryN(geometry,n)** returns the specified part
-- **ST_Area(geometry)** returns the total area of all polygonal parts
-- **ST_Length(geometry)** returns the total length of all linear parts
+- **`ST_NumGeometries(geometry)`** returns the number of parts in the collection
+- **`ST_GeometryN(geometry,n)`** returns the specified part
+- **`ST_Area(geometry)`** returns the total area of all polygonal parts
+- **`ST_Length(geometry)`** returns the total length of all linear parts
 
 #### Geometry Input and Output
 Within the database, geometries are stored on disk in a format only used by the PostGIS program. In order for external programs to insert and retrieve useful geometries, they need to be converted into a format that other applications can understand. Fortunately, PostGIS supports emitting and consuming geometries in a large number of formats:
@@ -429,29 +429,29 @@ Within the database, geometries are stored on disk in a format only used by the 
 - [Scalable Vector Graphics (SVG)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#scalable-vector-graphics-svg)
 
 ##### Well-known text (WKT)
-- **ST_GeomFromText(text, srid)** returns geometry
-- **ST_AsText(geometry)** returns text
-- **ST_AsEWKT(geometry)** returns text
+- **`ST_GeomFromText(text, srid)`** returns geometry
+- **`ST_AsText(geometry)`** returns text
+- **`ST_AsEWKT(geometry)`** returns text
 ##### Well-known binary (WKB)
-- **ST_GeomFromWKB(bytea)** returns geometry
-- **ST_AsBinary(geometry)** returns bytea
-- **ST_AsEWKB(geometry)** returns bytea
+- **`ST_GeomFromWKB(bytea)`** returns geometry
+- **`ST_AsBinary(geometry)`** returns bytea
+- **`ST_AsEWKB(geometry)`** returns bytea
 ##### Geographic Mark-up Language (GML)
-- **ST_GeomFromGML(text)** returns geometry
-- **ST_AsGML(geometry)** returns text
+- **`ST_GeomFromGML(text)`** returns geometry
+- **`ST_AsGML(geometry)`** returns text
 ##### Keyhole Mark-up Language (KML)
-- **ST_GeomFromKML(text)** returns geometry
-- **ST_AsKML(geometry)** returns text
+- **`ST_GeomFromKML(text)`** returns geometry
+- **`ST_AsKML(geometry)`** returns text
 ##### GeoJSON
-- **ST_AsGeoJSON(geometry)** returns text
+- **`ST_AsGeoJSON(geometry)`** returns text
 ##### Scalable Vector Graphics (SVG)
-- **ST_AsSVG(geometry)** returns text
+- **`ST_AsSVG(geometry)`** returns text
 
 The most common use of a constructor is to turn a text representation of a geometry into an internal representation.
 
 Note that in addition to a text parameter with a geometry representation, we also have a numeric parameter providing the SRID of the geometry.
 
-The following SQL query shows an example of WKB representation (the call to encode() is required to convert the binary output into an ASCII form for printing):
+The following SQL query shows an example of WKB representation (the call to `encode()` is required to convert the binary output into an ASCII form for printing):
 
 ```sql
 SELECT encode(
@@ -482,9 +482,9 @@ SELECT ST_AsText(ST_GeometryFromText('LINESTRING(0 0 0,1 0 0,1 1 2)'));
 - extended well-known text, and
 - ISO standard well-known text.
 
-On the output side, the ST_AsText function is conservative, and only emits ISO standard well-known text.
+On the output side, the `ST_AsText` function is conservative, and only emits ISO standard well-known text.
 
-In addition to the ST_GeometryFromText function, there are many other ways to create geometries from well-known text or similar formatted inputs:
+In addition to the `ST_GeometryFromText` function, there are many other ways to create geometries from well-known text or similar formatted inputs:
 
 ```sql
 -- Using ST_GeomFromText with the SRID parameter
@@ -493,7 +493,7 @@ SELECT ST_GeomFromText('POINT(2 2)',4326);
 -- Using ST_GeomFromText without the SRID parameter
 SELECT ST_SetSRID(ST_GeomFromText('POINT(2 2)'),4326);
 
--- Using a ST_Make* function
+-- Using a ST_MakePoint function
 SELECT ST_SetSRID(ST_MakePoint(2, 2), 4326);
 
 -- Using PostgreSQL casting syntax and ISO WKT
@@ -514,7 +514,7 @@ SELECT ST_AsGeoJSON(ST_GeomFromGML('<gml:Point><gml:coordinates>1,1</gml:coordin
 | {"type":"Point","coordinates":[1,1]} |
 
 #### Casting from Text
-The WKT strings we’ve see so far have been of type ‘text’ and we have been converting them to type ‘geometry’ using PostGIS functions like **ST_GeomFromText()**.
+The WKT strings we’ve see so far have been of type ‘text’ and we have been converting them to type ‘geometry’ using PostGIS functions like **`ST_GeomFromText()`**.
 
 PostgreSQL include a short form syntax that allows data to be converted from one type to another, the casting syntax, _oldata::newtype_. So for example, this SQL converts a double into a text string.
 
@@ -554,7 +554,7 @@ It’s very common to use the casting notation when working with WKT, as well as
 - [shp2pgsql (ESRI Shapefile Loader)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader)
 
 #### Loading Data Using SQL
-If converting your input data to a text representation is an option then using formatted SQL might be the easiest way to get the dataset into PostGIS. As with Oracle and other SQL databases, data can be bulk loaded by piping a large text file full of SQL "INSERT" statements into the SQL terminal monitor. 
+If converting your input data to a text representation is an option then using formatted SQL might be the easiest way to get the dataset into PostGIS. As with Oracle and other SQL databases, data can be bulk loaded by piping a large text file full of SQL `INSERT` statements into the SQL terminal monitor. 
 
 A data upload file might look something like this:
 
@@ -573,15 +573,15 @@ INSERT INTO roads (road_id, roads_geom, road_name)
 	VALUES (6,ST_GeomFromText('LINESTRING(198231 263418,198213 268322)',-1),'Dave Cres');
 ```
 
-The data file can be piped into Postgres or Greenplum very easily using the "psql" SQL utility:
+The data file can be piped into Postgres or Greenplum very easily using the `psql` SQL utility:
 ```sql
 psql -d [database] -f [file]
 ```
 
 #### shp2pgsql: Using the ESRI Shapefile Loader
-The shp2pgsql data loader converts ESRI Shape files into SQL suitable for insertion into a PostGIS/PostgreSQL database either in geometry or geography format. The loader has several operating modes distinguished by command line flags:
+The `shp2pgsql` data loader converts ESRI Shape files into SQL suitable for insertion into a PostGIS/PostgreSQL database either in geometry or geography format. The loader has several operating modes distinguished by command line flags:
 
-In addition to the shp2pgsql command-line loader, there is an shp2pgsql-gui graphical interface with most of the options as the command-line loader, but may be easier to use for one-off non-scripted loading or if you are new to PostGIS. It can also be configured as a plugin to PgAdminIII.
+In addition to the `shp2pgsql` command-line loader, there is an `shp2pgsql-gui` graphical interface with most of the options as the command-line loader, but may be easier to use for one-off non-scripted loading or if you are new to PostGIS. It can also be configured as a plugin to PgAdminIII.
 
 | Option | Description                                                                        |
 | :---   | :----------------------------------------------------------------------------------|
@@ -649,7 +649,7 @@ This guide is using this [data bundle](http://files.boundlessgeo.com/workshopmat
 
 All the data in this package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
-To load the demo dataset for this demo, we will use the _shp2pgsql_ utility, which was described [previously](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader).
+To load the demo dataset for this demo, we will use the `shp2pgsql` utility, which was described [previously](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader).
 
 The demo dataset contains GIS/Geospatial information for 5 different entities:
 - nyc_census_blocks,
@@ -658,7 +658,7 @@ The demo dataset contains GIS/Geospatial information for 5 different entities:
 - nyc\_subway\_stations, and
 - nyc\_census\_sociodata
 
-For first 4 of the above, _nyc\_census\_blocks, nyc\_neighborhoods, nyc\_streets, nyc\_subway\_stations_, we will use the _shp2pgsql_ utility, to create a table in the Greenplum Database, prepare the ``INSERT`` statements which would load the data into this table and finally create an index on the geometry column of each table, as shown here:
+For first 4 of the above, _nyc\_census\_blocks, nyc\_neighborhoods, nyc\_streets, nyc\_subway\_stations_, we will use the `shp2pgsql` utility, to create a table in the Greenplum Database, prepare the `INSERT` statements which would load the data into this table and finally create an index on the geometry column of each table, as shown here:
 
 ```shell
 shp2pgsql -c -D -s 26918 -i -I nyc_census_blocks.shp public.nyc_census_blocks > nyc_census_blocks.sql
@@ -671,7 +671,7 @@ shp2pgsql -c -D -s 26918 -i -I nyc_subway_stations.shp public.nyc_subway_station
 
 ```
 
-Then using the _psql_ utility, we execute each of the above ``sql`` files against the database, as shown here:
+Then using the `psql` utility, we execute each of the above ``sql`` files against the database, as shown here:
 ```shell
 psql -d nyc -U gpadmin -f nyc_census_blocks.sql
 
@@ -707,7 +707,7 @@ CREATE INDEX "<schema_name>"."<index_name>" ON "<schema_name>"."<table_name>"
 
 ### Greenplum & PostGIS Basics
 
-Standard, ANSI-compliant with Greenplum-specific extension only when absolutely required, SQL will be used throughout the exercises described in this "Getting Started" guide. SQL, or “Structured Query Language”, is a means of asking questions of, and updating data in, relational databases and is the defacto lingua franca used in the databases world.
+SQL, or “Structured Query Language”, is a means of asking questions of, and updating data in, relational databases and is the defacto lingua franca used in the databases world. Standard, ANSI-compliant SQL will be used throughout the exercises described in this "Getting Started" guide, with Greenplum-specific extension only when absolutely required.
 
 Let's start with some basic, Greenplum and PostGIS examples:
 
@@ -715,7 +715,7 @@ Let's start with some basic, Greenplum and PostGIS examples:
 ```sql
 SELECT version();
 ```
-Alternatively, the *psql* command utility can be used for the same, as following:
+Alternatively, the `*psql*` command utility can be used for the same, as following:
 ```sql
 psql -d <database-name> -c "SELECT version();"
 ```
