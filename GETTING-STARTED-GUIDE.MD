@@ -724,7 +724,7 @@ In both cases, the query result would be similar to
 
 | version |
 | :---    |
-| PostgreSQL 8.3.23 (Greenplum Database 5.7.0 build commit:f7c6eb5cc61b25a7ff9c5a657d6f903befbae013) on x86_64-pc-linux-gnu, compiled by GCC gcc (GCC) 6.2.0, 64-bit compiled on Mar 30 2018 14:19:06 |
+| PostgreSQL 8.3.23 (Greenplum Database 5.10.2 build commit:b3c02f3acd880e2d676dacea36be015e4a3826d4) on x86_64-pc-linux-gnu, compiled by GCC gcc (GCC) 6.2.0, 64-bit compiled on Aug 10 2018 07:30:24 |
 | (1 row) |
 
 - **"Which version of PostGIS extension, am I running on the Greenplum Database cluster?"**
