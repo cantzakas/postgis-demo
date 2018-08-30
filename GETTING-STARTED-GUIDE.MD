@@ -800,7 +800,7 @@ GROUP BY
     <td>27.903744689944755</td>
   </tr>
   <tr>
-    <td colspan="2">5 rows</td>
+    <td colspan="2">(5 rows)</td>
   </tr>
 </table>
 
