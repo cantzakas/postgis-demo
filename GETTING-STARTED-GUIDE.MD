@@ -715,7 +715,7 @@ Let's start with some basic, Greenplum and PostGIS examples:
 ```sql
 SELECT version();
 ```
-Alternatively, the `*psql*` command utility can be used for the same, as following:
+Alternatively, the **`psql`** command utility can be used for the same, as following:
 ```sql
 psql -d <database-name> -c "SELECT version();"
 ```
