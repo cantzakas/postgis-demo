@@ -254,17 +254,13 @@ SELECT name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom)
 | Collection      | ST_GeometryCollection |        2 |       0 |
 | Linestring      | ST_LineString         |        2 |       0 |
 
-#### Supported PostGIS Geometry Types
+### Supported PostGIS Geometry Types
 - [Point](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#point)
 - [Linestring](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#linestring)
-- [Polygon](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#polygon), PolygonWithHole
-- [Collection](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#collection)
-  - MultiPoint
-  - MultiLineString
-  - MultiPolygon
-  - GeometryCollection
+- [Polygon & PolygonWithHole](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#polygon) 
+- [Collection, MultiPoint, MultiLineString, MultiPolygon, GeometryCollection](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#collection)
 
-##### Point
+#### Point
 ![Image of PostGIS Points - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/points.png)
 
 A spatial point represents a single location on the Earth. This point is represented by a single coordinate (including either 2-, 3- or 4-dimensions). Points are used to represent objects when the exact details, such as shape and size, are not important at the target scale. For example, cities on a map of the world can be described as points, while a map of a single state might represent cities as polygons.
@@ -280,8 +276,10 @@ SELECT ST_AsText(geom)
 | POINT(0 0) |
 
 Some of the specific spatial functions for working with points are:
-- **`ST_X(geometry)`** returns the X ordinate
-- **`ST_Y(geometry)`** returns the Y ordinate
+
+- **`ST_X(geometry)`**, returns the X ordinate.
+- **`ST_Y(geometry)`**, returns the Y ordinate.
+
 So, we can read the ordinates from a point like this:
 
 ```sql
@@ -298,7 +296,7 @@ SELECT name, ST_AsText(geom)
   LIMIT 1;
 ```
 
-##### Linestring
+#### Linestring
 ![Image of PostGIS Linestrings - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/lines.png)
 
 A linestring is a path between locations. It takes the form of an ordered series of two or more points. Roads and rivers are typically represented as linestrings. A linestring is said to be closed if it starts and ends on the same point. It is said to be simple if it does not cross or touch itself (except at its endpoints if it is closed). A linestring can be both closed and simple.
@@ -318,10 +316,10 @@ SELECT ST_AsText(geom)
 | LINESTRING(0 0, 1 1, 2 1, 2 2) |
 
 Some of the specific spatial functions for working with linestrings are:
-- **`ST_Length(geometry)`** returns the length of the linestring
-- **`ST_StartPoint(geometry)`** returns the first coordinate as a point
-- **`ST_EndPoint(geometry)`** returns the last coordinate as a point
-- **`ST_NPoints(geometry)`** returns the number of coordinates in the linestring
+- **`ST_Length(geometry)`**, returns the length of the linestring.
+- **`ST_StartPoint(geometry)`**, returns the first coordinate as a point.
+- **`ST_EndPoint(geometry)`**, returns the last coordinate as a point.
+- **`ST_NPoints(geometry)`**, returns the number of coordinates in the linestring.
 
 So, the length of our linestring is:
 
@@ -335,7 +333,7 @@ SELECT ST_Length(geom)
 | :----------------|
 | 3.41421356237309 |
 
-##### Polygon
+#### Polygon & PolygonWithHole
 ![Image of PostGIS Polygons - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/polygons.png)
 
 A polygon is a representation of an area. The outer boundary of the polygon is represented by a ring. This ring is a linestring that is both closed and simple as defined above. Holes within the polygon are also represented by rings.
@@ -364,11 +362,12 @@ The first polygon has only one ring. The second one has an interior “hole”. 
 ![Image of PostGIS Polygons - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/polygons1.png)
 
 Some of the specific spatial functions for working with polygons are:
-- **`ST_Area(geometry)`** returns the area of the polygons
-- **`ST_NRings(geometry)`** returns the number of rings (usually 1, more of there are holes)
-- **`ST_ExteriorRing(geometry)`** returns the outer ring as a linestring
-- **`ST_InteriorRingN(geometry,n)`** returns a specified interior ring as a linestring
-- **`ST_Perimeter(geometry)`** returns the length of all the rings
+
+- **`ST_Area(geometry)`**, returns the area of the polygons.
+- **`ST_NRings(geometry)`**, returns the number of rings (usually 1, more of there are holes).
+- **`ST_ExteriorRing(geometry)`**, returns the outer ring as a linestring.
+- **`ST_InteriorRingN(geometry,n)`**, returns a specified interior ring as a linestring.
+- **`ST_Perimeter(geometry)`**, returns the length of all the rings.
 
 We can calculate the area of our polygons using the area function:
 
@@ -386,13 +385,13 @@ SELECT name, ST_Area(geom)
 | :--------- |
 | The polygon with a hole has an area that is the area of the outer shell (a 10x10 square) minus the area of the hole (a 1x1 square). |
 
-##### Collection
+#### Collection, MultiPoint, MultiLineString, MultiPolygon, GeometryCollection
 There are four collection types, which group multiple simple geometries into sets.
 
-- **`MultiPoint`**, a collection of points
-- **`MultiLineString`**, a collection of linestrings
-- **`MultiPolygon`**, a collection of polygons
-- **`GeometryCollection`**, a heterogeneous collection of any geometry (including other collections)
+- **`MultiPoint`**, a collection of points.
+- **`MultiLineString`**, a collection of linestrings.
+- **`MultiPolygon`**, a collection of polygons.
+- **`GeometryCollection`**, a heterogeneous collection of any geometry (including other collections).
 
 Collections are another concept that shows up in GIS software more than in generic graphics software. They are useful for directly modeling real world objects as spatial objects. For example, how to model a lot that is split by a right-of-way? As a MultiPolygon, with a part on either side of the right-of-way.
 
@@ -414,12 +413,12 @@ SELECT name, ST_AsText(geom)
 
 Some of the specific spatial functions for working with collections are:
 
-- **`ST_NumGeometries(geometry)`** returns the number of parts in the collection
-- **`ST_GeometryN(geometry,n)`** returns the specified part
-- **`ST_Area(geometry)`** returns the total area of all polygonal parts
-- **`ST_Length(geometry)`** returns the total length of all linear parts
+- **`ST_NumGeometries(geometry)`**, returns the number of parts in the collection.
+- **`ST_GeometryN(geometry,n)`**, returns the specified part.
+- **`ST_Area(geometry)`**, returns the total area of all polygonal parts.
+- **`ST_Length(geometry)`**, returns the total length of all linear parts.
 
-#### Geometry Input and Output
+### Geometry Input and Output
 Within the database, geometries are stored on disk in a format only used by the PostGIS program. In order for external programs to insert and retrieve useful geometries, they need to be converted into a format that other applications can understand. Fortunately, PostGIS supports emitting and consuming geometries in a large number of formats:
 - [Well-known text (WKT)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#well-known-text-wkt)
 - [Well-known binary (WKB)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#well-known-binary-wkb)
@@ -428,24 +427,24 @@ Within the database, geometries are stored on disk in a format only used by the 
 - [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geojson)
 - [Scalable Vector Graphics (SVG)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#scalable-vector-graphics-svg)
 
-##### Well-known text (WKT)
-- **`ST_GeomFromText(text, srid)`** returns geometry
-- **`ST_AsText(geometry)`** returns text
-- **`ST_AsEWKT(geometry)`** returns text
-##### Well-known binary (WKB)
-- **`ST_GeomFromWKB(bytea)`** returns geometry
-- **`ST_AsBinary(geometry)`** returns bytea
-- **`ST_AsEWKB(geometry)`** returns bytea
-##### Geographic Mark-up Language (GML)
-- **`ST_GeomFromGML(text)`** returns geometry
-- **`ST_AsGML(geometry)`** returns text
-##### Keyhole Mark-up Language (KML)
-- **`ST_GeomFromKML(text)`** returns geometry
-- **`ST_AsKML(geometry)`** returns text
-##### GeoJSON
-- **`ST_AsGeoJSON(geometry)`** returns text
-##### Scalable Vector Graphics (SVG)
-- **`ST_AsSVG(geometry)`** returns text
+#### Well-known text (WKT)
+- **`ST_GeomFromText(text, srid)`**, returns geometry.
+- **`ST_AsText(geometry)`**, returns text.
+- **`ST_AsEWKT(geometry)`**, returns text.
+#### Well-known binary (WKB)
+- **`ST_GeomFromWKB(bytea)`**, returns geometry.
+- **`ST_AsBinary(geometry)`**, returns bytea.
+- **`ST_AsEWKB(geometry)`**, returns bytea.
+#### Geographic Mark-up Language (GML)
+- **`ST_GeomFromGML(text)`**, returns geometry.
+- **`ST_AsGML(geometry)`**, returns text.
+#### Keyhole Mark-up Language (KML)
+- **`ST_GeomFromKML(text)`** ,returns geometry.
+- **`ST_AsKML(geometry)`**, returns text.
+#### GeoJSON
+- **`ST_AsGeoJSON(geometry)`**, returns text.
+#### Scalable Vector Graphics (SVG)
+- **`ST_AsSVG(geometry)`**, returns text.
 
 The most common use of a constructor is to turn a text representation of a geometry into an internal representation.
 
