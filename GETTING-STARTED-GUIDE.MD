@@ -3,7 +3,7 @@
 - [Purpose](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#purpose)
 - [Bill of Materials](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#bill-of-materials) 
   - [Software](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#software)
-  - [Datasets](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#data)
+  - [Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#data)
 - [Disclaimer](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#disclaimer)
 - [Instructions](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#instructions--background-info)
   - [Greenplum Database](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum-database)
