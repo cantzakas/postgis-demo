@@ -1,67 +1,67 @@
 # Getting Started Guide
 
-- [Purpose](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#purpose)
-- [Bill of Materials](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#bill-of-materials) 
-  - [Software](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#software)
-  - [Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#data)
-- [Disclaimer](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#disclaimer)
-- [Instructions](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#instructions--background-info)
-  - [Greenplum Database](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum-database)
-  - [PostGIS Extension](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension)
-    - [About PostGIS](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-postgis)
-    - [PostGIS Extension package for Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension-package-for-greenplum)
-    - [Enabling PostGIS Support](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#enabling-postgis-support)
-    - [Greenplum Database PostGIS Extension Support & Limitations](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum-database-postgis-extension-support--limitations)
-  - [Geometries](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometries)
-    - [Introduction](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#introduction)
-    - [Metadata Tables](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#metadata-tables)
-    - [Representing Real World Objects with PostGIS](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#representing-real-world-objects-with-postgis)
-    - [Supported PostGIS Geometry Types](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#supported-postgis-geometry-types)
-    - [Geometry Input and Output](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometry-input-and-output)
-    - [Casting from Text](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#casting-from-text)
-  - [How to Load GIS (Vector) Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#how-to-load-gis-vector-data)
-    - [Loading Data Using SQL](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-data-using-sql)
-    - [shp2pgsql (ESRI Shapefile Loader)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader)
-  - [About the Demo Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-data)
-  - [Loading the Demo Datasets into Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-datasets-into-greenplum)
-- [Practical Examples & Exercises](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#practical-examples--exercises)
-  - [Pivotal Greenplum & PostGIS Basics](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#pivotal-greenplum--postgis-basics)
-  - [Spatial Geometries & Relationships](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#spatial-geometries--relationships)
-  - [Spatial Joins](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#spatial-joins)
+- [Purpose](GETTING-STARTED-GUIDE.MD#purpose)
+- [Bill of Materials](GETTING-STARTED-GUIDE.MD#bill-of-materials) 
+  - [Software](GETTING-STARTED-GUIDE.MD#software)
+  - [Data](GETTING-STARTED-GUIDE.MD#data)
+- [Disclaimer](GETTING-STARTED-GUIDE.MD#disclaimer)
+- [Instructions](GETTING-STARTED-GUIDE.MD#instructions--background-info)
+  - [Greenplum Database](GETTING-STARTED-GUIDE.MD#greenplum-database)
+  - [PostGIS Extension](GETTING-STARTED-GUIDE.MD#postgis-extension)
+    - [About PostGIS](GETTING-STARTED-GUIDE.MD#about-postgis)
+    - [PostGIS Extension package for Greenplum](GETTING-STARTED-GUIDE.MD#postgis-extension-package-for-greenplum)
+    - [Enabling PostGIS Support](GETTING-STARTED-GUIDE.MD#enabling-postgis-support)
+    - [Greenplum Database PostGIS Extension Support & Limitations](GETTING-STARTED-GUIDE.MD#greenplum-database-postgis-extension-support--limitations)
+  - [Geometries](GETTING-STARTED-GUIDE.MD#geometries)
+    - [Introduction](GETTING-STARTED-GUIDE.MD#introduction)
+    - [Metadata Tables](GETTING-STARTED-GUIDE.MD#metadata-tables)
+    - [Representing Real World Objects with PostGIS](GETTING-STARTED-GUIDE.MD#representing-real-world-objects-with-postgis)
+    - [Supported PostGIS Geometry Types](GETTING-STARTED-GUIDE.MD#supported-postgis-geometry-types)
+    - [Geometry Input and Output](GETTING-STARTED-GUIDE.MD#geometry-input-and-output)
+    - [Casting from Text](GETTING-STARTED-GUIDE.MD#casting-from-text)
+  - [How to Load GIS (Vector) Data](GETTING-STARTED-GUIDE.MD#how-to-load-gis-vector-data)
+    - [Loading Data Using SQL](GETTING-STARTED-GUIDE.MD#loading-data-using-sql)
+    - [shp2pgsql (ESRI Shapefile Loader)](GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader)
+  - [About the Demo Data](GETTING-STARTED-GUIDE.MD#about-the-demo-data)
+  - [Loading the Demo Datasets into Greenplum](GETTING-STARTED-GUIDE.MD#loading-the-demo-datasets-into-greenplum)
+- [Practical Examples & Exercises](GETTING-STARTED-GUIDE.MD#practical-examples--exercises)
+  - [Pivotal Greenplum & PostGIS Basics](GETTING-STARTED-GUIDE.MD#pivotal-greenplum--postgis-basics)
+  - [Spatial Geometries & Relationships](GETTING-STARTED-GUIDE.MD#spatial-geometries--relationships)
+  - [Spatial Joins](GETTING-STARTED-GUIDE.MD#spatial-joins)
 
 # Purpose
 The purpose of this Getting Started Guide is to showcase the use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org). This guide has been build mostly upon the [work](https://github.com/boundlessgeo/workshops) our friends at [Boundless](http://boundlessgeo.com/) have done in the past.
 
 # Bill of Materials
-- [Software](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#software)
-- [Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#data)
+- [Software](GETTING-STARTED-GUIDE.MD#software)
+- [Data](GETTING-STARTED-GUIDE.MD#data)
 
 ## Software
 - Greenplum Database Sandbox OVA for VMWare (available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 - PostGIS 2.1.5+pivotal.1 for RHEL 6 extension package (also available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 
 ## Data
-The dataset used throughout this demo is the original [Boundless demo](https://github.com/boundlessgeo/workshops) dataset for New York City (shapefiles). Detailed information for this dataset is available [here](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#nyc-dataset).
+The dataset used throughout this demo is the original [Boundless demo](https://github.com/boundlessgeo/workshops) dataset for New York City (shapefiles). Detailed information for this dataset is available [here](GETTING-STARTED-GUIDE.MD#nyc-dataset).
 
 # Disclaimer
 - All the software in the package is open source, and freely redistributable. 
 - This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
 # Instructions & Background Info
-- [Greenplum Database](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum-database)
-- [PostGIS Extension](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension)
-- [Geometries](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometries)
-- [How to Load GIS (Vector) Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#how-to-load-gis-vector-data)
-- [About the Demo Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-data)
-- [Loading the Demo Datasets into Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-datasets-into-greenplum)
+- [Greenplum Database](GETTING-STARTED-GUIDE.MD#greenplum-database)
+- [PostGIS Extension](GETTING-STARTED-GUIDE.MD#postgis-extension)
+- [Geometries](GETTING-STARTED-GUIDE.MD#geometries)
+- [How to Load GIS (Vector) Data](GETTING-STARTED-GUIDE.MD#how-to-load-gis-vector-data)
+- [About the Demo Data](GETTING-STARTED-GUIDE.MD#about-the-demo-data)
+- [Loading the Demo Datasets into Greenplum](GETTING-STARTED-GUIDE.MD#loading-the-demo-datasets-into-greenplum)
 
 ## Greenplum Database
 Read [Welcome to Pivotal Greenplum Database](GPDB.md) page for information on Greenplum Database.
 ## PostGIS Extension
-- [About PostGIS](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-postgis)
-- [PostGIS Extension package for Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension-package-for-greenplum)
-- [Enabling PostGIS Support](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#enabling-postgis-support)
-- [Greenplum Database PostGIS Extension Support & Limitations](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum-database-postgis-extension-support--limitations)
+- [About PostGIS](GETTING-STARTED-GUIDE.MD#about-postgis)
+- [PostGIS Extension package for Greenplum](GETTING-STARTED-GUIDE.MD#postgis-extension-package-for-greenplum)
+- [Enabling PostGIS Support](GETTING-STARTED-GUIDE.MD#enabling-postgis-support)
+- [Greenplum Database PostGIS Extension Support & Limitations](GETTING-STARTED-GUIDE.MD#greenplum-database-postgis-extension-support--limitations)
 
 ### About PostGIS
 PostGIS is a spatial database extension for PostgreSQL that allows GIS (Geographic Information Systems) objects to be stored in the database. The Greenplum Database PostGIS extension includes support for GiST-based R-Tree spatial indexes and functions for analysis and processing of GIS objects.
@@ -121,10 +121,10 @@ SELECT short_name, long_name FROM ST_GDALDrivers();
 ```
 
 ### Greenplum Database PostGIS Extension Support & Limitations
-- [Supported PostGIS Data Types](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#supported-postgis-data-types)
-- [Supported PostGIS Raster Data Types](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MDsupported-postgis-raster-data-types)
-- [Supported PostGIS Index](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#supported-postgis-index)
-- [Greenplum Database PostGIS Extension Limitations](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#greenplum-database-postgis-extension-limitations)
+- [Supported PostGIS Data Types](GETTING-STARTED-GUIDE.MD#supported-postgis-data-types)
+- [Supported PostGIS Raster Data Types](GETTING-STARTED-GUIDE.MDsupported-postgis-raster-data-types)
+- [Supported PostGIS Index](GETTING-STARTED-GUIDE.MD#supported-postgis-index)
+- [Greenplum Database PostGIS Extension Limitations](GETTING-STARTED-GUIDE.MD#greenplum-database-postgis-extension-limitations)
 
 #### Supported PostGIS Data Types
 Greenplum Database PostGIS extension supports these PostGIS data types:
@@ -176,12 +176,12 @@ Additionally, Greenplum Database PostGIS extension has certain limitations for u
 ## Geometries
 Read the next section for better understanding and background information on how a real world objects are represented using PostGIS & SQL.
 
-- [Introduction](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#introduction)
-- [Metadata Tables](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#metadata-tables)
-- [Representing Real World Objects with PostGIS](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#representing-real-world-objects-with-postgis)
-- [Supported PostGIS Geometry Types](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#supported-postgis-geometry-types)
-- [Geometry Input and Output](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometry-input-and-output)
-- [Casting from Text](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#casting-from-text)
+- [Introduction](GETTING-STARTED-GUIDE.MD#introduction)
+- [Metadata Tables](GETTING-STARTED-GUIDE.MD#metadata-tables)
+- [Representing Real World Objects with PostGIS](GETTING-STARTED-GUIDE.MD#representing-real-world-objects-with-postgis)
+- [Supported PostGIS Geometry Types](GETTING-STARTED-GUIDE.MD#supported-postgis-geometry-types)
+- [Geometry Input and Output](GETTING-STARTED-GUIDE.MD#geometry-input-and-output)
+- [Casting from Text](GETTING-STARTED-GUIDE.MD#casting-from-text)
 
 ### Introduction
 Let's start by looking at some simple examples. Within the SQL editing environment of your preference, i.e [pgAdmin](https://www.pgadmin.org/), once again select a database/schema in which PostGIS extension has been enableq and open the SQL query editing tool/panel. Paste the following example SQL code into the SQL Editor window (removing any text that may be there by default) and execute:
@@ -263,10 +263,10 @@ SELECT name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom)
 | Linestring      | ST_LineString         |        2 |       0 |
 
 ## Supported PostGIS Geometry Types
-- [Point](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#point)
-- [Linestring](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#linestring)
-- [Polygon & PolygonWithHole](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#polygon) 
-- [Collection, MultiPoint, MultiLineString, MultiPolygon, GeometryCollection](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#collection-multipoint-multilinestring-multipolygon-geometrycollection)
+- [Point](GETTING-STARTED-GUIDE.MD#point)
+- [Linestring](GETTING-STARTED-GUIDE.MD#linestring)
+- [Polygon & PolygonWithHole](GETTING-STARTED-GUIDE.MD#polygon) 
+- [Collection, MultiPoint, MultiLineString, MultiPolygon, GeometryCollection](GETTING-STARTED-GUIDE.MD#collection-multipoint-multilinestring-multipolygon-geometrycollection)
 
 ### Point
 ![Image of PostGIS Points - Boundless](http://workshops.boundlessgeo.com/postgis-intro/_images/points.png)
@@ -430,12 +430,12 @@ Some of the specific spatial functions for working with collections are:
 ## Geometry Input and Output
 Within the database, geometries are stored on disk in a format only used by the PostGIS program. In order for external programs to insert and retrieve useful geometries, they need to be converted into a format that other applications can understand. Fortunately, PostGIS supports emitting and consuming geometries in a large number of formats:
 
-- [Well-known text (WKT)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#well-known-text-wkt)
-- [Well-known binary (WKB)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#well-known-binary-wkb)
-- [Geographic Mark-up Language (GML)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geographic-mark-up-language-gml)
-- [Keyhole Mark-up Language (KML)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#keyhole-mark-up-language-kml)
-- [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geojson)
-- [Scalable Vector Graphics (SVG)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#scalable-vector-graphics-svg)
+- [Well-known text (WKT)](GETTING-STARTED-GUIDE.MD#well-known-text-wkt)
+- [Well-known binary (WKB)](GETTING-STARTED-GUIDE.MD#well-known-binary-wkb)
+- [Geographic Mark-up Language (GML)](GETTING-STARTED-GUIDE.MD#geographic-mark-up-language-gml)
+- [Keyhole Mark-up Language (KML)](GETTING-STARTED-GUIDE.MD#keyhole-mark-up-language-kml)
+- [GeoJSON](GETTING-STARTED-GUIDE.MD#geojson)
+- [Scalable Vector Graphics (SVG)](GETTING-STARTED-GUIDE.MD#scalable-vector-graphics-svg)
 
 ### Well-known text (WKT)
 - **`ST_GeomFromText(text, srid)`**, returns geometry.
@@ -559,8 +559,8 @@ It’s very common to use the casting notation when working with WKT, as well as
 
 ## How to Load GIS (Vector) Data
 
-- [Loading Data Using SQL](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-data-using-sql)
-- [shp2pgsql (ESRI Shapefile Loader)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader)
+- [Loading Data Using SQL](GETTING-STARTED-GUIDE.MD#loading-data-using-sql)
+- [shp2pgsql (ESRI Shapefile Loader)](GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader)
 
 ### Loading Data Using SQL
 If converting your input data to a text representation is an option then using formatted SQL might be the easiest way to get the dataset into PostGIS. As with Oracle and other SQL databases, data can be bulk loaded by piping a large text file full of SQL `INSERT` statements into the SQL terminal monitor. 
@@ -635,11 +635,11 @@ shp2pgsql <shape-file> <schema-name>.<table-name> | psql -d <database-name>
 ## About the Demo Data
 
 ### NYC Dataset
-- [nyc\_census\_blocks](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/nyc_census_blocks.md); a census block is the smallest geography for which census data is reported. Data Type: Polygon Data and additional structured  information. Supply Format: Shapefile.
-- [nyc\_neighborhoods](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/nyc_neighborhoods.md): neighborhoods are social constructs that do not follow lines laid down by the government. Data Type: Polygon Data and additional structured information. Supply Format: Shapefile.
-- [nyc\_streets](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/nyc_streets.md): The street centerlines form the transportation network of the city. Data Type: Polygon Data and additional structured (numeric) information. Supply Format: Shapefile.
-- [nyc\_subway\_stations](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/nyc_subway_stations.md): information for the public transportation system of NYC. Data Type: Polygon Data and additional structured information. Supply Format: Shapefile.
-- [nyc\_census\_sociodata](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/nyc_census_sociodata.md): rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract. Data Type: Structured information. Supply Format: CSV.
+- [nyc\_census\_blocks](data/nyc/nyc_census_blocks.md); a census block is the smallest geography for which census data is reported. Data Type: Polygon Data and additional structured  information. Supply Format: Shapefile.
+- [nyc\_neighborhoods](data/nyc/nyc_neighborhoods.md): neighborhoods are social constructs that do not follow lines laid down by the government. Data Type: Polygon Data and additional structured information. Supply Format: Shapefile.
+- [nyc\_streets](data/nyc/nyc_streets.md): The street centerlines form the transportation network of the city. Data Type: Polygon Data and additional structured (numeric) information. Supply Format: Shapefile.
+- [nyc\_subway\_stations](data/nyc/nyc_subway_stations.md): information for the public transportation system of NYC. Data Type: Polygon Data and additional structured information. Supply Format: Shapefile.
+- [nyc\_census\_sociodata](data/nyc/nyc_census_sociodata.md): rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract. Data Type: Structured information. Supply Format: CSV.
 
 ## Loading the Demo Datasets into Greenplum
 
@@ -648,7 +648,7 @@ This guide is using this [data bundle](http://files.boundlessgeo.com/workshopmat
 
 All the data in this package is public domain and freely redistributable. All the software in the package is open source, and freely redistributable. This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
-To load the demo dataset for this demo, we will use the `shp2pgsql` utility, which was described [previously](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader).
+To load the demo dataset for this demo, we will use the `shp2pgsql` utility, which was described [previously](GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader).
 
 The demo dataset contains GIS/Geospatial information for 5 different entities:
 
@@ -708,9 +708,9 @@ CREATE INDEX "<schema_name>"."<index_name>" ON "<schema_name>"."<table_name>"
 ```
 
 # Practical Examples & Exercises
-- [Pivotal Greenplum & PostGIS Basics](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#pivotal-greenplum--postgis-basics)
-- [Spatial Geometries & Relationships](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#spatial-geometries--relationships)
-- [Spatial Joins](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#spatial-joins)
+- [Pivotal Greenplum & PostGIS Basics](GETTING-STARTED-GUIDE.MD#pivotal-greenplum--postgis-basics)
+- [Spatial Geometries & Relationships](GETTING-STARTED-GUIDE.MD#spatial-geometries--relationships)
+- [Spatial Joins](GETTING-STARTED-GUIDE.MD#spatial-joins)
 
 ## Pivotal Greenplum & PostGIS Basics
 
