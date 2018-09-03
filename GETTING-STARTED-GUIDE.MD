@@ -53,7 +53,7 @@ The dataset used throughout this demo is the original [Boundless demo](https://g
 - [PostGIS Extension](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#postgis-extension)
 - [Geometries](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#geometries)
 - [How to Load GIS (Vector) Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#how-to-load-gis-vector-data)
-- [About the Demo Datasets](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-datasets)
+- [About the Demo Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-data)
 - [Loading the Demo Datasets into Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-datasets-into-greenplum)
 
 ## Greenplum Database
