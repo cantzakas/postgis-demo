@@ -30,7 +30,7 @@
   - [Spatial Joins](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#spatial-joins)
 
 # Purpose
-The purpose of this Getting Started Guide is to showcase the use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org). This guide has been build mostly upon the [work](https://github.com/boundlessgeo/workshops) our friends at [Boundless](http://boundlessgeo.com/) have done in the past, and has been extended to utilize and present data available and for the area of Greater London, UK.
+The purpose of this Getting Started Guide is to showcase the use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org). This guide has been build mostly upon the [work](https://github.com/boundlessgeo/workshops) our friends at [Boundless](http://boundlessgeo.com/) have done in the past.
 
 # Bill of Materials
 - [Software](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#software)
@@ -41,10 +41,9 @@ The purpose of this Getting Started Guide is to showcase the use of PostGIS on t
 - PostGIS 2.1.5+pivotal.1 for RHEL 6 extension package (also available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 
 ## Data
-The dataset used throughout this demo is the original [Boundless demo](https://github.com/boundlessgeo/workshops) dataset for New York City (shapefiles). Detailed information for this dataset is available [here](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#nyc-dataset)
+The dataset used throughout this demo is the original [Boundless demo](https://github.com/boundlessgeo/workshops) dataset for New York City (shapefiles). Detailed information for this dataset is available [here](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#nyc-dataset).
 
 # Disclaimer
-- Use of Ordnance Survey data is subject to terms at www.ordnancesurvey.co.uk/opendata/licence. Contains Ordnance Survey data © Crown copyright and database right 2018. Contains Royal Mail data © Royal Mail copyright and database right 2018. Contains National Statistics data © Crown copyright and database right 2018.
 - All the software in the package is open source, and freely redistributable. 
 - This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
