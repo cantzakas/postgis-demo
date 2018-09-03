@@ -852,65 +852,65 @@ On a similar note, for testing whether two objects are within a distance of one 
 Let's see some more examples:
 
 1. **"What is the area of the ‘West Village’ neighborhood?"**
-
-  ``` sql
-  SELECT ST_Area(geom)
-  FROM nyc_neighborhoods
-  WHERE name = 'West Village';
-  ```
-  | st_area              |
-  | :---                 |
-  | 1,044,614.5296485956 |
-  | (1 row)              |
-
+	``` sql
+	SELECT ST_Area(geom)
+	FROM nyc_neighborhoods
+	WHERE name = 'West Village';
+	```
+	
+	| st_area              |
+	| :---                 |
+	| 1,044,614.5296485956 |
+	| (1 row)              |
+	
 2. **"What is the total length of streets (in kilometers) in New York City?"**
 
-  ``` sql
-  SELECT SUM(ST_Length(geom)) / 1000 AS length
-  FROM nyc_streets;
-  ```
-  
-  | length             |
-  | :---               |
-  | 10418.904717200041 |
-  | (1 row)            |
-  
+	``` sql
+	SELECT SUM(ST_Length(geom)) / 1000 AS length
+	FROM nyc_streets;
+	```
+	
+	| length             |
+	| :---               |
+	| 10418.904717200041 |
+	| (1 row)            |
+	
 3. **"What is the length of streets in New York City, summarized by type?"**
-
-  ``` sql
-  SELECT type, Sum(ST_Length(geom)) AS length
-  FROM nyc_streets
-  GROUP BY type
-  ORDER BY length DESC;
-  ```
-  
-  | type                                             | length             |
-  | :----------------------------------------------- | :----------------- |
-  | residential                                      | 8629870.337866072  |
-  | motorway                                         | 403622.4781263625  |
-  | tertiary                                         | 360394.87905130273 |
-  | motorway_link                                    | 294261.4194796685  |
-  | secondary                                        | 276264.30389792577 |
-  | unclassified                                     | 166936.3716044582  |
-  | primary                                          | 135034.23301794694 |
-  | footway                                          | 71798.48783780968  |
-  | service                                          | 28337.635038595996 |
-  | trunk                                            | 20353.58198260764  |
-  | cycleway                                         | 8863.751448259294  |
-  | pedestrian                                       | 4867.050328250255  |
-  | construction                                     | 4803.081621035618  |
-  | residential; motorway_link                       | 3661.5750629374543 |
-  | trunk_link                                       | 3202.189812402008  |
-  | primary_link                                     | 2492.5745708353616 |
-  | living_street                                    | 1894.6390545733245 |
-  | primary; residential; motorway_link; residential | 1367.7657694133486 |
-  | undefined                                        | 380.5386191034604  |
-  | steps                                            | 282.74522134212725 |
-  | motorway_link; residential                       | 215.07778911517033 |
-  | (21 rows)                                        |                    |
-
+	
+	``` sql
+	SELECT type, Sum(ST_Length(geom)) AS length
+	FROM nyc_streets
+	GROUP BY type
+	ORDER BY length DESC;
+	```
+	
+	| type                                             | length             |
+	| :----------------------------------------------- | :----------------- |
+	| residential                                      | 8629870.337866072  |
+	| motorway                                         | 403622.4781263625  |
+	| tertiary                                         | 360394.87905130273 |
+	| motorway_link                                    | 294261.4194796685  |
+	| secondary                                        | 276264.30389792577 |
+	| unclassified                                     | 166936.3716044582  |
+	| primary                                          | 135034.23301794694 |
+	| footway                                          | 71798.48783780968  |
+	| service                                          | 28337.635038595996 |
+	| trunk                                            | 20353.58198260764  |
+	| cycleway                                         | 8863.751448259294  |
+	| pedestrian                                       | 4867.050328250255  |
+	| construction                                     | 4803.081621035618  |
+	| residential; motorway_link                       | 3661.5750629374543 |
+	| trunk_link                                       | 3202.189812402008  |
+	| primary_link                                     | 2492.5745708353616 |
+	| living_street                                    | 1894.6390545733245 |
+	| primary; residential; motorway_link; residential | 1367.7657694133486 |
+	| undefined                                        | 380.5386191034604  |
+	| steps                                            | 282.74522134212725 |
+	| motorway_link; residential                       | 215.07778911517033 |
+	| (21 rows)                                        |                    |
+	
 4. **"What is the geometric representation of Broad Street subway station and then determine its neighborhood using the ST_Intersects function."**
-
+	
 	``` sql
 	SELECT name, ST_AsText(geom)
 	FROM nyc_subway_stations
