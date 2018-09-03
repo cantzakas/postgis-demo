@@ -1176,4 +1176,4 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	| Hamilton Heights | 67432 | 23.889251393996915 | 35.772333610155414 |
   	| Chinatown | 16209 | 15.16441483126658 | 3.757171941513974 |
   	| Harlem | 134955 | 15.094661183357415 | 67.06161313030269 |
-  	| (28 row)s |
+  	| (28 rows) |
