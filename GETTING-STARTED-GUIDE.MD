@@ -1042,27 +1042,27 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	WHERE
 		subways.name = 'Broad St';
 	```
-  
-  | subway_name | neighborhood_name  | name      |
-  | :---------- | ------------------ | --------- |
-  | Broad St    | Financial District | Manhattan |
-  | (1 row)     |
+	
+	| subway_name | neighborhood_name  | name      |
+	| :---------- | ------------------ | --------- |
+	| Broad St    | Financial District | Manhattan |
+	| (1 row)     |
 
 2. **(Spatial Join) "Which streets are nearby (within 10 meters of) Brad Street subway station?"**
-
-  ``` sql
-  SELECT str.name
-  FROM nyc_streets str
-  		JOIN nyc_subway_stations sta
-  			ON ST_DWithin(
-  				str.geom, 
+	
+	``` sql
+	SELECT str.name
+	FROM nyc_streets str
+		JOIN nyc_subway_stations sta
+			ON ST_DWithin(
+				str.geom, 
   				sta.geom, 
   				10)
   	WHERE
   		sta.name = 'Broad St';
   	```
-  	
-  	| name      |
+	
+	| name      |
   	| :-------- |
   	| Broad St  |
   	| Wall St   |
