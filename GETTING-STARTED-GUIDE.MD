@@ -22,7 +22,7 @@
   - [How to Load GIS (Vector) Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#how-to-load-gis-vector-data)
     - [Loading Data Using SQL](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-data-using-sql)
     - [shp2pgsql (ESRI Shapefile Loader)](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#shp2pgsql-using-the-esri-shapefile-loader)
-  - [About the Demo Datasets](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-datasets)
+  - [About the Demo Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#about-the-demo-data)
   - [Loading the Demo Datasets into Greenplum](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#loading-the-demo-datasets-into-greenplum)
 - [Practical Examples & Exercises](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#practical-examples--exercises)
   - [Pivotal Greenplum & PostGIS Basics](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#pivotal-greenplum--postgis-basics)
@@ -34,20 +34,17 @@ The purpose of this Getting Started Guide is to showcase the use of PostGIS on t
 
 # Bill of Materials
 - [Software](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#software)
-- [Datasets](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#data)
+- [Data](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#data)
 
 ## Software
 - Greenplum Database Sandbox OVA for VMWare (available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 - PostGIS 2.1.5+pivotal.1 for RHEL 6 extension package (also available to download from [Pivotal Network](https://network.pivotal.io/products/pivotal-gpdb))
 
 ## Data
-Two separate datasets are used throughout this demo, the original [Boundless demo](https://github.com/boundlessgeo/workshops) dataset for New York City (shapefiles) and the new dataset from Ordnance Survey Open Data and TfL free Transport Data Service for London.
-
-Detailed information for each dataset is available [here](ABOUTDATA.md).
+The dataset used throughout this demo is the original [Boundless demo](https://github.com/boundlessgeo/workshops) dataset for New York City (shapefiles). Detailed information for this dataset is available [here](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#nyc-dataset)
 
 # Disclaimer
 - Use of Ordnance Survey data is subject to terms at www.ordnancesurvey.co.uk/opendata/licence. Contains Ordnance Survey data © Crown copyright and database right 2018. Contains Royal Mail data © Royal Mail copyright and database right 2018. Contains National Statistics data © Crown copyright and database right 2018.
-- [TfL free Transport Data Service](https://tfl.gov.uk/info-for/open-data-users/) is 'Powered by TfL Open Data' and 'contains OS data © Crown copyright and database rights 2016'.
 - All the software in the package is open source, and freely redistributable. 
 - This workshop is licensed as Creative Commons [“share alike with attribution”](http://creativecommons.org/licenses/by-sa/3.0/us/), and is freely redistributable under the terms of that license.
 
@@ -636,10 +633,7 @@ A conversion and upload can be done all in one step using UNIX pipes:
 shp2pgsql <shape-file> <schema-name>.<table-name> | psql -d <database-name>
 ```
 
-## About the Demo Datasets
-
-- [NYC](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#nyc-dataset)
-- [London](https://github.com/cantzakas/postgis-demo/blob/master/GETTING-STARTED-GUIDE.MD#london-dataset)
+## About the Demo Data
 
 ### NYC Dataset
 - [nyc\_census\_blocks](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/nyc_census_blocks.md); a census block is the smallest geography for which census data is reported. Data Type: Polygon Data and additional structured  information. Supply Format: Shapefile.
@@ -647,16 +641,6 @@ shp2pgsql <shape-file> <schema-name>.<table-name> | psql -d <database-name>
 - [nyc\_streets](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/nyc_streets.md): The street centerlines form the transportation network of the city. Data Type: Polygon Data and additional structured (numeric) information. Supply Format: Shapefile.
 - [nyc\_subway\_stations](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/nyc_subway_stations.md): information for the public transportation system of NYC. Data Type: Polygon Data and additional structured information. Supply Format: Shapefile.
 - [nyc\_census\_sociodata](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/nyc_census_sociodata.md): rich collection of social-economic data collected during the census process, but only at the larger geography level of census tract. Data Type: Structured information. Supply Format: CSV.
-
-### London DataSet
-- Ordnance Survey Open Data:
-  - [Code-Point® Open](data/london/cpo.md) gives you a precise geographic location for each postcode unit in Great Britain. Data type: Point Data. Supply Format: CSV. 
-  - [Boundary-Line™](data/london/boundary-line.md) maps every administrative boundary in Great Britain, down to the level of council wards. Data type: Vector. Supply Format: ESRI© Shape, MapInfo© Tab.
-  - [OS Open Names](data/london/oso-names.md) is a comprehensive dataset of place names, roads numbers and postcodes for Great Britain. Data type: . Supply Format: .
-  - [OS Open Roads](data/london/oso-roads.md) gives you a high-level view of the British road network, from motorways to country lanes. Data type: . Supply Format: .
-  - [OS Open Greenspace](data/london/oso-greenspace.md) contains the location and extent of spaces such as parks and sports facilities that are likely to be accessible to the public. Data type: Vector. Supply format: GML 3, ESRI© Shape.
-  - [OS Open Rivers](data/london/oso-rivers.md) gives you a high-level view of the British river network, showing how all the different watercourses join up. Data type: . Supply Format: .
-- TfL free Transport Data Service:
 
 ## Loading the Demo Datasets into Greenplum
 
