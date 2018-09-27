@@ -1089,23 +1089,26 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	| Atlantic Commons |
 	| (3 rows)         |
 	
-5. **(Spatial Join) "Approximately how many people live on (within 50 meters of) 'Atlantic Commons' street?"**
+5. **(Spatial Join) "Approximately how many black people live on (within 50 meters of) 'Atlantic Commons' street?"**
 
 	``` sql
-	SELECT str1.name
-	FROM nyc_streets str1, nyc_streets str2
-	WHERE ST_DWithin(
-		str1.geom,
-		str2.geom, 
-		0.1)
-	AND
-		str2.name = 'Atlantic Commons';
+	SELECT
+		SUM(popn_black) AS population_blc 
+	FROM nyc_streets AS str, 
+		nyc_census_blocks AS census
+	WHERE str.name = 'Atlantic Commons'
+		AND ST_DWithin(
+			str.geom,
+			census.geom, 
+			50);
 	```
   	
   	| name     |
   	| :------- |
-  	| 27452858 |
+  	| 727 |
   	| (1 row)  |
+  	
+  	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/spatial_join_example_5.tiff)
 
 6. **(Spatial Join) "What is the population and racial make-up of the neighborhoods of Manhattan?"**
 
