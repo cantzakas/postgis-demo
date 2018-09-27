@@ -1073,7 +1073,8 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 4. **(Spatial Join) "What streets does 'Atlantic Commons' street joins with?"**
 
 	``` sql
-	SELECT str1.name
+	SELECT str1.name, 
+		str1.geom
 	FROM nyc_streets str1, nyc_streets str2
 	WHERE str2.name = 'Atlantic Commons'
 		AND ST_DWithin(
@@ -1082,13 +1083,15 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 			0.1);
 	```
 	
-	| name             |
-	| :----------------|
-	| S Oxford St      |
-	| Cumberland St    |
-	| Atlantic Commons |
-	| (3 rows)         |
-	
+	| name             | geom   |
+	| :--------------- | :----- |
+	| S Oxford St | MULTILINESTRING ((586758.6283010176 4504390.28664449, 586754.8588276431 4504365.706902023, 586781.7015777241 4504202.153143394, 586804.8289285237 4504060.094186225)) | 
+	| Cumberland St | MULTILINESTRING ((586843.6479274601 4504346.982939101, 586863.5196448397 4504215.988170098, 586892.2358491572 4504037.024724485)) |
+	| Atlantic Commons | MULTILINESTRING ((586781.7015777241 4504202.153143394, 586863.5196448397 4504215.988170098)) |
+	| (3 rows)         | |
+  	
+  	![Streets with which 'Atlantic Commons' street joins](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial_join_example_4.jpg)
+  	
 5. **(Spatial Join) "Approximately how many black people live on (within 50 meters of) 'Atlantic Commons' street?"**
 
 	``` sql
