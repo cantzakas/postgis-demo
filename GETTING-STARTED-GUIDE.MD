@@ -1093,20 +1093,25 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 
 	``` sql
 	SELECT
-		SUM(popn_black) AS population_blc 
-	FROM nyc_streets AS str, 
+		SUM(popn_black) AS population_blc,
+		census.blkid AS blkid
+	FROM nyc_streets AS str,
 		nyc_census_blocks AS census
 	WHERE str.name = 'Atlantic Commons'
 		AND ST_DWithin(
 			str.geom,
-			census.geom, 
-			50);
+			census.geom,
+			50)
+	GROUP BY 2;
 	```
   	
-  	| name     |
-  	| :------- |
-  	| 727 |
-  	| (1 row)  |
+  	| population_blc | blkid |
+  	| :------- | :---------- |
+  	| 297 | 360470179002000  |
+  	| 54 | 360470179002004   |
+  	| 150 | 360470179002001  |
+  	| 226 | 360470179002003  |
+  	| (4 rows)  |
   	
   	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial_join_example_5.jpg)
 
