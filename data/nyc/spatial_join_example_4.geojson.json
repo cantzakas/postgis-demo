@@ -1,0 +1,80 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"street_name": "Atlantic Commons"
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[
+							-73.9730269999998,
+							40.6841449999998
+						],
+						[
+							-73.9720569999999,
+							40.6842609999997
+						]
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"street_name": "S Oxford St"
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[
+							-73.9732739999999,
+							40.6858419999998
+						],
+						[
+							-73.9733219999998,
+							40.6856209999997
+						],
+						[
+							-73.9730269999998,
+							40.6841449999998
+						],
+						[
+							-73.9727729999998,
+							40.6828629999997
+						]
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"street_name": "Cumberland St"
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[
+							-73.9722739999998,
+							40.6854429999998
+						],
+						[
+							-73.9720569999999,
+							40.6842609999997
+						],
+						[
+							-73.9717419999998,
+							40.6826459999998
+						]
+					]
+				]
+			}
+		}
+	]
+}
