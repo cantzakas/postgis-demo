@@ -1164,40 +1164,42 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	ORDER BY
 		pcnt_white DESC;
 	```
-	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-6.sql)
+	[SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-6.sql)
 	
-  	###### (geojson values omitted from the results table below)
-  	| neighborhood_name   | population | white_pct | black_pct | geojson  |
-  	| :-------            | :-------   | :-------  | :-------  | :------: |
-  	| Carnegie Hill       | 18763      | 90.08     | 1.41      | ...      |
-  	| West Village        | 26718      | 87.60     | 2.17      | ...      |
-  	| North Sutton Area   | 22460      | 87.56     | 1.55      | ...      |
-  	| Upper East Side     | 203741     | 85.02     | 2.72      | ...      |
-  	| Soho                | 15436      | 84.65     | 2.24      | ...      |
-  	| Greenwich Village   | 57224      | 81.98     | 2.44      | ...      |
-  	| Central Park        | 46600      | 79.49     | 7.97      | ...      |
-  	| Tribeca             | 20908      | 79.12     | 3.55      | ...      |
-  	| Gramercy            | 104876     | 75.46     | 4.72      | ...      |
-  	| Murray Hill         | 29655      | 75.01     | 2.51      | ...      |
-  	| Chelsea             | 61340      | 74.82     | 6.37      | ...      |
-  	| Upper West Side     | 214761     | 74.56     | 9.19      | ...      |
-  	| Midtown             | 76840      | 72.60     | 5.17      | ...      |
-  	| Battery Park        | 17153      | 71.83     | 3.38      | ...      |
-  	| Financial District  | 34807      | 69.93     | 3.83      | ...      |
-  	| Clinton             | 32201      | 65.27     | 7.94      | ...      |
-  	| East Village        | 82266      | 63.27     | 8.77      | ...      |
-  	| Garment District    | 10539      | 55.19     | 7.09      | ...      |
-  	| Morningside Heights | 42844      | 52.72     | 19.37     | ...      |
-  	| Little Italy        | 12568      | 49.03     | 1.82      | ...      |
-  	| Yorkville           | 58450      | 35.56     | 29.72     | ...      |
-  	| Inwood              | 50047      | 35.21     | 16.85     | ...      |
-  	| Washington Heights  | 169013     | 34.87     | 16.83     | ...      |
-  	| Lower East Side     | 96156      | 33.51     | 9.08      | ...      |
-  	| East Harlem         | 60576      | 26.44     | 40.38     | ...      |
-  	| Hamilton Heights    | 67432      | 23.89     | 35.77     | ...      |
-  	| Chinatown           | 16209      | 15.16     | 3.76      | ...      |
-  	| Harlem              | 134955     | 15.09     | 67.06     | ...      |
+  	| neighborhood_name   | population | white_pct | black_pct | geojson    |
+  	| :-------            | :-------   | :-------  | :-------  | :------:   |
+  	| Carnegie Hill       | 18763      | 90.08     | 1.41      | ... &#185; |
+  	| West Village        | 26718      | 87.60     | 2.17      | ... &#185; |
+  	| North Sutton Area   | 22460      | 87.56     | 1.55      | ... &#185; |
+  	| Upper East Side     | 203741     | 85.02     | 2.72      | ... &#185; |
+  	| Soho                | 15436      | 84.65     | 2.24      | ... &#185; |
+  	| Greenwich Village   | 57224      | 81.98     | 2.44      | ... &#185; |
+  	| Central Park        | 46600      | 79.49     | 7.97      | ... &#185; |
+  	| Tribeca             | 20908      | 79.12     | 3.55      | ... &#185; |
+  	| Gramercy            | 104876     | 75.46     | 4.72      | ... &#185; |
+  	| Murray Hill         | 29655      | 75.01     | 2.51      | ... &#185; |
+  	| Chelsea             | 61340      | 74.82     | 6.37      | ... &#185; |
+  	| Upper West Side     | 214761     | 74.56     | 9.19      | ... &#185; |
+  	| Midtown             | 76840      | 72.60     | 5.17      | ... &#185; |
+  	| Battery Park        | 17153      | 71.83     | 3.38      | ... &#185; |
+  	| Financial District  | 34807      | 69.93     | 3.83      | ... &#185; |
+  	| Clinton             | 32201      | 65.27     | 7.94      | ... &#185; |
+  	| East Village        | 82266      | 63.27     | 8.77      | ... &#185; |
+  	| Garment District    | 10539      | 55.19     | 7.09      | ... &#185; |
+  	| Morningside Heights | 42844      | 52.72     | 19.37     | ... &#185; |
+  	| Little Italy        | 12568      | 49.03     | 1.82      | ... &#185; |
+  	| Yorkville           | 58450      | 35.56     | 29.72     | ... &#185; |
+  	| Inwood              | 50047      | 35.21     | 16.85     | ... &#185; |
+  	| Washington Heights  | 169013     | 34.87     | 16.83     | ... &#185; |
+  	| Lower East Side     | 96156      | 33.51     | 9.08      | ... &#185; |
+  	| East Harlem         | 60576      | 26.44     | 40.38     | ... &#185; |
+  	| Hamilton Heights    | 67432      | 23.89     | 35.77     | ... &#185; |
+  	| Chinatown           | 16209      | 15.16     | 3.76      | ... &#185; |
+  	| Harlem              | 134955     | 15.09     | 67.06     | ... &#185; |
   	| (28 rows) |
   	
+  	&#185; GeoJSON values are omitted from the presented results above
+  	
+  	[GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson)
+  	
   	![Population and Racial make-up information of the neighborhoods of Manhattan](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-6.jpg)
-  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson)
