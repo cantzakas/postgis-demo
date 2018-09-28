@@ -15,4 +15,4 @@ WHERE
 GROUP BY
 	neighborhoods.name
 ORDER BY
-	pcnt_white DESC
+	pcnt_white DESC;
