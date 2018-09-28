@@ -1025,14 +1025,12 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	WHERE
 		subways.name = 'Broad St';
 	```
-	
 	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-1.sql)
 	
 	| subway_name | neighborhood_name  | name      |
 	| :---------- | ------------------ | --------- |
 	| Broad St    | Financial District | Manhattan |
 	| (1 row)     |
-	
 	
   	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-1.jpg)
   	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-1.geojson)
@@ -1050,7 +1048,6 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	WHERE
   		sta.name = 'Broad St';
   	```
-	
 	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-2.sql)
 	
 	| name      |
@@ -1075,7 +1072,6 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	WHERE
 		str.name = 'Atlantic Commons';
 	```
-	
 	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-3.sql)
 	
 	| name       | boroname |
@@ -1102,7 +1098,6 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 			str2.geom, 
 			0.1);
 	```
-
   	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-4.sql)
   	
 	| name             | geojson   |
@@ -1174,7 +1169,6 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	ORDER BY
 		pcnt_white DESC;
 	```
-	
 	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-6.sql)
 	
   	###### (geojson values omitted from the results table below)
@@ -1212,4 +1206,3 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	
   	![Population and Racial make-up information of the neighborhoods of Manhattan](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-6.jpg)
   	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson)
-
