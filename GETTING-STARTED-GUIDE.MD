@@ -1116,18 +1116,25 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	
   	| sum_popn_black | geojson     |
   	| :------------- | :---------- |
-  	| 727            | {"type":"Polygon","coordinates":[[[-73.9718642422665,40.6826702873082],[-73.9726490493836,40.6828274545939],[-73.9727844589052,40.6828524223477],[-73.9737559848261,40.6830340197847],[-73.9739213575508,40.6837558012925],[-73.974281544167,40.6855130819215],[-73.9733218724009,40.6856216365625],[-73.9728480275519,40.6856749631679],[-73.9723124955231,40.685458234661],[-73.9712230018078,40.6850204979456],[-73.9709326534145,40.6835327130255],[-73.9709108509158,40.6834209892236],[-73.9708717296061,40.6832205193163],[-73.9708310471511,40.6830120550801],[-73.970825267357,40.6829824359063],[-73.9708137159069,40.6829232424568],[-73.970787285475,40.68278780157],[-73.9707758915234,40.6827294168111],[-73.9707510829865,40.6826022825115],[-73.9706959759658,40.682485003681],[-73.9706742500642,40.6824209630585],[-73.9718642422665,40.6826702873082]]]} | 	| (1 rows)  |
+  	| 727            | {"type":"Polygon","coordinates":[[[-73.9718642422665,40.6826702873082],[-73.9726490493836,40.6828274545939],[-73.9727844589052,40.6828524223477],[-73.9737559848261,40.6830340197847],[-73.9739213575508,40.6837558012925],[-73.974281544167,40.6855130819215],[-73.9733218724009,40.6856216365625],[-73.9728480275519,40.6856749631679],[-73.9723124955231,40.685458234661],[-73.9712230018078,40.6850204979456],[-73.9709326534145,40.6835327130255],[-73.9709108509158,40.6834209892236],[-73.9708717296061,40.6832205193163],[-73.9708310471511,40.6830120550801],[-73.970825267357,40.6829824359063],[-73.9708137159069,40.6829232424568],[-73.970787285475,40.68278780157],[-73.9707758915234,40.6827294168111],[-73.9707510829865,40.6826022825115],[-73.9706959759658,40.682485003681],[-73.9706742500642,40.6824209630585],[-73.9718642422665,40.6826702873082]]]} | 	| (1 row)  |
   	
   	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
 
 6. **(Spatial Join) "What is the population and racial make-up of the neighborhoods of Manhattan?"**
 
 	``` sql
+	SELECT name AS neighborhood_name, 
+		SUM(popn_total) AS sum_popn_total,
+		100.0 * SUM(popn_white) / SUM(popn_total) AS pcnt_white,
+		100.0 * SUM(popn_black) / SUM(popn_total) AS pcnt_black,
+		ST_AsGeoJSON(ST_Transform(ST_UNION(geom), 4326)) AS geojson
+	FROM (
 	SELECT
-		neighborhoods.name AS neighborhood_name,
-		SUM(census.popn_total) AS population,
-		100.0 * SUM(census.popn_white) / SUM(census.popn_total) AS white_pct,
-		100.0 * SUM(census.popn_black) / SUM(census.popn_total) AS black_pct
+		neighborhoods.name,
+		census.geom,
+		census.popn_white, 
+		census.popn_black,
+		census.popn_total
 	FROM
 		nyc_neighborhoods AS neighborhoods
 		JOIN nyc_census_blocks AS census
@@ -1136,40 +1143,41 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 			census.geom)
 	WHERE
 		neighborhoods.boroname = 'Manhattan'
-	GROUP BY 
-		neighborhoods.name
+	) A
+	GROUP BY
+		1
 	ORDER BY
-		white_pct DESC;
+		pcnt_white DESC;
 	```
-  	
-  	| neighborhood_name   | population | white_pct | black_pct |
-  	| :------- | :------- | :------- | :------- |
-  	| Carnegie Hill | 18763 | 90.08154346319886 | 1.4123541011565315 |
-  	| West Village | 26718 | 87.59637697432443 | 2.1745639643685903 |
-  	| North Sutton Area | 22460 | 87.56455921638468 | 1.553873552983081 |
-  	| Upper East Side | 203741 | 85.02216048807064 | 2.7220834294520984 |
-  	| Soho | 15436 | 84.64628142005701 | 2.235034983156258 |
-  	| Greenwich Village | 57224 | 81.97609394659584 | 2.43778834055641 |
-  	| Central Park | 46600 | 79.49356223175965 | 7.967811158798283 |
-  	| Tribeca | 20908 | 79.1180409412665 | 3.548880811172757 |
-  	| Gramercy | 104876 | 75.4586368663946 | 4.720813150768526 |
-  	| Murray Hill | 29655 | 75.01264542235711 | 2.5122239082785365 |
-  	| Chelsea | 61340 | 74.81578089338116 | 6.372676882947506 |
-  	| Upper West Side | 214761 | 74.561489283436 | 9.188353565125885 |
-  	| Midtown | 76840 | 72.60150963040083 | 5.166579906298803 |
-  	| Battery Park | 17153 | 71.8300005829884 | 3.375502827493733 |
-  	| Financial District | 34807 | 69.92846266555578 | 3.829689430287011 |
-  	| Clinton | 32201 | 65.2743703611689 | 7.943852675382752 | 
-  	| East Village | 82266 | 63.26550458269516 | 8.771545960664186 |
-  	| Garment District | 10539 | 55.18550147072777 | 7.08795900939368 |
-  	| Morningside Heights | 42844 | 52.719167211278126 | 19.370273550555503 |
-  	| Little Italy | 12568 | 49.029280712921704 | 1.8220878421387652 |
-  	| Yorkville | 58450 | 35.5551753635586 | 29.72284003421728 |
-  	| Inwood | 50047 | 35.21489799588387 | 16.846164605271046 |
-  	| Washington Heights | 169013 | 34.873057102116405 | 16.827107973942834 |
-  	| Lower East Side | 96156 | 33.50908939639752 | 9.075876700361912 |
-  	| East Harlem | 60576 | 26.43621236133122 | 40.38398045430534 |
-  	| Hamilton Heights | 67432 | 23.889251393996915 | 35.772333610155414 |
-  	| Chinatown | 16209 | 15.16441483126658 | 3.757171941513974 |
-  	| Harlem | 134955 | 15.094661183357415 | 67.06161313030269 |
+  	###### (geojson values omitted from the results table below)
+  	| neighborhood_name   | population | white_pct | black_pct | geojson  |
+  	| :-------            | :-------   | :-------  | :-------  | :------: |
+  	| Carnegie Hill       | 18763      | 90.08     | 1.41      | ...      |
+  	| West Village        | 26718      | 87.60     | 2.17      | ...      |
+  	| North Sutton Area   | 22460      | 87.56     | 1.55      | ...      |
+  	| Upper East Side     | 203741     | 85.02     | 2.72      | ...      |
+  	| Soho                | 15436      | 84.65     | 2.24      | ...      |
+  	| Greenwich Village   | 57224      | 81.98     | 2.44      | ...      |
+  	| Central Park        | 46600      | 79.49     | 7.97      | ...      |
+  	| Tribeca             | 20908      | 79.12     | 3.55      | ...      |
+  	| Gramercy            | 104876     | 75.46     | 4.72      | ...      |
+  	| Murray Hill         | 29655      | 75.01     | 2.51      | ...      |
+  	| Chelsea             | 61340      | 74.82     | 6.37      | ...      |
+  	| Upper West Side     | 214761     | 74.56     | 9.19      | ...      |
+  	| Midtown             | 76840      | 72.60     | 5.17      | ...      |
+  	| Battery Park        | 17153      | 71.83     | 3.38      | ...      |
+  	| Financial District  | 34807      | 69.93     | 3.83      | ...      |
+  	| Clinton             | 32201      | 65.27     | 7.94      | ...      |
+  	| East Village        | 82266      | 63.27     | 8.77      | ...      |
+  	| Garment District    | 10539      | 55.19     | 7.09      | ...      |
+  	| Morningside Heights | 42844      | 52.72     | 19.37     | ...      |
+  	| Little Italy        | 12568      | 49.03     | 1.82      | ...      |
+  	| Yorkville           | 58450      | 35.56     | 29.72     | ...      |
+  	| Inwood              | 50047      | 35.21     | 16.85     | ...      |
+  	| Washington Heights  | 169013     | 34.87     | 16.83     | ...      |
+  	| Lower East Side     | 96156      | 33.51     | 9.08      | ...      |
+  	| East Harlem         | 60576      | 26.44     | 40.38     | ...      |
+  	| Hamilton Heights    | 67432      | 23.89     | 35.77     | ...      |
+  	| Chinatown           | 16209      | 15.16     | 3.76      | ...      |
+  	| Harlem              | 134955     | 15.09     | 67.06     | ...      |
   	| (28 rows) |
