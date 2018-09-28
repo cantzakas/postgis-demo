@@ -1080,6 +1080,7 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	| (1 row) |
 	
 	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-3.jpg)
+	
   	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-3.geojson)
 
 4. **(Spatial Join) "What streets does 'Atlantic Commons' street joins with?"**
@@ -1107,13 +1108,16 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	| Atlantic Commons | MULTILINESTRING ((586781.7015777241 4504202.153143394, 586863.5196448397 4504215.988170098)) |
 	| (3 rows)         |           |
   	
-  	![Atlantic Commons](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-1.jpg)
-  	![S Oxford St](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-2.jpg)
-  	![Cumberland St](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-3.jpg)
+  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-1.jpg)
+  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-2.jpg)
+  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-3.jpg)
+  	
   	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-4.geojson)
   	
 5. **(Spatial Join) "Approximately how many black people live on (within 50 meters of) 'Atlantic Commons' street?"**
+  	
   	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-5.sql) 
+  	
   	``` sql
 	SELECT
 		SUM(popn_black) AS sum_popn_black, 
@@ -1128,43 +1132,46 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 			50)
 	) A;
 	```
+	
 	###### Result
-  	| sum\_popn\_black | geojson     |
-  	| :-------------   | :---------- |
-  	| 727              | {"type":"Polygon","coordinates":[[[-73.9718642422665,40.6826702873082],[-73.9726490493836,40.6828274545939],[-73.9727844589052,40.6828524223477],[-73.9737559848261,40.6830340197847],[-73.9739213575508,40.6837558012925],[-73.974281544167,40.6855130819215],[-73.9733218724009,40.6856216365625],[-73.9728480275519,40.6856749631679],[-73.9723124955231,40.685458234661],[-73.9712230018078,40.6850204979456],[-73.9709326534145,40.6835327130255],[-73.9709108509158,40.6834209892236],[-73.9708717296061,40.6832205193163],[-73.9708310471511,40.6830120550801],[-73.970825267357,40.6829824359063],[-73.9708137159069,40.6829232424568],[-73.970787285475,40.68278780157],[-73.9707758915234,40.6827294168111],[-73.9707510829865,40.6826022825115],[-73.9706959759658,40.682485003681],[-73.9706742500642,40.6824209630585],[-73.9718642422665,40.6826702873082]]]} |
-  	| (1 row)         |
+  	
+  	| sum\_popn\_black | geojson    |
+  	| :--------------- | :--------- |
+  	| 727              | ... &#185; |
+  	| (1 row)          |
+  	
+  	&#185; The **geojson** column values above, have been omitted for improved readability.
+  	
   	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-5.geojson)
-  	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
+  	
+  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
+  	
 6. **(Spatial Join) "What is the population and racial make-up of the neighborhoods of Manhattan?"**
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-6.sql)
+	
 	``` sql
-	SELECT name AS neighborhood_name, 
-		SUM(popn_total) AS sum_popn_total,
-		100.0 * SUM(popn_white) / SUM(popn_total) AS pcnt_white,
-		100.0 * SUM(popn_black) / SUM(popn_total) AS pcnt_black,
-		ST_AsGeoJSON(ST_Transform(ST_UNION(geom), 4326)) AS geojson
-	FROM (
 	SELECT
-		neighborhoods.name,
-		census.geom,
-		census.popn_white, 
-		census.popn_black,
-		census.popn_total
+		neighborhoods.name AS neighborhood_name,
+		ST_AsGeoJSON(ST_Transform(ST_UNION(neighborhoods.geom), 4326)) AS geojson,
+		(100.0 * SUM(popn_white) / SUM(popn_total))::DECIMAL(5,2) AS pcnt_white,
+		(100.0 * SUM(popn_black) / SUM(popn_total))::DECIMAL(5,2) AS pcnt_black,
+		SUM(census.popn_total) AS sum_popn_total
 	FROM
 		nyc_neighborhoods AS neighborhoods
 		JOIN nyc_census_blocks AS census
-		ON ST_Intersects(
-			neighborhoods.geom, 
-			census.geom)
+			ON ST_Intersects(
+				neighborhoods.geom,
+				census.geom)
 	WHERE
 		neighborhoods.boroname = 'Manhattan'
-	) A
 	GROUP BY
-		1
+		neighborhoods.name
 	ORDER BY
 		pcnt_white DESC;
 	```
-	[SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-6.sql)
+	
+	###### Result
 	
   	| neighborhood_name   | population | white_pct | black_pct | geojson    |
   	| :-------            | :-------   | :-------  | :-------  | :------:   |
@@ -1198,8 +1205,8 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	| Harlem              | 134955     | 15.09     | 67.06     | ... &#185; |
   	| (28 rows) |
   	
-  	&#185; GeoJSON values are omitted from the presented results above
+  	&#185; The **geojson** column values above, have been omitted for improved readability.
   	
-  	[GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson)
+  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson)
   	
-  	![Population and Racial make-up information of the neighborhoods of Manhattan](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-6.jpg)
+  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-6.jpg)
