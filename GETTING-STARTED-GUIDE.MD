@@ -1026,10 +1026,16 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 		subways.name = 'Broad St';
 	```
 	
+	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-1.sql)
+	
 	| subway_name | neighborhood_name  | name      |
 	| :---------- | ------------------ | --------- |
 	| Broad St    | Financial District | Manhattan |
 	| (1 row)     |
+	
+	
+  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-1.jpg)
+  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-1.geojson)
 
 2. **(Spatial Join) "Which streets are nearby (within 10 meters of) Brad Street subway station?"**
 	
@@ -1045,12 +1051,17 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   		sta.name = 'Broad St';
   	```
 	
+	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-2.sql)
+	
 	| name      |
   	| :-------- |
   	| Broad St  |
   	| Wall St   |
   	| Nassau St |
   	| (3 rows)  |
+  	
+  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-2.jpg)
+  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-2.geojson)
 
 3. **(Spatial Join) "What neighborhood and borough is 'Atlantic Commons' street in?"**
 
@@ -1065,34 +1076,46 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 		str.name = 'Atlantic Commons';
 	```
 	
+	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-3.sql)
+	
 	| name       | boroname |
 	| :----------| :--------|
 	| Fort Green | Brooklyn |
 	| (1 row) |
+	
+	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-3.jpg)
+  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-3.geojson)
 
 4. **(Spatial Join) "What streets does 'Atlantic Commons' street joins with?"**
 
 	``` sql
-	SELECT str1.name, 
-		str1.geom
-	FROM nyc_streets str1, nyc_streets str2
-	WHERE str2.name = 'Atlantic Commons'
+	SELECT
+		str1.name,
+		ST_AsGeoJSON(ST_Transform(str1.geom,4326)) AS geojson
+	FROM
+		nyc_streets str1, 
+		nyc_streets str2
+	WHERE 
+		str2.name = 'Atlantic Commons'
 		AND ST_DWithin(
 			str1.geom,
 			str2.geom, 
 			0.1);
 	```
-	
-	| name             | geom   |
-	| :--------------- | :----- |
-	| S Oxford St | MULTILINESTRING ((586758.6283010176 4504390.28664449, 586754.8588276431 4504365.706902023, 586781.7015777241 4504202.153143394, 586804.8289285237 4504060.094186225)) | 
-	| Cumberland St | MULTILINESTRING ((586843.6479274601 4504346.982939101, 586863.5196448397 4504215.988170098, 586892.2358491572 4504037.024724485)) |
+
+  	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-4.sql)
+  	
+	| name             | geojson   |
+	| :--------------- | :-----    |
+	| S Oxford St      | MULTILINESTRING ((586758.6283010176 4504390.28664449, 586754.8588276431 4504365.706902023, 586781.7015777241 4504202.153143394, 586804.8289285237 4504060.094186225)) | 
+	| Cumberland St    | MULTILINESTRING ((586843.6479274601 4504346.982939101, 586863.5196448397 4504215.988170098, 586892.2358491572 4504037.024724485)) |
 	| Atlantic Commons | MULTILINESTRING ((586781.7015777241 4504202.153143394, 586863.5196448397 4504215.988170098)) |
-	| (3 rows)         | |
+	| (3 rows)         |           |
   	
   	![Atlantic Commons](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-1.jpg)
   	![S Oxford St](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-2.jpg)
   	![Cumberland St](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-3.jpg)
+  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-4.geojson)
   	
 5. **(Spatial Join) "Approximately how many black people live on (within 50 meters of) 'Atlantic Commons' street?"**
 
@@ -1113,12 +1136,14 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 				census.geom, 
 				50)) A
 	```
+  	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-5.sql)
   	
-  	| sum_popn_black | geojson     |
+  	| sum\_popn\_black | geojson     |
   	| :------------- | :---------- |
   	| 727            | {"type":"Polygon","coordinates":[[[-73.9718642422665,40.6826702873082],[-73.9726490493836,40.6828274545939],[-73.9727844589052,40.6828524223477],[-73.9737559848261,40.6830340197847],[-73.9739213575508,40.6837558012925],[-73.974281544167,40.6855130819215],[-73.9733218724009,40.6856216365625],[-73.9728480275519,40.6856749631679],[-73.9723124955231,40.685458234661],[-73.9712230018078,40.6850204979456],[-73.9709326534145,40.6835327130255],[-73.9709108509158,40.6834209892236],[-73.9708717296061,40.6832205193163],[-73.9708310471511,40.6830120550801],[-73.970825267357,40.6829824359063],[-73.9708137159069,40.6829232424568],[-73.970787285475,40.68278780157],[-73.9707758915234,40.6827294168111],[-73.9707510829865,40.6826022825115],[-73.9706959759658,40.682485003681],[-73.9706742500642,40.6824209630585],[-73.9718642422665,40.6826702873082]]]} | 	| (1 row)  |
   	
   	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
+  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-5.geojson)
 
 6. **(Spatial Join) "What is the population and racial make-up of the neighborhoods of Manhattan?"**
 
@@ -1149,6 +1174,9 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	ORDER BY
 		pcnt_white DESC;
 	```
+	
+	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-6.sql)
+	
   	###### (geojson values omitted from the results table below)
   	| neighborhood_name   | population | white_pct | black_pct | geojson  |
   	| :-------            | :-------   | :-------  | :-------  | :------: |
@@ -1183,3 +1211,5 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	| (28 rows) |
   	
   	![Population and Racial make-up information of the neighborhoods of Manhattan](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-6.jpg)
+  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson)
+
