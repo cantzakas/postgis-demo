@@ -1090,7 +1090,9 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	| Atlantic Commons | MULTILINESTRING ((586781.7015777241 4504202.153143394, 586863.5196448397 4504215.988170098)) |
 	| (3 rows)         | |
   	
-  	![Streets with which 'Atlantic Commons' street joins](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial_join_example_4.jpg)
+  	![Streets with which 'Atlantic Commons' street joins](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-1.jpg)
+  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-2.jpg)
+  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-3.jpg)
   	
 5. **(Spatial Join) "Approximately how many black people live on (within 50 meters of) 'Atlantic Commons' street?"**
 
