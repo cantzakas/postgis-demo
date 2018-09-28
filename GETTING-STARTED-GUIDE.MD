@@ -1098,25 +1098,25 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 
 	``` sql
 	SELECT
-		SUM(popn_black) AS population_blc,
-		census.blkid AS blkid
-	FROM nyc_streets AS str,
-		nyc_census_blocks AS census
-	WHERE str.name = 'Atlantic Commons'
-		AND ST_DWithin(
-			str.geom,
-			census.geom,
-			50)
-	GROUP BY 2;
+		SUM(popn_black), 
+		ST_AsGeoJSON(ST_Transform(ST_UNION(geojson), 4326)) AS geojson
+	FROM (
+		SELECT
+			popn_black, 
+			census.geom AS geojson
+		FROM nyc_streets AS str, 
+			nyc_census_blocks AS census
+		WHERE 
+			str.name = 'Atlantic Commons'
+			AND ST_DWithin(
+				str.geom,
+				census.geom, 
+				50)) A
 	```
   	
-  	| population_blc | blkid |
-  	| :------- | :---------- |
-  	| 297 | 360470179002000  |
-  	| 54 | 360470179002004   |
-  	| 150 | 360470179002001  |
-  	| 226 | 360470179002003  |
-  	| (4 rows)  |
+  	| sum_popn_black | geojson     |
+  	| :------------- | :---------- |
+  	| 727            | {"type":"Polygon","coordinates":[[[-73.9718642422665,40.6826702873082],[-73.9726490493836,40.6828274545939],[-73.9727844589052,40.6828524223477],[-73.9737559848261,40.6830340197847],[-73.9739213575508,40.6837558012925],[-73.974281544167,40.6855130819215],[-73.9733218724009,40.6856216365625],[-73.9728480275519,40.6856749631679],[-73.9723124955231,40.685458234661],[-73.9712230018078,40.6850204979456],[-73.9709326534145,40.6835327130255],[-73.9709108509158,40.6834209892236],[-73.9708717296061,40.6832205193163],[-73.9708310471511,40.6830120550801],[-73.970825267357,40.6829824359063],[-73.9708137159069,40.6829232424568],[-73.970787285475,40.68278780157],[-73.9707758915234,40.6827294168111],[-73.9707510829865,40.6826022825115],[-73.9706959759658,40.682485003681],[-73.9706742500642,40.6824209630585],[-73.9718642422665,40.6826702873082]]]} | 	| (1 rows)  |
   	
   	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
 
