@@ -1181,3 +1181,5 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	| Chinatown           | 16209      | 15.16     | 3.76      | ...      |
   	| Harlem              | 134955     | 15.09     | 67.06     | ...      |
   	| (28 rows) |
+  	
+  	![Population and Racial make-up information of the neighborhoods of Manhattan](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-6.jpg)
