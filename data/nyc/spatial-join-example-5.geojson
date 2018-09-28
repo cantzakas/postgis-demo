@@ -4,7 +4,7 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"population": "727"
+				"sum_population_blk": "727"
 			},
 			"geometry": {
 				"type": "Polygon",
