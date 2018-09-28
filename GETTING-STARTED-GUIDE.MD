@@ -1113,7 +1113,7 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-4.geojson)
   	
 5. **(Spatial Join) "Approximately how many black people live on (within 50 meters of) 'Atlantic Commons' street?"**
-
+  	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-5.sql)
 	``` sql
 	SELECT
 		SUM(popn_black) AS sum_popn_black, 
@@ -1128,14 +1128,12 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 			50)
 	) A;
 	```
-  	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-5.sql)
   	| sum\_popn\_black | geojson     |
   	| :-------------   | :---------- |
-  	| 727              | {"type":"Polygon","coordinates":[[[-73.9718642422665,40.6826702873082],[-73.9726490493836,40.6828274545939],[-73.9727844589052,40.6828524223477],[-73.9737559848261,40.6830340197847],[-73.9739213575508,40.6837558012925],[-73.974281544167,40.6855130819215],[-73.9733218724009,40.6856216365625],[-73.9728480275519,40.6856749631679],[-73.9723124955231,40.685458234661],[-73.9712230018078,40.6850204979456],[-73.9709326534145,40.6835327130255],[-73.9709108509158,40.6834209892236],[-73.9708717296061,40.6832205193163],[-73.9708310471511,40.6830120550801],[-73.970825267357,40.6829824359063],[-73.9708137159069,40.6829232424568],[-73.970787285475,40.68278780157],[-73.9707758915234,40.6827294168111],[-73.9707510829865,40.6826022825115],[-73.9706959759658,40.682485003681],[-73.9706742500642,40.6824209630585],[-73.9718642422665,40.6826702873082]]]} | 	| (1 row)         |
-  	
-  	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
+  	| 727              | {"type":"Polygon","coordinates":[[[-73.9718642422665,40.6826702873082],[-73.9726490493836,40.6828274545939],[-73.9727844589052,40.6828524223477],[-73.9737559848261,40.6830340197847],[-73.9739213575508,40.6837558012925],[-73.974281544167,40.6855130819215],[-73.9733218724009,40.6856216365625],[-73.9728480275519,40.6856749631679],[-73.9723124955231,40.685458234661],[-73.9712230018078,40.6850204979456],[-73.9709326534145,40.6835327130255],[-73.9709108509158,40.6834209892236],[-73.9708717296061,40.6832205193163],[-73.9708310471511,40.6830120550801],[-73.970825267357,40.6829824359063],[-73.9708137159069,40.6829232424568],[-73.970787285475,40.68278780157],[-73.9707758915234,40.6827294168111],[-73.9707510829865,40.6826022825115],[-73.9706959759658,40.682485003681],[-73.9706742500642,40.6824209630585],[-73.9718642422665,40.6826702873082]]]} |
+  	| (1 row)         |
   	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-5.geojson)
-
+  	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
 6. **(Spatial Join) "What is the population and racial make-up of the neighborhoods of Manhattan?"**
 
 	``` sql
