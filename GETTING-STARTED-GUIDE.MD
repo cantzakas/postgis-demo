@@ -1118,7 +1118,7 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	| 226 | 360470179002003  |
   	| (4 rows)  |
   	
-  	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial_join_example_5.jpg)
+  	![Population of Black Americans who live on (within 50 meters of) 'Atlantic Commons' Street in New York City](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
 
 6. **(Spatial Join) "What is the population and racial make-up of the neighborhoods of Manhattan?"**
 
