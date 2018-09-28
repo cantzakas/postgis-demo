@@ -1012,12 +1012,15 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 
 1. **(Spatial Join) "In which neighborhood, is Brad Street subway station located?"**
 	
+	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-1.sql)
+	
 	``` sql
 	SELECT
 		subways.name AS subway_name,
 		neighborhoods.name AS neighborhood_name,
 		neighborhoods.boroname AS borough
-	FROM nyc_neighborhoods AS neighborhoods
+	FROM
+		nyc_neighborhoods AS neighborhoods
 		JOIN nyc_subway_stations AS subways
 		ON ST_Contains(
 			neighborhoods.geom, 
@@ -1025,21 +1028,27 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	WHERE
 		subways.name = 'Broad St';
 	```
-	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-1.sql)
+	
+	###### Result
 	
 	| subway_name | neighborhood_name  | name      |
 	| :---------- | ------------------ | --------- |
 	| Broad St    | Financial District | Manhattan |
 	| (1 row)     |
 	
+	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-1.geojson)
+	
   	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-1.jpg)
-  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-1.geojson)
 
 2. **(Spatial Join) "Which streets are nearby (within 10 meters of) Brad Street subway station?"**
 	
+	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-2.sql)
+    
 	``` sql
-	SELECT str.name
-	FROM nyc_streets str
+	SELECT
+		str.name
+	FROM
+		nyc_streets str
 		JOIN nyc_subway_stations sta
 			ON ST_DWithin(
 				str.geom, 
@@ -1048,7 +1057,7 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	WHERE
   		sta.name = 'Broad St';
   	```
-	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-2.sql)
+	###### Results
 	
 	| name      |
   	| :-------- |
@@ -1057,14 +1066,20 @@ Using a spatial join, we can answer the question in one step, retrieving informa
   	| Nassau St |
   	| (3 rows)  |
   	
+    ###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-2.geojson)
+  	
   	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-2.jpg)
-  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-2.geojson)
 
 3. **(Spatial Join) "What neighborhood and borough is 'Atlantic Commons' street in?"**
 
+	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-3.sql)
+
 	``` sql
-	SELECT nb.name, nb.boroname
-	FROM nyc_neighborhoods nb
+	SELECT
+		nb.name,
+		nb.boroname
+	FROM
+		nyc_neighborhoods nb
 		JOIN nyc_streets str
 			ON ST_Intersects(
 				nb.geom,
@@ -1072,19 +1087,21 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	WHERE
 		str.name = 'Atlantic Commons';
 	```
-	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-3.sql)
+	###### Results
 	
 	| name       | boroname |
 	| :----------| :--------|
 	| Fort Green | Brooklyn |
 	| (1 row) |
 	
-	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-3.jpg)
+	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-3.geojson)
 	
-  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-3.geojson)
+	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-3.jpg)
 
 4. **(Spatial Join) "What streets does 'Atlantic Commons' street joins with?"**
 
+	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-4.sql)
+	  	
 	``` sql
 	SELECT
 		str1.name,
@@ -1099,53 +1116,53 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 			str2.geom, 
 			0.1);
 	```
-  	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-4.sql)
-  	
+	
+	###### Results
+	  	
 	| name             | geojson   |
 	| :--------------- | :-----    |
 	| S Oxford St      | MULTILINESTRING ((586758.6283010176 4504390.28664449, 586754.8588276431 4504365.706902023, 586781.7015777241 4504202.153143394, 586804.8289285237 4504060.094186225)) | 
 	| Cumberland St    | MULTILINESTRING ((586843.6479274601 4504346.982939101, 586863.5196448397 4504215.988170098, 586892.2358491572 4504037.024724485)) |
 	| Atlantic Commons | MULTILINESTRING ((586781.7015777241 4504202.153143394, 586863.5196448397 4504215.988170098)) |
 	| (3 rows)         |           |
-  	
+	
+	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-4.geojson)  	
   	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-1.jpg)
   	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-2.jpg)
   	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-3.jpg)
   	
-  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-4.geojson)
-  	
 5. **(Spatial Join) "Approximately how many black people live on (within 50 meters of) 'Atlantic Commons' street?"**
-  	
-  	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-5.sql) 
-  	
-  	``` sql
+	
+	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-5.sql) 
+	
+	``` sql
 	SELECT
-		SUM(popn_black) AS sum_popn_black, 
+		SUM(popn_black) AS sum_popn_black,
 		ST_AsGeoJSON(ST_Transform(ST_UNION(census.geom), 4326)) AS geojson
-	FROM nyc_streets AS str,
+	FROM
+		nyc_streets AS str,
 		nyc_census_blocks AS census
 	WHERE
 		str.name = 'Atlantic Commons'
 		AND ST_DWithin(
 			str.geom,
 			census.geom,
-			50)
-	) A;
+			50)	) A;
 	```
 	
 	###### Result
-  	
-  	| sum\_popn\_black | geojson    |
+
+	| sum\_popn\_black | geojson    |
   	| :--------------- | :--------- |
   	| 727              | ... &#185; |
   	| (1 row)          |
-  	
-  	&#185; The **geojson** column values above, have been omitted for improved readability.
-  	
-  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-5.geojson)
-  	
-  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
-  	
+
+	&#185; The **geojson** column values above, have been omitted for improved readability.
+
+	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-5.geojson)
+
+	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-5.jpg)
+
 6. **(Spatial Join) "What is the population and racial make-up of the neighborhoods of Manhattan?"**
 
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-6.sql)
@@ -1173,40 +1190,42 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	
 	###### Result
 	
-  	| neighborhood_name   | population | white_pct | black_pct | geojson    |
-  	| :-------            | :-------   | :-------  | :-------  | :------:   |
-  	| Carnegie Hill       | 18763      | 90.08     | 1.41      | ... &#185; |
-  	| West Village        | 26718      | 87.60     | 2.17      | ... &#185; |
-  	| North Sutton Area   | 22460      | 87.56     | 1.55      | ... &#185; |
-  	| Upper East Side     | 203741     | 85.02     | 2.72      | ... &#185; |
-  	| Soho                | 15436      | 84.65     | 2.24      | ... &#185; |
-  	| Greenwich Village   | 57224      | 81.98     | 2.44      | ... &#185; |
-  	| Central Park        | 46600      | 79.49     | 7.97      | ... &#185; |
-  	| Tribeca             | 20908      | 79.12     | 3.55      | ... &#185; |
-  	| Gramercy            | 104876     | 75.46     | 4.72      | ... &#185; |
-  	| Murray Hill         | 29655      | 75.01     | 2.51      | ... &#185; |
-  	| Chelsea             | 61340      | 74.82     | 6.37      | ... &#185; |
-  	| Upper West Side     | 214761     | 74.56     | 9.19      | ... &#185; |
-  	| Midtown             | 76840      | 72.60     | 5.17      | ... &#185; |
-  	| Battery Park        | 17153      | 71.83     | 3.38      | ... &#185; |
-  	| Financial District  | 34807      | 69.93     | 3.83      | ... &#185; |
-  	| Clinton             | 32201      | 65.27     | 7.94      | ... &#185; |
-  	| East Village        | 82266      | 63.27     | 8.77      | ... &#185; |
-  	| Garment District    | 10539      | 55.19     | 7.09      | ... &#185; |
-  	| Morningside Heights | 42844      | 52.72     | 19.37     | ... &#185; |
-  	| Little Italy        | 12568      | 49.03     | 1.82      | ... &#185; |
-  	| Yorkville           | 58450      | 35.56     | 29.72     | ... &#185; |
-  	| Inwood              | 50047      | 35.21     | 16.85     | ... &#185; |
-  	| Washington Heights  | 169013     | 34.87     | 16.83     | ... &#185; |
-  	| Lower East Side     | 96156      | 33.51     | 9.08      | ... &#185; |
-  	| East Harlem         | 60576      | 26.44     | 40.38     | ... &#185; |
-  	| Hamilton Heights    | 67432      | 23.89     | 35.77     | ... &#185; |
-  	| Chinatown           | 16209      | 15.16     | 3.76      | ... &#185; |
-  	| Harlem              | 134955     | 15.09     | 67.06     | ... &#185; |
-  	| (28 rows) |
+	| neighborhood_name   | population | white_pct | black_pct | geojson    |
+	| :-------            | :-------   | :-------  | :-------  | :------:   |
+	| Carnegie Hill       | 18763      | 90.08     | 1.41      | ... &#185; |
+	| West Village        | 26718      | 87.60     | 2.17      | ... &#185; |
+	| North Sutton Area   | 22460      | 87.56     | 1.55      | ... &#185; |
+	| Upper East Side     | 203741     | 85.02     | 2.72      | ... &#185; |
+	| Soho                | 15436      | 84.65     | 2.24      | ... &#185; |
+	| Greenwich Village   | 57224      | 81.98     | 2.44      | ... &#185; |
+	| Central Park        | 46600      | 79.49     | 7.97      | ... &#185; |
+	| Tribeca             | 20908      | 79.12     | 3.55      | ... &#185; |
+	| Gramercy            | 104876     | 75.46     | 4.72      | ... &#185; |
+	| Murray Hill         | 29655      | 75.01     | 2.51      | ... &#185; |
+	| Chelsea             | 61340      | 74.82     | 6.37      | ... &#185; |
+	| Upper West Side     | 214761     | 74.56     | 9.19      | ... &#185; |
+	| Midtown             | 76840      | 72.60     | 5.17      | ... &#185; |
+	| Battery Park        | 17153      | 71.83     | 3.38      | ... &#185; |
+	| Financial District  | 34807      | 69.93     | 3.83      | ... &#185; |
+	| Clinton             | 32201      | 65.27     | 7.94      | ... &#185; |
+	| East Village        | 82266      | 63.27     | 8.77      | ... &#185; |
+	| Garment District    | 10539      | 55.19     | 7.09      | ... &#185; |
+	| Morningside Heights | 42844      | 52.72     | 19.37     | ... &#185; |
+	| Little Italy        | 12568      | 49.03     | 1.82      | ... &#185; |
+	| Yorkville           | 58450      | 35.56     | 29.72     | ... &#185; |
+	| Inwood              | 50047      | 35.21     | 16.85     | ... &#185; |
+	| Washington Heights  | 169013     | 34.87     | 16.83     | ... &#185; |
+	| Lower East Side     | 96156      | 33.51     | 9.08      | ... &#185; |
+	| East Harlem         | 60576      | 26.44     | 40.38     | ... &#185; |
+	| Hamilton Heights    | 67432      | 23.89     | 35.77     | ... &#185; |
+	| Chinatown           | 16209      | 15.16     | 3.76      | ... &#185; |
+	| Harlem              | 134955     | 15.09     | 67.06     | ... &#185; |
+	| (28 rows) | |
+	
+	&#185; The **geojson** column values above, have been omitted for improved readability.
+	
+	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson)
+	
+	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-6.jpg)
   	
-  	&#185; The **geojson** column values above, have been omitted for improved readability.
   	
-  	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson)
-  	
-  	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-6.jpg)
