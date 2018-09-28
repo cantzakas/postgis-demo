@@ -9,4 +9,4 @@ WHERE
 	AND ST_DWithin(
 		str1.geom,
 		str2.geom, 
-		0.1)
+		0.1);
