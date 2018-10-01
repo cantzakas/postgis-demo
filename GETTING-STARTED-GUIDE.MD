@@ -1312,3 +1312,5 @@ SELECT '{"type": "FeatureCollection", "features": [' ||
 	) A ), ',') ||
 	']}'
 ```
+
+The output of the "transformation" query can be saved as a `.geojson` file, saved on a GitHub repo and when viewed online, GitHub would render this properly.
