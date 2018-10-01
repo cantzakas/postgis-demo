@@ -1313,4 +1313,4 @@ SELECT '{"type": "FeatureCollection", "features": [' ||
 	']}'
 ```
 
-The output of the "transformation" query can be saved as a `.geojson` file, saved on a GitHub repo and when viewed online, GitHub would render this properly, as for example shown [here](https://help.github.com/articles/mapping-geojson-files-on-github/).
+The output of the "transformation" query can be saved as a `.geojson` file, saved on a GitHub repo and when viewed online, GitHub would render this properly, as for example shown [here](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson).
