@@ -1027,7 +1027,7 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 				neighborhoods.geom, 
 				subways.geom)
 	WHERE
-	subways.name = 'Broad St';
+		subways.name = 'Broad St';
 	```
 	
 	###### Result
