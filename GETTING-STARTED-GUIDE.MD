@@ -1107,7 +1107,7 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	###### Results
 	
 	| Borough  | geom0&#185; | Neighborhood | geom1&#185; | Street           | geom2&#185; |
-	| :------: | :---------: | :----------: | :---------: | :----:           | :---------: |
+	| :------- | :---------: | :----------- | :---------: | :--------------- | :---------: |
 	| Brooklyn | ...         | Fort Green   | ...         | Atlantic Commons | ...         |
 	| (1 row)  |
 	
