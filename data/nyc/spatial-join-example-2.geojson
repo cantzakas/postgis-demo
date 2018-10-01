@@ -4,7 +4,8 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"Name": "Wall St"
+				"Name": "Wall St",
+				"Type": "Street"
 			},
 			"geometry": {
 				"type": "MultiLineString",
@@ -53,7 +54,8 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"Name": "Nassau St"
+				"Name": "Nassau St",
+				"Type": "Street"
 			},
 			"geometry": {
 				"type": "MultiLineString",
@@ -110,7 +112,8 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"Name": "Broad St"
+				"Name": "Broad St",
+				"Type": "Street"
 			},
 			"geometry": {
 				"type": "MultiLineString",
@@ -161,6 +164,20 @@
 							40.7017808999998
 						]
 					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"Name": "Broad St",
+				"Type": "Station"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-74.0106714688735,
+					40.7071048155841
 				]
 			}
 		}
