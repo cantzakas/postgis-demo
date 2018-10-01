@@ -1017,9 +1017,9 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	``` sql
 	SELECT
 		subways.name AS subway_name,
-		subways.geom AS subway_geom,
+		ST_AsGeoJSON(ST_Transform(subways.geom, 4326)) AS subway_geom,
 		neighborhoods.name AS neighborhood_name,
-		neighborhoods.geom AS neighborhood_geom
+		ST_AsGeoJSON(ST_Transform(neighborhoods.geom, 4326)) AS neighborhood_geom
 	FROM
 		nyc_neighborhoods AS neighborhoods
 		JOIN nyc_subway_stations AS subways
@@ -1027,16 +1027,18 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 				neighborhoods.geom, 
 				subways.geom)
 	WHERE
-		subways.name = 'Broad St';
+	subways.name = 'Broad St';
 	```
 	
 	###### Result
 	
-	| subway_name | neighborhood_name  | name      |
-	| :---------- | ------------------ | --------- |
-	| Broad St    | Financial District | Manhattan |
+	| subway_name | subway_geom&#185; | neighborhood_name  | neighborhood_geom&#185; |
+	| :---------- | :---------------: | :----------------- | :---------------------: |
+	| Broad St    | ...               | Financial District | ...                     |
 	| (1 row)     |
 	
+	&#185; The **subway_geom** & **neighborhood_geom** column values above have been omitted for improved readability.
+
 	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-1.geojson)
 	
   	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-1.jpg)
@@ -1120,12 +1122,14 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	
 	###### Results
 	  	
-	| name             | geojson   |
-	| :--------------- | :-----    |
-	| S Oxford St      | MULTILINESTRING ((586758.6283010176 4504390.28664449, 586754.8588276431 4504365.706902023, 586781.7015777241 4504202.153143394, 586804.8289285237 4504060.094186225)) | 
-	| Cumberland St    | MULTILINESTRING ((586843.6479274601 4504346.982939101, 586863.5196448397 4504215.988170098, 586892.2358491572 4504037.024724485)) |
-	| Atlantic Commons | MULTILINESTRING ((586781.7015777241 4504202.153143394, 586863.5196448397 4504215.988170098)) |
-	| (3 rows)         |           |
+	| name             | geojson&#185; |
+	| :--------------- | :-----------: |
+	| S Oxford St      | ...           | 
+	| Cumberland St    | ...           | 
+	| Atlantic Commons | ...           | 
+	| (3 rows)         |               |
+	
+	&#185; The ** geojson** column values above have been omitted for improved readability.
 	
 	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-4.geojson)  	
   	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-4-1.jpg)
@@ -1155,8 +1159,8 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 
 	| sum\_popn\_black | geojson&#185; |
   	| :--------------- | :---:         |
-  	| 727              | |
-  	| (1 row)          | |
+  	| 727              | ...           |
+  	| (1 row)          | ...           |
 
 	&#185; The **geojson** column values above, have been omitted for improved readability.
 
