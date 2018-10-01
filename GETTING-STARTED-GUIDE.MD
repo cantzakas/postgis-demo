@@ -1082,23 +1082,36 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 
 	``` sql
 	SELECT
-		nb.name,
-		nb.boroname
+		bo.boroname AS Borough, 
+		ST_AsGeoJSON(ST_Transform(ST_UNION(bo.geom), 4326)) AS geom0,
+		nb.name AS Neighborhood, 
+		ST_AsGeoJSON(ST_Transform(ST_UNION(nb.geom), 4326)) AS geom1,
+		str.name::TEXT AS Street,    
+		ST_AsGeoJSON(ST_Transform(str.geom, 4326)) AS geom2
 	FROM
-		nyc_neighborhoods nb
+		nyc_neighborhoods bo
+		LEFT OUTER JOIN nyc_neighborhoods nb
+			ON bo.boroname = nb.boroname
 		JOIN nyc_streets str
 			ON ST_Intersects(
 				nb.geom,
 				str.geom)
 	WHERE
-		str.name = 'Atlantic Commons';
+		str.name = 'Atlantic Commons'
+	GROUP BY
+		bo.boroname, 
+		nb_name,
+		str_name, 
+		str_geom
 	```
 	###### Results
 	
-	| name       | boroname |
-	| :----------| :--------|
-	| Fort Green | Brooklyn |
-	| (1 row) |
+	| Borough  | geom0&#185; | Neighborhood | geom1&#185; | Street           | geom2&#185; |
+	| :------: | :---------: | :----------: | :---------: | :----:           | :---------: |
+	| Brooklyn | ...         | Fort Green   | ...         | Atlantic Commons | ...         |
+	| (1 row)  |
+	
+	&#185; The **geom0**, **geom1**, **geom2** column values above have been omitted for improved readability.
 	
 	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-3.geojson)
 	
