@@ -1049,27 +1049,30 @@ Using a spatial join, we can answer the question in one step, retrieving informa
     
 	``` sql
 	SELECT
-		str.name
+		str.name,
+		ST_AsGeoJSON(ST_Transform(str.geom, 4326)) AS geom
 	FROM
 		nyc_streets str
 		JOIN nyc_subway_stations sta
 			ON ST_DWithin(
 				str.geom, 
-  				sta.geom, 
-  				10)
-  	WHERE
-  		sta.name = 'Broad St';
+				sta.geom, 
+				10)
+	WHERE
+		sta.name = 'Broad St';
   	```
 	###### Results
 	
-	| name      |
-  	| :-------- |
-  	| Broad St  |
-  	| Wall St   |
-  	| Nassau St |
-  	| (3 rows)  |
-  	
-    ###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-2.geojson)
+	| name      | geom&#185; |
+	| :-------- | :---: |
+	| Broad St  | ...   |
+	| Wall St   | ...   |
+	| Nassau St | ...   |
+	| (3 rows)  |
+	
+	&#185; The **geom** column values above have been omitted for improved readability.
+	
+	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-2.geojson)
   	
   	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-2.jpg)
 
