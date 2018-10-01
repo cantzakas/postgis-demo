@@ -28,6 +28,8 @@
   - [Pivotal Greenplum & PostGIS Basics](GETTING-STARTED-GUIDE.MD#pivotal-greenplum--postgis-basics)
   - [Spatial Geometries & Relationships](GETTING-STARTED-GUIDE.MD#spatial-geometries--relationships)
   - [Spatial Joins](GETTING-STARTED-GUIDE.MD#spatial-joins)
+- [Visualizing PostGIS data](GETTING-STARTED-GUIDE.MD#visualizing-postgis-data)
+  - [Mapping geoJSON files on GitHub](GETTING-STARTED-GUIDE.MD#Mapping-geoJSON-files-on-GitHub)
 
 # Purpose
 The purpose of this Getting Started Guide is to showcase the use of PostGIS on top of [Pivotal](http://pivotal.io) [Greenplum Database](http://greenplum.org). This guide has been build mostly upon the [work](https://github.com/boundlessgeo/workshops) our friends at [Boundless](http://boundlessgeo.com/) have done in the past.
@@ -1248,5 +1250,65 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	###### [GeoJSON](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson)
 	
 	![](https://github.com/cantzakas/postgis-demo/blob/master/images/spatial-join-example-6.jpg)
-  	
-  	
+	
+# Visualizing PostGIS data
+
+## Mapping GeoJSON files on GitHub
+GitHub supports rendering geoJSON and topoJSON map files within GitHub repositories. Simply commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if type is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON file on GitHub.com.
+
+Maps on GitHub use [Leaflet.js](http://leafletjs.com/) and support all the geometry types outlined in the [geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [topoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
+
+For information about Mapping GeoJSON files on GitHub, see [GitHub Help](https://help.github.com/articles/mapping-geojson-files-on-github/).
+
+## Tranforming SQL results to GeoJSON
+GeoJSON files on Github support all the geometry types outlined in the [geoJSON spec](http://www.geojson.org/geojson-spec.html), namely `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, and `GeometryCollection`. Yet in order to transform SQL output to a valid GeoJSON format, some transformation is required. i.e. for the Spatial Join example 6 described above (***'What is the population and racial make-up of the neighborhoods of Manhattan?'***):
+
+```sql
+SELECT
+		neighborhoods.name AS neighborhood_name,
+		ST_AsGeoJSON(ST_Transform(ST_UNION(neighborhoods.geom), 4326)) AS geojson,
+		(100.0 * SUM(popn_white) / SUM(popn_total))::DECIMAL(5,2) AS pcnt_white,
+		(100.0 * SUM(popn_black) / SUM(popn_total))::DECIMAL(5,2) AS pcnt_black,
+		SUM(census.popn_total) AS sum_popn_total
+	FROM
+		nyc_neighborhoods AS neighborhoods
+		JOIN nyc_census_blocks AS census
+			ON ST_Intersects(
+				neighborhoods.geom,
+				census.geom)
+	WHERE
+		neighborhoods.boroname = 'Manhattan'
+	GROUP BY
+		neighborhoods.name
+	ORDER BY
+		pcnt_white DESC;
+```
+
+In order to "transform" the original SQL output from the above to a compliant GeoJSON format, we need to "transform" the `neighborhood_name`/`sum_popn_total`/`pcnt_white`/`pcnt_black` and `geojson` columns of each row returned as `Feature Properties` and `Feature Geometry` respectively and then "nest" all these as a `FeatureCollection Features` array, as shown below:
+
+```sql
+SELECT '{"type": "FeatureCollection", "features": [' || 
+	array_to_string(ARRAY(
+	SELECT '{"type": "Feature","properties": {"Neighborhood Name": "' || neighborhood_name || '", "Total Population": "' || sum_popn_total || '", "White (%)": "' || pcnt_white || '", "Black (%)": "' || pcnt_black || '" }, "geometry":' || geojson || '}'
+	FROM (
+		SELECT
+			neighborhoods.name AS neighborhood_name,
+			ST_AsGeoJSON(ST_Transform(ST_UNION(neighborhoods.geom), 4326)) AS geojson,
+			(100.0 * SUM(popn_white) / SUM(popn_total))::DECIMAL(5,2) AS pcnt_white,
+			(100.0 * SUM(popn_black) / SUM(popn_total))::DECIMAL(5,2) AS pcnt_black,
+			SUM(census.popn_total) AS sum_popn_total
+		FROM
+			nyc_neighborhoods AS neighborhoods
+			JOIN nyc_census_blocks AS census
+			ON ST_Intersects(
+				neighborhoods.geom, 
+				census.geom)
+		WHERE
+			neighborhoods.boroname = 'Manhattan'
+		GROUP BY
+			1
+		ORDER BY
+			pcnt_white DESC
+	) A ), ',') ||
+	']}'
+```
