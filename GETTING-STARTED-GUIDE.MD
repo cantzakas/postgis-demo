@@ -738,6 +738,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	
 	In both cases, the query result would be similar to:
 	
+	###### Result
+	
 	| version |
 	| :---    |
 	| PostgreSQL 8.3.23 (Greenplum Database 5.10.2 build commit:b3c02f3acd880e2d676dacea36be015e4a3826d4) on x86_64-pc-linux-gnu, compiled by GCC gcc (GCC) 6.2.0, 64-bit compiled on Aug 10 2018 07:30:24 |
@@ -750,6 +752,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	``` sql
 	SELECT postgis_full_version();
 	```
+	
+	###### Result
 	
 	| version |
 	| :---    |
@@ -765,6 +769,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 		SUM(popn_total) AS population
 	FROM nyc_census_blocks;
 	```
+	
+	###### Result
 	
 	| population |
 	| :---    |
@@ -783,6 +789,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	WHERE
 		boroname = 'The Bronx';
 	```
+	
+	###### Result
 	
 	| population |
 	| :---    |
@@ -803,7 +811,9 @@ Let's start with some basic, Greenplum and PostGIS examples:
 		boroname;
 	```
 	
-	| boroname      | white_pct                                |
+	###### Result
+	
+	| boroname      | white_pct          |
 	| :------------ | :----------------- |
 	| Queens        | 39.72207739459101  |
 	| Brooklyn      | 42.80117379326865  |
@@ -821,6 +831,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	FROM nyc_streets
 	WHERE name = 'Atlantic Commons';
 	```
+	
+	###### Result
 	
 	| st_astext |
 	| :---    |
@@ -861,6 +873,8 @@ Let's see some more examples:
 	WHERE name = 'West Village';
 	```
 	
+	###### Result
+	
 	| st_area              |
 	| :---                 |
 	| 1,044,614.5296485956 |
@@ -874,6 +888,8 @@ Let's see some more examples:
 	SELECT SUM(ST_Length(geom)) / 1000 AS length
 	FROM nyc_streets;
 	```
+	
+	###### Result
 	
 	| length             |
 	| :---               |
@@ -890,6 +906,8 @@ Let's see some more examples:
 	GROUP BY type
 	ORDER BY length DESC;
 	```
+	
+	###### Result
 	
 	| type                                             | length             |
 	| :----------------------------------------------- | :----------------- |
@@ -926,6 +944,8 @@ Let's see some more examples:
 	WHERE name = 'Broad St';
 	```
 	
+	###### Result
+	
 	| name     | st_astext                                |
 	| :------- | :--------------------------------------- |
 	| Broad St | POINT(583571.905921312 4506714.34119218) |
@@ -941,6 +961,8 @@ Let's see some more examples:
 		ST_GeomFromText('POINT(583571.905921312 4506714.34119218)',26918) -- geometric representation of 'Brad Street subway station'
 	);
 	```
+	
+	###### Result
 	
 	| name                          |
 	| :---------------------------- |
@@ -960,6 +982,8 @@ Let's see some more examples:
 		10);
 	```
 	
+	###### Result
+	
 	| name      |
 	| :-------- |
 	| Broad St  |
@@ -976,6 +1000,8 @@ Let's see some more examples:
 	FROM nyc_streets
 	WHERE name = 'Atlantic Commons';
 	```
+	
+	###### Result
 	
 	| st_astext                                                                            |
 	| :----------------------------------------------------------------------------------- |
@@ -995,6 +1021,8 @@ Let's see some more examples:
 	);
 	```
 	
+	###### Result
+	
 	| name                  |
 	| :-------------------- |
 	| Fort Green, Brooklyn  |
@@ -1013,6 +1041,8 @@ Let's see some more examples:
 		0.1);
 	```
 	
+	###### Result
+	
 	| name             | 
 	| :--------------- |
 	| S Oxford St      |
@@ -1023,16 +1053,18 @@ Let's see some more examples:
 9. **"Approximately how many people live on (within 50 meters of) 'Atlantic Commons' street?"**
 	
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-9.sql)
-  	
-  	``` sql
-  	SELECT SUM(census.popn_total)
-	FROM nyc_census_blocks census
-	WHERE ST_DWithin(
-		census.geom, 
-		ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
-		50);
+	
+	```sql
+	SELECT SUM(census.popn_total)
+  	FROM nyc_census_blocks census
+  	WHERE ST_DWithin(
+  		census.geom, 
+  		ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
+  		50);
 	```
 	
+	###### Result
+  	
   	| name     |
   	| :------- |
   	| 27452858 |
