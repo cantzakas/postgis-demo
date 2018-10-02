@@ -1,0 +1,1 @@
+psql -d <database-name> -c "SELECT version();"

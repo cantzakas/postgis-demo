@@ -722,15 +722,16 @@ Let's start with some basic, Greenplum and PostGIS examples:
 
 1. **"Which version of Greenplum Database software, am I running on the cluster?"**
 	
-	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-1-1.sql)
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-1.sql)
 	
 	``` sql
-	SELECT version();
+	SELECT
+		version();
 	```
 	
 	Alternatively, the **`psql`** command utility can be used for the same, as following:
 	
-	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-1-2.sql)
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-1.sh)
 	
 	``` sql
 	psql -d <database-name> -c "SELECT version();"
@@ -750,7 +751,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-2.sql)
 	
 	``` sql
-	SELECT postgis_full_version();
+	SELECT
+		postgis_full_version();
 	```
 	
 	###### Result
@@ -767,7 +769,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	``` sql
 	SELECT
 		SUM(popn_total) AS population
-	FROM nyc_census_blocks;
+	FROM
+		nyc_census_blocks;
 	```
 	
 	###### Result
@@ -827,9 +830,12 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-6.sql)
 	
 	``` sql
-	SELECT ST_AsText(geom)
-	FROM nyc_streets
-	WHERE name = 'Atlantic Commons';
+	SELECT
+		ST_AsText(geom)
+	FROM
+		nyc_streets
+	WHERE
+		name = 'Atlantic Commons';
 	```
 	
 	###### Result
@@ -868,9 +874,12 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-1.sql)
 	
 	``` sql
-	SELECT ST_Area(geom)
-	FROM nyc_neighborhoods
-	WHERE name = 'West Village';
+	SELECT
+		ST_Area(geom)
+	FROM
+		nyc_neighborhoods
+	WHERE
+		name = 'West Village';
 	```
 	
 	###### Result
@@ -885,8 +894,10 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-2.sql)
 	
 	``` sql
-	SELECT SUM(ST_Length(geom)) / 1000 AS length
-	FROM nyc_streets;
+	SELECT
+		SUM(ST_Length(geom)) / 1000 AS length
+	FROM
+		nyc_streets;
 	```
 	
 	###### Result
@@ -901,10 +912,15 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-3.sql)
 	
 	``` sql
-	SELECT type, Sum(ST_Length(geom)) AS length
-	FROM nyc_streets
-	GROUP BY type
-	ORDER BY length DESC;
+	SELECT
+		type, 
+		SUM(ST_Length(geom)) AS length
+	FROM
+		nyc_streets
+	GROUP BY
+		type
+	ORDER BY
+		length DESC;
 	```
 	
 	###### Result
@@ -939,9 +955,13 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-4-1.sql)
 	
 	``` sql
-	SELECT name, ST_AsText(geom)
-	FROM nyc_subway_stations
-	WHERE name = 'Broad St';
+	SELECT
+		name,
+		ST_AsText(geom)
+	FROM
+		nyc_subway_stations
+	WHERE
+		name = 'Broad St';
 	```
 	
 	###### Result
@@ -954,11 +974,14 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-4-2.sql)
 	
 	``` sql
-	SELECT name || ', ' || boroname AS name
-	FROM nyc_neighborhoods
-	WHERE ST_Intersects(
-		geom, 
-		ST_GeomFromText('POINT(583571.905921312 4506714.34119218)',26918) -- geometric representation of 'Brad Street subway station'
+	SELECT
+		name || ', ' || boroname AS name
+	FROM
+		nyc_neighborhoods
+	WHERE
+		ST_Intersects(
+			geom, 
+			ST_GeomFromText('POINT(583571.905921312 4506714.34119218)',26918) -- geometric representation of 'Brad Street subway station'
 	);
 	```
 	
@@ -974,12 +997,15 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-5.sql)
 	
 	``` sql
-	SELECT str.name
-	FROM nyc_streets str
-	WHERE ST_DWithin(
-		str.geom, 
-		ST_GeomFromText('POINT(583571.905921312 4506714.34119218)',26918), -- geometric representation of 'Brad Street subway station'
-		10);
+	SELECT
+		str.name
+	FROM
+		nyc_streets str
+	WHERE
+		ST_DWithin(
+			str.geom, 
+			ST_GeomFromText('POINT(583571.905921312 4506714.34119218)',26918), -- geometric representation of 'Brad Street subway station'
+			10);
 	```
 	
 	###### Result
@@ -996,9 +1022,12 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-6.sql)
 	
 	``` sql
-	SELECT ST_AsText(geom)
-	FROM nyc_streets
-	WHERE name = 'Atlantic Commons';
+	SELECT
+		ST_AsText(geom)
+	FROM
+		nyc_streets
+	WHERE
+		name = 'Atlantic Commons';
 	```
 	
 	###### Result
@@ -1013,12 +1042,15 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-7.sql)
 	
 	``` sql
-	SELECT nb.name || ', ' || nb.boroname AS name
-	FROM nyc_neighborhoods nb
-	WHERE ST_Intersects(
-		nb.geom, 
-		ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918) -- geometric representation of 'Atlantic Commons' street
-	);
+	SELECT
+		nb.name || ', ' || nb.boroname AS name
+	FROM
+		nyc_neighborhoods nb
+	WHERE
+		ST_Intersects(
+			nb.geom, 
+			ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918) -- geometric representation of 'Atlantic Commons' street
+		);
 	```
 	
 	###### Result
@@ -1033,12 +1065,15 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-8.sql)
 	
 	``` sql
-	SELECT str.name
-	FROM nyc_streets str
-	WHERE ST_DWithin(
-		str.geom, 
-		ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
-		0.1);
+	SELECT
+		str.name
+	FROM
+		nyc_streets str
+	WHERE
+		ST_DWithin(
+			str.geom, 
+			ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
+			0.1);
 	```
 	
 	###### Result
@@ -1055,12 +1090,15 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-9.sql)
 	
 	```sql
-	SELECT SUM(census.popn_total)
-  	FROM nyc_census_blocks census
-  	WHERE ST_DWithin(
-  		census.geom, 
-  		ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
-  		50);
+	SELECT
+		SUM(census.popn_total)
+  	FROM
+  		nyc_census_blocks census
+  	WHERE
+  		ST_DWithin(
+  			census.geom, 
+  			ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
+  			50);
 	```
 	
 	###### Result
