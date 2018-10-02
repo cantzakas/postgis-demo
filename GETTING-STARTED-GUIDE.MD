@@ -731,7 +731,7 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	
 	Alternatively, the **`psql`** command utility can be used for the same, as following:
 	
-	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-1.sh)
+	###### [Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-1.sh)
 	
 	``` sql
 	psql -d <database-name> -c "SELECT version();"
