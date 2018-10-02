@@ -725,8 +725,7 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-1.sql)
 	
 	``` sql
-	SELECT
-		version();
+	SELECT version();
 	```
 	
 	Alternatively, the **`psql`** command utility can be used for the same, as following:
@@ -751,8 +750,7 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-2.sql)
 	
 	``` sql
-	SELECT
-		postgis_full_version();
+	SELECT postgis_full_version();
 	```
 	
 	###### Result
@@ -767,10 +765,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-3.sql)
 	
 	``` sql
-	SELECT
-		SUM(popn_total) AS population
-	FROM
-		nyc_census_blocks;
+	SELECT SUM(popn_total) AS population
+	FROM nyc_census_blocks;
 	```
 	
 	###### Result
@@ -785,12 +781,9 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-4.sql)
 	
 	``` sql
-	SELECT 
-		SUM(popn_total) AS population
-	FROM
-		nyc_census_blocks
-	WHERE
-		boroname = 'The Bronx';
+	SELECT SUM(popn_total) AS population
+	FROM nyc_census_blocks
+	WHERE boroname = 'The Bronx';
 	```
 	
 	###### Result
@@ -805,13 +798,10 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-5.sql)
 	
 	``` sql
-	SELECT
-		boroname,
+	SELECT boroname,
 		100 * Sum(popn_white)/Sum(popn_total) AS white_pct
-	FROM
-		nyc_census_blocks
-	GROUP BY
-		boroname;
+	FROM nyc_census_blocks
+	GROUP BY boroname;
 	```
 	
 	###### Result
@@ -830,12 +820,9 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-6.sql)
 	
 	``` sql
-	SELECT
-		ST_AsText(geom)
-	FROM
-		nyc_streets
-	WHERE
-		name = 'Atlantic Commons';
+	SELECT ST_AsText(geom)
+	FROM nyc_streets
+	WHERE name = 'Atlantic Commons';
 	```
 	
 	###### Result
@@ -874,12 +861,9 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-1.sql)
 	
 	``` sql
-	SELECT
-		ST_Area(geom)
-	FROM
-		nyc_neighborhoods
-	WHERE
-		name = 'West Village';
+	SELECT ST_Area(geom)
+	FROM nyc_neighborhoods
+	WHERE name = 'West Village';
 	```
 	
 	###### Result
@@ -894,10 +878,8 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-2.sql)
 	
 	``` sql
-	SELECT
-		SUM(ST_Length(geom)) / 1000 AS length
-	FROM
-		nyc_streets;
+	SELECT SUM(ST_Length(geom)) / 1000 AS length
+	FROM nyc_streets;
 	```
 	
 	###### Result
@@ -912,15 +894,11 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-3.sql)
 	
 	``` sql
-	SELECT
-		type, 
+	SELECT type, 
 		SUM(ST_Length(geom)) AS length
-	FROM
-		nyc_streets
-	GROUP BY
-		type
-	ORDER BY
-		length DESC;
+	FROM nyc_streets
+	GROUP BY type
+	ORDER BY length DESC;
 	```
 	
 	###### Result
@@ -955,13 +933,10 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-4-1.sql)
 	
 	``` sql
-	SELECT
-		name,
+	SELECT name,
 		ST_AsText(geom)
-	FROM
-		nyc_subway_stations
-	WHERE
-		name = 'Broad St';
+	FROM nyc_subway_stations
+	WHERE name = 'Broad St';
 	```
 	
 	###### Result
@@ -974,14 +949,11 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-4-2.sql)
 	
 	``` sql
-	SELECT
-		name || ', ' || boroname AS name
-	FROM
-		nyc_neighborhoods
-	WHERE
-		ST_Intersects(
-			geom, 
-			ST_GeomFromText('POINT(583571.905921312 4506714.34119218)',26918) -- geometric representation of 'Brad Street subway station'
+	SELECT name || ', ' || boroname AS name
+	FROM nyc_neighborhoods
+	WHERE ST_Intersects(
+		geom, 
+		ST_GeomFromText('POINT(583571.905921312 4506714.34119218)',26918) -- geometric representation of 'Brad Street subway station'
 	);
 	```
 	
@@ -997,15 +969,12 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-5.sql)
 	
 	``` sql
-	SELECT
-		str.name
-	FROM
-		nyc_streets str
-	WHERE
-		ST_DWithin(
-			str.geom, 
-			ST_GeomFromText('POINT(583571.905921312 4506714.34119218)',26918), -- geometric representation of 'Brad Street subway station'
-			10);
+	SELECT str.name
+	FROM nyc_streets str
+	WHERE ST_DWithin(
+		str.geom, 
+		ST_GeomFromText('POINT(583571.905921312 4506714.34119218)',26918), -- geometric representation of 'Brad Street subway station'
+		10);
 	```
 	
 	###### Result
@@ -1022,12 +991,9 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-6.sql)
 	
 	``` sql
-	SELECT
-		ST_AsText(geom)
-	FROM
-		nyc_streets
-	WHERE
-		name = 'Atlantic Commons';
+	SELECT ST_AsText(geom)
+	FROM nyc_streets
+	WHERE name = 'Atlantic Commons';
 	```
 	
 	###### Result
@@ -1042,15 +1008,12 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-7.sql)
 	
 	``` sql
-	SELECT
-		nb.name || ', ' || nb.boroname AS name
-	FROM
-		nyc_neighborhoods nb
-	WHERE
-		ST_Intersects(
-			nb.geom, 
-			ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918) -- geometric representation of 'Atlantic Commons' street
-		);
+	SELECT nb.name || ', ' || nb.boroname AS name
+	FROM nyc_neighborhoods nb
+	WHERE ST_Intersects(
+		nb.geom, 
+		ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918) -- geometric representation of 'Atlantic Commons' street
+	);
 	```
 	
 	###### Result
@@ -1065,15 +1028,12 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-8.sql)
 	
 	``` sql
-	SELECT
-		str.name
-	FROM
-		nyc_streets str
-	WHERE
-		ST_DWithin(
-			str.geom, 
-			ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
-			0.1);
+	SELECT str.name
+	FROM nyc_streets str
+	WHERE ST_DWithin(
+		str.geom, 
+		ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
+		0.1);
 	```
 	
 	###### Result
@@ -1090,15 +1050,12 @@ Let's see some more examples:
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-9.sql)
 	
 	```sql
-	SELECT
-		SUM(census.popn_total)
-  	FROM
-  		nyc_census_blocks census
-  	WHERE
-  		ST_DWithin(
-  			census.geom, 
-  			ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
-  			50);
+	SELECT SUM(census.popn_total)
+  	FROM nyc_census_blocks census
+  	WHERE ST_DWithin(
+  		census.geom, 
+  		ST_GeomFromText('MULTILINESTRING((586781.701577724 4504202.15314339,586863.51964484 4504215.9881701))',26918), -- geometric representation of 'Atlantic Commons' street
+  		50);
 	```
 	
 	###### Result
@@ -1123,19 +1080,16 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-1.sql)
 	
 	``` sql
-	SELECT
-		subways.name AS subway_name,
+	SELECT subways.name AS subway_name,
 		ST_AsGeoJSON(ST_Transform(subways.geom, 4326)) AS subway_geom,
 		neighborhoods.name AS neighborhood_name,
 		ST_AsGeoJSON(ST_Transform(neighborhoods.geom, 4326)) AS neighborhood_geom
-	FROM
-		nyc_neighborhoods AS neighborhoods
+	FROM nyc_neighborhoods AS neighborhoods
 		JOIN nyc_subway_stations AS subways
 			ON ST_Contains(
 				neighborhoods.geom, 
 				subways.geom)
-	WHERE
-		subways.name = 'Broad St';
+	WHERE subways.name = 'Broad St';
 	```
 	
 	###### Result
@@ -1156,18 +1110,15 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-2.sql)
     
 	``` sql
-	SELECT
-		str.name,
+	SELECT str.name,
 		ST_AsGeoJSON(ST_Transform(str.geom, 4326)) AS geom
-	FROM
-		nyc_streets str
+	FROM nyc_streets str
 		JOIN nyc_subway_stations sta
 			ON ST_DWithin(
 				str.geom, 
 				sta.geom, 
 				10)
-	WHERE
-		sta.name = 'Broad St';
+	WHERE sta.name = 'Broad St';
   	```
 	###### Results
 	
@@ -1189,25 +1140,21 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-3.sql)
 
 	``` sql
-	SELECT
-		bo.boroname AS Borough, 
+	SELECT bo.boroname AS Borough, 
 		ST_AsGeoJSON(ST_Transform(ST_UNION(bo.geom), 4326)) AS geom0,
 		nb.name AS Neighborhood, 
 		ST_AsGeoJSON(ST_Transform(ST_UNION(nb.geom), 4326)) AS geom1,
 		str.name::TEXT AS Street,    
 		ST_AsGeoJSON(ST_Transform(str.geom, 4326)) AS geom2
-	FROM
-		nyc_neighborhoods bo
+	FROM nyc_neighborhoods bo
 		LEFT OUTER JOIN nyc_neighborhoods nb
 			ON bo.boroname = nb.boroname
 		JOIN nyc_streets str
 			ON ST_Intersects(
 				nb.geom,
 				str.geom)
-	WHERE
-		str.name = 'Atlantic Commons'
-	GROUP BY
-		bo.boroname, 
+	WHERE str.name = 'Atlantic Commons'
+	GROUP BY bo.boroname, 
 		nb_name,
 		str_name, 
 		str_geom
@@ -1230,14 +1177,11 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-4.sql)
 	  	
 	``` sql
-	SELECT
-		str1.name,
+	SELECT str1.name,
 		ST_AsGeoJSON(ST_Transform(str1.geom,4326)) AS geojson
-	FROM
-		nyc_streets str1, 
+	FROM nyc_streets str1, 
 		nyc_streets str2
-	WHERE 
-		str2.name = 'Atlantic Commons'
+	WHERE str2.name = 'Atlantic Commons'
 		AND ST_DWithin(
 			str1.geom,
 			str2.geom, 
@@ -1265,14 +1209,11 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	###### [SQL Code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-5.sql) 
 	
 	``` sql
-	SELECT
-		SUM(popn_black) AS sum_popn_black,
+	SELECT SUM(popn_black) AS sum_popn_black,
 		ST_AsGeoJSON(ST_Transform(ST_UNION(census.geom), 4326)) AS geojson
-	FROM
-		nyc_streets AS str,
+	FROM nyc_streets AS str,
 		nyc_census_blocks AS census
-	WHERE
-		str.name = 'Atlantic Commons'
+	WHERE str.name = 'Atlantic Commons'
 		AND ST_DWithin(
 			str.geom,
 			census.geom,
@@ -1297,24 +1238,19 @@ Using a spatial join, we can answer the question in one step, retrieving informa
 	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-join-example-6.sql)
 	
 	``` sql
-	SELECT
-		neighborhoods.name AS neighborhood_name,
+	SELECT neighborhoods.name AS neighborhood_name,
 		ST_AsGeoJSON(ST_Transform(ST_UNION(neighborhoods.geom), 4326)) AS geojson,
 		(100.0 * SUM(popn_white) / SUM(popn_total))::DECIMAL(5,2) AS pcnt_white,
 		(100.0 * SUM(popn_black) / SUM(popn_total))::DECIMAL(5,2) AS pcnt_black,
 		SUM(census.popn_total) AS sum_popn_total
-	FROM
-		nyc_neighborhoods AS neighborhoods
+	FROM nyc_neighborhoods AS neighborhoods
 		JOIN nyc_census_blocks AS census
 			ON ST_Intersects(
 				neighborhoods.geom,
 				census.geom)
-	WHERE
-		neighborhoods.boroname = 'Manhattan'
-	GROUP BY
-		neighborhoods.name
-	ORDER BY
-		pcnt_white DESC;
+	WHERE neighborhoods.boroname = 'Manhattan'
+	GROUP BY neighborhoods.name
+	ORDER BY pcnt_white DESC;
 	```
 	
 	###### Result
