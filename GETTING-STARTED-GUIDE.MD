@@ -721,11 +721,16 @@ SQL or 'Structured Query Language', is a means of asking questions of, and updat
 Let's start with some basic, Greenplum and PostGIS examples:
 
 1. **"Which version of Greenplum Database software, am I running on the cluster?"**
+	
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-1-1.sql)
+	
 	``` sql
 	SELECT version();
 	```
 	
 	Alternatively, the **`psql`** command utility can be used for the same, as following:
+	
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-1-2.sql)
 	
 	``` sql
 	psql -d <database-name> -c "SELECT version();"
@@ -740,6 +745,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	
 2. **"Which version of PostGIS extension, am I running on the Greenplum Database cluster?"** 
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-2.sql)
+	
 	``` sql
 	SELECT postgis_full_version();
 	```
@@ -751,6 +758,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	
 3. **“What is the population of the City of New York?”**
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-3.sql)
+	
 	``` sql
 	SELECT
 		SUM(popn_total) AS population
@@ -764,6 +773,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	
 4. **“What is the population of the Bronx?”**
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-4.sql)
+	
 	``` sql
 	SELECT 
 		SUM(popn_total) AS population
@@ -780,6 +791,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 	
 5. **“For each borough, what percentage of the population is white?”**
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-5.sql)
+	
 	``` sql
 	SELECT
 		boroname,
@@ -801,6 +814,8 @@ Let's start with some basic, Greenplum and PostGIS examples:
 
 6. **What is the geometric representation of 'Atlantic Commons' street?**
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/basics-example-6.sql)
+	
 	``` sql
 	SELECT ST_AsText(geom)
 	FROM nyc_streets
@@ -837,6 +852,9 @@ On a similar note, for testing whether two objects are within a distance of one 
 Let's see some more examples:
 
 1. **"What is the area of the ‘West Village’ neighborhood?"**
+
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-1.sql)
+	
 	``` sql
 	SELECT ST_Area(geom)
 	FROM nyc_neighborhoods
@@ -850,6 +868,8 @@ Let's see some more examples:
 	
 2. **"What is the total length of streets (in kilometers) in New York City?"**
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-2.sql)
+	
 	``` sql
 	SELECT SUM(ST_Length(geom)) / 1000 AS length
 	FROM nyc_streets;
@@ -861,6 +881,8 @@ Let's see some more examples:
 	| (1 row)            |
 	
 3. **"What is the length of streets in New York City, summarized by type?"**
+	
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-3.sql)
 	
 	``` sql
 	SELECT type, Sum(ST_Length(geom)) AS length
@@ -896,6 +918,8 @@ Let's see some more examples:
 	
 4. **"What is the geometric representation of Broad Street subway station and then determine its neighborhood using the ST_Intersects function."**
 	
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-4-1.sql)
+	
 	``` sql
 	SELECT name, ST_AsText(geom)
 	FROM nyc_subway_stations
@@ -906,6 +930,8 @@ Let's see some more examples:
 	| :------- | :--------------------------------------- |
 	| Broad St | POINT(583571.905921312 4506714.34119218) |
 	| (1 row)                                             |
+	
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-4-2.sql)
 	
 	``` sql
 	SELECT name || ', ' || boroname AS name
@@ -922,6 +948,8 @@ Let's see some more examples:
 	| (1 row)                       |
 
 5. **"Which streets are nearby (within 10 meters of) Brad Street subway station?"**
+	
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-5.sql)
 	
 	``` sql
 	SELECT str.name
@@ -941,6 +969,8 @@ Let's see some more examples:
 
 6. **"What is the geometric representation of Atlantic Commons?"**
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-6.sql)
+	
 	``` sql
 	SELECT ST_AsText(geom)
 	FROM nyc_streets
@@ -954,6 +984,8 @@ Let's see some more examples:
 
 7. **"What neighborhood and borough is 'Atlantic Commons' street in?"**
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-7.sql)
+	
 	``` sql
 	SELECT nb.name || ', ' || nb.boroname AS name
 	FROM nyc_neighborhoods nb
@@ -970,6 +1002,8 @@ Let's see some more examples:
 
 8. **"What streets does 'Atlantic Commons' street joins with?"**
 
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-8.sql)
+	
 	``` sql
 	SELECT str.name
 	FROM nyc_streets str
@@ -987,7 +1021,9 @@ Let's see some more examples:
 	| (3 rows)         |
   
 9. **"Approximately how many people live on (within 50 meters of) 'Atlantic Commons' street?"**
-
+	
+	###### [SQL code](https://github.com/cantzakas/postgis-demo/blob/master/sql/spatial-example-9.sql)
+  	
   	``` sql
   	SELECT SUM(census.popn_total)
 	FROM nyc_census_blocks census
@@ -1313,4 +1349,4 @@ SELECT '{"type": "FeatureCollection", "features": [' ||
 	']}'
 ```
 
-The output of the "transformation" query can be saved as a `.geojson` file, saved on a GitHub repo and when viewed online, GitHub would render this properly, as for example shown [here](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson).
+The output of the "transformation" query can be saved as a `.geojson` file, saved on a GitHub repo and when viewed online, GitHub would render this properly, as for example shown [here](https://github.com/cantzakas/postgis-demo/blob/master/data/nyc/spatial-join-example-6.geojson	).
